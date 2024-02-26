@@ -1,3 +1,4 @@
+import { HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,4 +8,20 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'BusinessCase';
+
+  token : string|undefined="" ;
+
+
+  createCorsToken() {
+  const headers: HttpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+    'Authorization': 'Bearer ' + this.token,
+    
+    });
+    
+    const options: {headers: HttpHeaders} = {headers: headers};
+    
+    return options;
+    
+    }
 }
