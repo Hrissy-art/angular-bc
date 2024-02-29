@@ -18,6 +18,7 @@ import { LoginComponent } from './login/login.component';
 import { BannerHomeComponent } from './HomeComponents/banner-home/banner-home.component';
 import { PresentationHomeComponent } from './HomeComponents/presentation-home/presentation-home.component';
 import { AboutusHomeComponent } from './HomeComponents/aboutus-home/aboutus-home.component';
+import { ServiceComponent } from './HomeComponents/service/service.component';
 
 
 
@@ -35,7 +36,8 @@ import { AboutusHomeComponent } from './HomeComponents/aboutus-home/aboutus-home
     LoginComponent,
     BannerHomeComponent,
     PresentationHomeComponent,
-    AboutusHomeComponent
+    AboutusHomeComponent,
+    ServiceComponent
   ],
     
   imports: [

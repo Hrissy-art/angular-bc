@@ -1,0 +1,55 @@
+<!-- Dans le fichier HTML de votre composant Angular -->
+<p>service works!</p>
+
+<section class="lotus d-flex align-items-center justify-content-center ">
+    <!-- photo -->
+    
+    <div class="first text-center">
+      
+    <!-- <h1 class="mb-auto p-5 bd-highlight">Pressing “Lotus”</h1>
+   <a href="" class="p-7 bd-highlight buton-first">COMMANDER</a> -->
+  </div>
+</section>
+
+<section class="my-5">
+    <!-- citation soin -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 affaires">
+                <div class="border mb-3"></div>
+                <h2 class="text-center">//Nous prenons soin de vos affaires </h2>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="prestation container text-center">
+    <h2 class="mb-5">Nos services</h2>
+    <div class="row g-5">
+        <div class="col-4" *ngFor="let service of serviceList">
+            <img [src]="service.imgUrl" alt="service" class="rounded-circle" />
+            <br />
+            <strong>{{ service.name }}</strong>
+        </div>
+    </div>
+</section>
+
+<section class="caroussel my-5">
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="m-3">
+                    <h2 class="text-center">Nos SERVICES </h2>
+                    <a href="" class="first buton-second">tous les services</a>
+                </div>
+            </div>
+        </div>
+        <div class="owl-carousel owl-theme">
+            <div>
+                <img src="../assets/nettoyage-eau-350-250.jpg">
+                <a href="" class="first buton-three">Nettoyage à eau</a>
+            </div>
+            <!-- Ajoutez les autres éléments de votre carrousel ici -->
+        </div>
+    </div>
+</section>

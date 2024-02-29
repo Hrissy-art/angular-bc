@@ -1,16 +1,19 @@
 <p class="text-center mt-8 text-xl font-bold">product-list works!</p>
 
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-8">
-  <ng-container *ngFor="let product of products">
-    <div class="max-w-sm rounded overflow-hidden shadow-lg">
-      <div class="px-6 py-4">
-        <div class="font-bold text-xl mb-2">{{ product.id }}</div>
-        <p class="text-gray-700 text-base mb-2">{{ product.price }}</p>
-        <p class="text-gray-700 text-base">{{ product.product_name }}</p>
+<div class="container">
+  <div class="row">
+    <div *ngFor="let selectedProduct of products" class="col-md-4 mb-4">
+      <div class="max-w-sm rounded overflow-hidden shadow-lg">
+        <div class="px-6 py-4">
+          <div class="font-bold text-xl mb-2">Product ID: {{ selectedProduct?.id }}</div>
+          <p class="text-gray-700 text-base mb-2">Price: {{ selectedProduct?.price }}</p>
+          <p class="text-gray-700 text-base">Product Name: {{ selectedProduct?.product_name }}</p>
+        </div>
       </div>
     </div>
-  </ng-container>
+  </div>
 </div>
+
 
 
   <!--  <div *ngFor="let product of products" class="container"></div>
