@@ -1,0 +1,8 @@
+<p>cart works!</p>
+
+<div *ngFor="let product of cart">
+    <div class="font-bold text-xl mb-2">Product ID: {{ product.id }}</div>
+    <p class="text-gray-700 text-base mb-2">Price: {{ product.price }}</p>
+    <p class="text-gray-700 text-base">Product Name: {{ product.product_name }}</p>
+    <button (click)="removeFromCart(cart.indexOf(product))">Remove from Cart</button>
+  </div>
