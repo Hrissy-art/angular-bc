@@ -34,13 +34,9 @@
               <input id="birthday" name="birthday" type="text" autocomplete="birthday" required class="form-control" placeholder="Birthday" value="1996-02-10">
             </div>
             <div class="form-group">
-              <label for="towns">Town</label>
-              <select id="towns" name="towns" autocomplete="towns" required class="form-control">
-                <option value="" disabled selected>Select your town</option>
-                <option value="/api/towns/1">Town 1</option>
-                <option value="/api/towns/2">Town 2</option>
-                <option value="/api/towns/3">Town 3</option>
-                <!-- Ajoutez d'autres options pour les villes disponibles -->
+              <label for="town">Town</label>
+              <select class="form-control" id="town" name="town" [(ngModel)]="user.town" required>
+                <option *ngFor="let town of towns" [value]="town.id">{{ town.name }}</option>
               </select>
             </div>
             <div class="text-center">

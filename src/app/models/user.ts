@@ -7,7 +7,6 @@ export interface User {
     "lastName": string;
     "adress": string;
     "birthday": string;
-    "towns": string;
-    
-  }
-  
+    "town": string;
+}
+
