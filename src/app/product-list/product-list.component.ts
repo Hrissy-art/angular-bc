@@ -16,7 +16,6 @@ export class ProductListComponent implements OnInit{
 
  products: Product[] | undefined;
   
-  
 
   constructor(private productService: ProductService, private app: AppComponent,  private cartService: CartService) {}
   ngOnInit():void {

@@ -1,10 +1,13 @@
-import { Orderproduct } from "./orderProduct";
+import { Service } from './service';
 
 export interface Product {
      id: number,
     product_name: string,
     price: number,
-    category: string,
+    category: {
+        id: number;
+        category_name: string;
+      }
+      services: Service[];
     // orderProducts: Orderproduct[],
-    productName: string
 }

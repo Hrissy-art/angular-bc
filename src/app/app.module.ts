@@ -20,6 +20,7 @@ import { PresentationHomeComponent } from './HomeComponents/presentation-home/pr
 import { AboutusHomeComponent } from './HomeComponents/aboutus-home/aboutus-home.component';
 import { ServiceComponent } from './HomeComponents/service/service.component';
 import { CartComponent } from './cart/cart.component';
+import { ServiceListComponent } from './service-list/service-list.component';
 
 
 
@@ -39,7 +40,8 @@ import { CartComponent } from './cart/cart.component';
     PresentationHomeComponent,
     AboutusHomeComponent,
     ServiceComponent,
-    CartComponent
+    CartComponent,
+    ServiceListComponent
   ],
     
   imports: [
