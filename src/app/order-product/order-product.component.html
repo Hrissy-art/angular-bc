@@ -1,11 +1,9 @@
-<p>order-product works!</p>
 <div *ngIf="orderProduct">
     <h2>Informations sur la commande</h2>
     <ul>
-      <li><strong>Matériau:</strong> {{ orderProduct.material.name }}</li>
-      <li><strong>Qualité:</strong> {{ orderProduct.qualityProduct.statusName }}</li>
-      <li><strong>Statut de la commande:</strong> {{ orderProduct.statusOrder.status }}</li>
-      <li><strong>Service:</strong> {{ orderProduct.service.name }}</li>
+      <li *ngIf="orderProduct.material"><strong>Matériau:</strong> {{ orderProduct.material.name }}</li>
+      <li *ngIf="orderProduct.qualityProduct"><strong>Qualité:</strong> {{ orderProduct.qualityProduct.statusName }}</li>
+      <li *ngIf="orderProduct.statusOrder"><strong>Statut de la commande:</strong> {{ orderProduct.statusOrder.status }}</li>
+      <li *ngIf="orderProduct.service"><strong>Service:</strong> {{ orderProduct.service.name }}</li>
     </ul>
   </div>
-  
