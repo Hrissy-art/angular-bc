@@ -34,7 +34,7 @@
 
 
 import { Injectable } from '@angular/core';
-import { Product } from './models/products';
+import { Product } from '../models/products';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 

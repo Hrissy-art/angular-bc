@@ -21,6 +21,7 @@ import { AboutusHomeComponent } from './HomeComponents/aboutus-home/aboutus-home
 import { ServiceComponent } from './HomeComponents/service/service.component';
 import { CartComponent } from './cart/cart.component';
 import { ServiceListComponent } from './service-list/service-list.component';
+import { OrderProductComponent } from './order-product/order-product.component';
 
 
 
@@ -41,7 +42,8 @@ import { ServiceListComponent } from './service-list/service-list.component';
     AboutusHomeComponent,
     ServiceComponent,
     CartComponent,
-    ServiceListComponent
+    ServiceListComponent,
+    OrderProductComponent
   ],
     
   imports: [

@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Product } from './models/products';
+import { Product } from '../models/products';
 import { Observable, catchError, map } from 'rxjs';
 
 @Injectable({
