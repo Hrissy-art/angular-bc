@@ -9,7 +9,7 @@ import { OrderProductService } from '../services/order-product.service';
 })
 export class OrderProductComponent implements OnInit {
 
-    orderProduct: OrderProduct;
+    orderProduct: OrderProduct | undefined;
   
     constructor(private orderProductService: OrderProductService) { }
   
@@ -23,7 +23,7 @@ export class OrderProductComponent implements OnInit {
           orderProduct => {
             this.orderProduct = orderProduct;
             console.log('Order Product:', this.orderProduct);
-            console.log('Statut de la commande:', this.orderProduct.statusOrder.status);
+            console.log('Statut de la commande:', this.orderProduct.statusOrder);
           },
           error => {
             console.error('Erreur:', error);
