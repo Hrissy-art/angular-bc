@@ -20,4 +20,7 @@ export class CartComponent implements OnInit {
     this.cartService.removeFromCart(index);
     this.cart = this.cartService.getCart(); // Mettez à jour le panier après la suppression d'un produit
   }
+  getTotalPrice(): number {
+    return this.cart.reduce((total, product) => total + product.price, 0);
+  }
 }

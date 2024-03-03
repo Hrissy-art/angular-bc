@@ -6,3 +6,4 @@
     <p class="text-gray-700 text-base">Product Name: {{ product.product_name }}</p>
     <button (click)="removeFromCart(cart.indexOf(product))">Remove from Cart</button>
   </div>
+  <p>Total Price: {{ getTotalPrice() }}</p>
