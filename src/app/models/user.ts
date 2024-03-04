@@ -1,12 +1,16 @@
+
 export interface User {
-    
-    "id": number;
-    "email": string;
-    "password": string;
-    "firstName": string;
-    "lastName": string;
-    "adress": string;
-    "birthday": string;
-    "town": string;
+
+    email: string;
+    password: string;
+    firstName: string;
+    lastName: string;
+    birthday?: Date|undefined;
+    adress: string;
+    street_number: string;
+    town: string;
+    district: string;
+    country: string;
+
 }
 

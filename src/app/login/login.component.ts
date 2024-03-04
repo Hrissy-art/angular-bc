@@ -1,46 +1,58 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { User } from '../models/user';
+import { LoginService } from '../services/login.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
-  templateUrl: './login.component.html', // Chemin vers votre fichier HTML
+  templateUrl: './login.component.html', 
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
-  user: User = {
-    id: 0,
-    email: '',
-    password: '',
-    firstName: '',
-    lastName: '',
-    adress: '',
-    birthday: '',
-    town: ''
-  };
+export class LoginComponent implements OnInit {
+  birthday: string = '';
 
-  constructor(private http: HttpClient, private router: Router) {}
-
-  register(): void {
-    const body: string = JSON.stringify(this.user); 
-    const headers = { 'Content-Type': 'application/json' };
-
-    this.http.post<any>('http://localhost:8000/api/users', body, { headers: headers }).subscribe({
-      next: (response) => {
-        // Gérer la réponse du serveur ici
-        console.log(response);
-        // Rediriger l'utilisateur vers une autre page après l'inscription réussie
-        this.router.navigate(['/home']);
-      },
-      error: (error) => {
-        // Gérer les erreurs d'inscription ici
-        console.error(error);
-      }
-    });
+  formatDate(event: any): void {
+    const inputDate = new Date(event.target.value);
+    const year = inputDate.getFullYear();
+    const month = ('0' + (inputDate.getMonth() + 1)).slice(-2);
+    const day = ('0' + inputDate.getDate()).slice(-2);
+    this.birthday = `${year}-${month}-${day}`;
   }
-}
+ 
+  // user: User = {
+  //   email: "",
+  //   password: "",
+  //   first_name: "",
+  //   last_name: "",
+  //   birthday: new Date,
+  //   street_number: 0,
+  //   street_name: "",
+  //   town: "",
+  //   district: "",
+  //   country: ""
+  // };
+  constructor(private loginService: LoginService,  private router: Router
+    ) {}
+  ngOnInit(): void {
+  }
 
+    register(form: NgForm) {
+      if (form.valid) {
+        this.loginService.register(form.value).subscribe({
+          next: (response: any) => {
+            console.log("your've registered", response);
+            // Redirection après inscription réussie
+          },
+          error: (error) => {
+            console.error(error);
+            // Gestion des erreurs d'inscription
+          }
+        });
+      }
+    }
+  }
 
 //2
 // import { Component } from '@angular/core';

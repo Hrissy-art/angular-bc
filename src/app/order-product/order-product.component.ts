@@ -23,7 +23,7 @@ export class OrderProductComponent implements OnInit {
           orderProduct => {
             this.orderProduct = orderProduct;
             console.log('Order Product:', this.orderProduct);
-            console.log('Statut de la commande:', this.orderProduct.statusOrder);
+            console.log('Statut de la commande:', this.orderProduct.statusOrders);
           },
           error => {
             console.error('Erreur:', error);
@@ -31,3 +31,49 @@ export class OrderProductComponent implements OnInit {
         );
     }
   }
+
+// // product-order.component.ts
+// import { Component, OnInit } from '@angular/core';
+// import { ApiService } from './api.service';
+// import { Service } from './models/service';
+// import { Material } from './models/material';
+// import { OrderProduct } from './models/order_products';
+// import { CartService } from '../cart.service';
+
+// @Component({
+//   selector: 'app-product-order',
+//   templateUrl: './product-order.component.html',
+//   styleUrls: ['./product-order.component.css']
+// })
+// export class OrderProductComponent implements OnInit {
+//   selectedService: number | undefined;
+//   selectedMaterial: number | undefined;
+//   services: Service[] = [];
+//   materials: Material[] = [];
+
+//   constructor(private apiService: ApiService, private cartService: CartService) { }
+
+//   ngOnInit(): void {
+//     this.apiService.getServices().subscribe(services => {
+//       this.services = services;
+//     });
+//     this.apiService.getMaterials().subscribe(materials => {
+//       this.materials = materials;
+//     });
+//   }
+
+//   order(): void {
+//     if (this.selectedService && this.selectedMaterial) {
+//       const productOrder: OrderProduct = {
+//         serviceId: this.selectedService,
+//         materialId: this.selectedMaterial
+//       };
+//       this.apiService.createProductOrder(productOrder).subscribe(order => {
+//         this.cartService.clearCart();
+//         console.log('Commande effectuée :', order);
+//       });
+//     } else {
+//       console.error('Veuillez sélectionner un service et une matière.');
+//     }
+//   }
+// }

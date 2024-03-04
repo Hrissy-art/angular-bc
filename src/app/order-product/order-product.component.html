@@ -1,9 +1,19 @@
 <div *ngIf="orderProduct">
     <h2>Informations sur la commande</h2>
     <ul>
-      <li *ngIf="orderProduct.material"><strong>Matériau:</strong> {{ orderProduct.material.name }}</li>
-      <li *ngIf="orderProduct.qualityProduct"><strong>Qualité:</strong> {{ orderProduct.qualityProduct.statusName }}</li>
-      <li *ngIf="orderProduct.statusOrder"><strong>Statut de la commande:</strong> {{ orderProduct.statusOrder.status }}</li>
-      <li *ngIf="orderProduct.service"><strong>Service:</strong> {{ orderProduct.service.name }}</li>
+      <li *ngIf="orderProduct.materials"><strong>Matériau:</strong> {{ orderProduct.materials.name }}</li>
+      <li *ngIf="orderProduct.qualityProducts"><strong>Qualité:</strong> {{ orderProduct.qualityProducts.statusName }}</li>
+      <li *ngIf="orderProduct.statusOrders"><strong>Statut de la commande:</strong> {{ orderProduct.statusOrders.status }}</li>
+      <li *ngIf="orderProduct.services"><strong>Service:</strong> {{ orderProduct.services.name }}</li>
     </ul>
   </div>
+<!-- 
+  <select [(ngModel)]="selectedService">
+    <option *ngFor="let service of services" [value]="service.id">{{ service.name }}</option>
+  </select>
+  
+  <select [(ngModel)]="selectedMaterial">
+    <option *ngFor="let material of materials" [value]="material.id">{{ material.name }}</option>
+  </select>
+  
+  <button (click)="order()">Commander</button> -->

@@ -2,6 +2,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Product } from '../models/products';
 import { Observable, catchError, map } from 'rxjs';
+import { OrderProductService } from './order-product.service';
+import { Material } from '../models/material';
+import { Service } from '../models/service';
 
 @Injectable({
   providedIn: 'root'
@@ -20,4 +23,15 @@ getProduct(productId: number, options: { headers: HttpHeaders }): Observable<Pro
   return this.http.get<Product>(url, options);
 }
 
+// createProductOrder(productOrder: OrderProductService): Observable<OrderProductService> {
+//   return this.http.post<OrderProductService>('/api/product_orders', productOrder);
+// }
+
+// getServices(): Observable<Service[]> {
+//   return this.http.get<Service[]>('/api/services');
+// }
+
+// getMaterials(): Observable<Material[]> {
+//   return this.http.get<Material[]>('/api/materials');
+// }
 }

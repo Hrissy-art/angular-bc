@@ -1,4 +1,5 @@
-<p class="">login works!</p>
+
+
 
 <div class="container-fluid">
   <div class="row justify-content-center mt-5">
@@ -8,37 +9,47 @@
           <h2 class="text-center">Register</h2>
         </div>
         <div class="card-body">
-          <form (ngSubmit)="register()">
+          <form (ngSubmit)="register(f)" #f="ngForm">
             <div class="form-group">
               <label for="email-address">Email address</label>
-              <input id="email-address" name="email" type="email" autocomplete="email" required class="form-control" placeholder="Email address" value="eeeee@gmail.com">
+              <input id="email-address" name="email" type="email" autocomplete="email" required class="form-control" placeholder="Email address" ngModel>
             </div>
             <div class="form-group">
               <label for="password">Password</label>
-              <input id="password" name="password" type="password" autocomplete="current-password" required class="form-control" placeholder="Password" value="cat">
+              <input id="password" name="password" type="password" autocomplete="current-password" required class="form-control" placeholder="Password" ngModel>
             </div>
             <div class="form-group">
               <label for="firstName">First Name</label>
-              <input id="firstName" name="firstName" type="text" autocomplete="firstName" required class="form-control" placeholder="First Name" value="Therry">
+              <input id="firstName" name="first_name" type="text" autocomplete="firstName" required class="form-control" placeholder="First Name" ngModel>
             </div>
             <div class="form-group">
               <label for="lastName">Last Name</label>
-              <input id="lastName" name="lastName" type="text" autocomplete="lastName" required class="form-control" placeholder="Last Name" value="Martin">
+              <input id="lastName" name="last_name" type="text" autocomplete="lastName" required class="form-control" placeholder="Last Name" ngModel>
             </div>
             <div class="form-group">
-              <label for="address">Address</label>
-              <input id="address" name="address" type="text" autocomplete="address" required class="form-control" placeholder="Address" value="39 rue paul Mac">
+              <label for="address">Street number</label>
+              <input id="address" name="street_number" type="text" autocomplete="address" required class="form-control" placeholder="Street number" ngModel>
+            </div>
+            <div class="form-group">
+              <label for="address">Street name</label>
+              <input id="street" name="street_name" type="text" autocomplete="street" required class="form-control" placeholder="Street name" ngModel>
             </div>
             <div class="form-group">
               <label for="birthday">Birthday</label>
-              <input id="birthday" name="birthday" type="text" autocomplete="birthday" required class="form-control" placeholder="Birthday" value="1996-02-10">
-            </div>
-            <!-- <div class="form-group">
+              <input id="birthday" name="birthday" type="text" autocomplete="birthday" required class="form-control" placeholder="YYYY-MM-DD" ngModel (input)="formatDate($event)">
+          </div>          
+            <div class="form-group">
               <label for="town">Town</label>
-              <select class="form-control" id="town" name="town" [(ngModel)]="user.town" required>
-                <option *ngFor="let town of towns" [value]="town.id">{{ town.name }}</option>
-              </select>
-            </div> -->
+              <input id="town" name="town" type="text" autocomplete="town" required class="form-control" placeholder="Town" ngModel>
+            </div>
+            <div class="form-group">
+              <label for="district">District</label>
+              <input id="district" name="district" type="text" autocomplete="district" required class="form-control" placeholder="District" ngModel>
+            </div>
+            <div class="form-group">
+              <label for="country">Country</label>
+              <input id="country" name="country" type="text" autocomplete="country" required class="form-control" placeholder="Country" ngModel>
+            </div>
             <div class="text-center">
               <button type="submit" class="btn btn-primary">Register</button>
             </div>
@@ -48,121 +59,7 @@
     </div>
   </div>
 </div>
-<!-- 
-<p class="">login works!</p>
-
-<div class="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-  <div class="max-w-md w-full space-y-8">
-    <div>
-      <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">Register</h2>
-    </div>
-    <form class="mt-8 space-y-6" (ngSubmit)="register()">
-      <input type="hidden" name="remember" value="true">
-      <div class="rounded-md shadow-sm -space-y-px">
-        <div>
-          <label for="email-address" class="sr-only">Email address</label>
-          <input id="email-address" name="email" type="email" autocomplete="email" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Email address">
-        </div>
-        <div>
-          <label for="password" class="sr-only">Password</label>
-          <input id="password" name="password" type="password" autocomplete="current-password" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Password">
-        </div>
-      </div>
-
-      <div>
-        <button type="submit" class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-          Register
-        </button>
-      </div>
-    </form>
-  </div>
-</div> -->
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- 
-<div class="container mt-5">
-  <div class="row justify-content-center">
-    <div class="col-md-6">
-      <div class="card">
-        <div class="card-header">
-          <h3 class="text-center">Login</h3>
-        </div>
-        <div>Username : {{form.username}}</div>
-        <div>Password : {{form.password}}</div>
-
-        <div class="card-body">
-          <form name="form" #f="ngForm">
-            <div class="mb-3">
-              <label for="username" class="form-label">Username</label>
-              <input type="text" id="username" name="username" class="form-control" required [(ngModel)]="form.username" #username="ngModel">
-            </div>
-
-            <div class="mb-3">
-              <label for="password" class="form-label">Password</label>
-              <input type="password" id="password" name="password" class="form-control" required [(ngModel)]="form.password" #password="ngModel">
-            </div>
-
-            <div class="d-grid">
-              <button type="submit" class="btn btn-primary">Login</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-   -->
-
-   <!-- login.component.html -->
-
-<!-- <div class="container mt-5">
-  <div class="row justify-content-center">
-    <div class="col-md-6">
-      <div class="card">
-        <div class="card-header">
-          <h3 class="text-center">Login</h3>
-        </div>
-        <div *ngIf="submitted">
-          <div>Username : {{ form.username }}</div>
-          <div>Password : {{ form.password }}</div>
-        </div>
-
-        <div class="card-body">
-          <form name="form" #f="ngForm" (ngSubmit)="onSubmit(f)">
-            <div class="mb-3">
-              <label for="username" class="form-label">Username</label>
-              <input type="text" id="username" name="username" class="form-control" required [(ngModel)]="form.username" #username="ngModel">
-              <div *ngIf="f.submitted && username?.errors?.required" class="text-danger">Username is required</div>
-            </div>
-
-            <div class="mb-3">
-              <label for="password" class="form-label">Password</label>
-              <input type="password" id="password" name="password" class="form-control" required [(ngModel)]="form.password" #password="ngModel">
-              <div *ngIf="f.submitted && password?.errors?.required" class="text-danger">Password is required</div>
-            </div>
-
-            <div class="d-grid">
-              <button type="submit" class="btn btn-primary">Login</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-</div> -->
 

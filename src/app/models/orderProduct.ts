@@ -7,10 +7,10 @@ export interface OrderProduct {
 
 
     id: number;
-        material: Material;
-        qualityProduct: QualityProduct;
-        statusOrder: StatusOrder;
-        service: Service;
+        materials: Material;
+        qualityProducts: QualityProduct;
+        statusOrders: StatusOrder;
+        services: Service;
     }
     
    

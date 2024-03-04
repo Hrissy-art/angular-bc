@@ -1,12 +1,3 @@
-// import { Injectable } from '@angular/core';
-
-// @Injectable({
-//   providedIn: 'root'
-// })
-// export class LoginService {
-
-//   constructor() { }
-// }
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -23,6 +14,6 @@ export class LoginService {
     const body: string = JSON.stringify(userInfo);
     const headers = { 'Content-Type': 'application/json' };
 
-    return this.http.post(`${this.BASE_URL}`, body, { headers: headers });
-  }
+    return this.http.post<any>(`${this.BASE_URL}`, body, { headers: headers });
+}
 }
