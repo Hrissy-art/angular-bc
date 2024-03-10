@@ -1,0 +1,121 @@
+<!-- <p>popup-services works!</p>
+
+Button trigger modal
+<button
+  type="button"
+  class="btn btn-primary"
+  data-bs-toggle="modal"
+  data-bs-target="#exampleModal"
+  (click)="displayProductService()"
+>
+  Lancer la pop-up
+</button>
+
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Titre de la pop-up</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Fermer"
+        ></button>
+      </div>
+      <div class="modal-body">
+        {{ detailProduct?.service }}
+        {{ detailProduct?.materials?.name }}
+        {{ detailProduct?.qualityProducts?.statusName }}
+        {{ detailProduct?.statusOrders }}
+        {{ detailProduct?.id }}
+      </div>
+      <div *ngIf="detailProduct">
+        <h2>Informations sur la commande</h2>
+        <ul>
+          <li *ngIf="detailProduct.materials">
+            <strong>Matériau:</strong> {{ detailProduct.materials.name }}
+          </li>
+          <li *ngIf="detailProduct.qualityProducts">
+            <strong>Qualité:</strong>
+            {{ detailProduct.qualityProducts.statusName }}
+          </li>
+          <li *ngIf="detailProduct.statusOrders">
+            <strong>Statut de la commande:</strong>
+            {{ detailProduct.statusOrders.status }}
+          </li>
+          <li *ngIf="detailProduct.services">
+            <strong>Service:</strong> {{ detailProduct.services.name }}
+          </li>
+        </ul>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Fermer
+        </button>
+        <button type="button" class="btn btn-primary">
+          Sauvegarder les changements
+        </button>
+      </div>
+    </div>
+  </div>
+</div>  -->
+
+<!-- <div>
+  <h2>Services disponibles</h2>
+  <ul>
+    <li *ngFor="let service of services">
+      {{ service.name }} - {{ service.coeff }}
+    </li>
+  </ul>
+</div> -->
+
+<button (click)="displayProductService()">
+    Afficher les services disponibles
+  </button>
+  
+  <div *ngIf="services.length > 0">
+    <h3>Services disponibles :</h3>
+    <ul>
+      <li *ngFor="let service of services">
+        <label>
+          <input
+            type="checkbox"
+            (change)="toggleServiceSelection($event, service)"
+          />
+  
+          {{ service.name }} - {{ service.coeff }}
+        </label>
+      </li>
+    </ul>
+    <button (click)="displayProductMaterial()">
+      Afficher les matières disponibles
+    </button>
+    <div *ngIf="materials.length > 0">
+      <h3>Matériel disponible :</h3>
+      <ul>
+        <li *ngFor="let material of materials">
+          <label>
+            <input
+              type="checkbox"
+              (change)="toggleMaterialSelection($event, material)"
+            />
+            {{ material.name }} - {{ material.coeff }}
+          </label>
+        </li>
+      </ul>
+    </div>
+    <!-- <button (click)="addToCartMaterials()">
+      Ajouter les matériaux au panier
+    </button> -->
+  </div>
+  
+  <button (click)="addToCart()">Ajouter au panier</button>
+  

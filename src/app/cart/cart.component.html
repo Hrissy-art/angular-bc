@@ -8,7 +8,7 @@
   </div>
   <p>Total Price: {{ getTotalPrice() }}</p> -->
 
-  <p>Cart works!</p>
+<!-- <p>Cart works!</p>
 
 <div *ngFor="let product of cart">
   <div class="font-bold text-xl mb-2">Product ID: {{ product.id }}</div>
@@ -23,4 +23,48 @@
   <button (click)="removeFromCart(cart.indexOf(product))">Remove from Cart</button>
 </div>
 
+<p>Total Price: {{ getTotalPrice() }}</p> -->
+<!-- Affichage des produits -->
+<div *ngFor="let product of cart">
+  <div class="font-bold text-xl mb-2">Product ID: {{ product.id }}</div>
+  <p class="text-gray-700 text-base mb-2">Price: {{ product.price }}</p>
+  <p class="text-gray-700 text-base">
+    Product Name: {{ product.product_name }}
+  </p>
+  <p *ngIf="product.services && product.services.length > 0">Services:</p>
+  <ul *ngIf="product.services && product.services.length > 0">
+    <li *ngFor="let service of product.services">
+      {{ service.name }}
+    </li>
+  </ul>
+  <button (click)="removeFromCart(cart.indexOf(product))">
+    Remove from Cart
+  </button>
+</div>
+
+<!-- Affichage des services sélectionnés -->
+<div *ngIf="selectedServices && selectedServices.length > 0">
+  <h3>Selected Services:</h3>
+  <ul>
+    <li *ngFor="let service of selectedServices">
+      {{ service.name }}
+      {{ service.coeff }}
+    </li>
+  </ul>
+  <button (click)="removeSelectedServices()">Remove Selected Services</button>
+</div>
+<div *ngIf="selectedMaterials && selectedMaterials.length > 0">
+  selected Materials:
+</div>
+<ul>
+  <li *ngFor="let material of selectedMaterials">
+    {{ material.name }}
+    {{ material.coeff }}
+  </li>
+</ul>
+<button (click)="removeSelectedMaterials()">Remove Selected Materials</button>
+
+<!-- Affichage du prix total -->
 <p>Total Price: {{ getTotalPrice() }}</p>
+
+<button (click)="validateCart()">Valider</button>

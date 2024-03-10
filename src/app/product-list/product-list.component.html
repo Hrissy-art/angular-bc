@@ -5,20 +5,30 @@
     <div *ngFor="let selectedProduct of products" class="col-md-4 mb-4">
       <div class="max-w-sm rounded overflow-hidden shadow-lg">
         <div class="px-6 py-4">
-          <div class="font-bold text-xl mb-2">Product ID: {{ selectedProduct?.id }}</div>
-          <p class="text-gray-700 text-base mb-2">Price: {{ selectedProduct?.price }}</p>
-          <p class="text-gray-700 text-base">Product Name: {{ selectedProduct?.product_name}}</p>
-          <p class="text-gray-700 text-base">Category: {{ selectedProduct?.category?.category_name}}</p>
-          <button (click)="addToCart(selectedProduct)">Add to Cart</button>
+          <div class="font-bold text-xl mb-2">
+            Product ID: {{ selectedProduct?.id }}
+          </div>
+          <p class="text-gray-700 text-base mb-2">
+            Price: {{ selectedProduct?.price }}
+          </p>
+          <p class="text-gray-700 text-base">
+            Product Name: {{ selectedProduct?.product_name }}
+          </p>
+          <p class="text-gray-700 text-base">
+            Category: {{ selectedProduct?.category?.category_name }}
+          </p>
+          <app-popup-services
+            [productId]="selectedProduct.id"
+          ></app-popup-services>
 
+          <button (click)="addToCart(selectedProduct)">Add to Cart</button>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-
-<!-- 
+<!--
   <!--  <div *ngFor="let product of products" class="container"></div>
   <h2>User Details</h2>
   <ul>
@@ -27,4 +37,4 @@
     <li><strong>Last Name:</strong> {{ product.lastName }}</li>
     <li><strong>Address:</strong> {{ product.adress }}</li>
     <li><strong>Birthday:</strong> {{ product.birthday }}</li> -->
-   -->
+-->

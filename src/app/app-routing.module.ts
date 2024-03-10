@@ -8,23 +8,23 @@ import { HomeComponent } from './HomeComponents/home/home.component';
 import { ProductComponent } from './product/product.component';
 import { CartComponent } from './cart/cart.component';
 import { OrderProductComponent } from './order-product/order-product.component';
+import { CategoryComponent } from './category/category.component';
 
-const routes: Routes = [{ path:'', pathMatch: 'full', redirectTo: 'home' },
-{ path: 'products/:id', component: ProductComponent },
-{ path: 'product-list', component: ProductListComponent},
-{ path: 'auth',  component: AuthComponent},
-{ path: 'home', component: HomeComponent },
-{ path: 'sign up', component: LoginComponent },
-{ path: 'cart', component: CartComponent },
-{ path: 'orders', component: OrderProductComponent}
-
-
-
+const routes: Routes = [
+  { path: '', pathMatch: 'full', redirectTo: 'home' },
+  { path: 'products/:id', component: ProductComponent },
+  { path: 'product-list', component: ProductListComponent },
+  { path: 'auth', component: AuthComponent },
+  { path: 'home', component: HomeComponent },
+  { path: 'sign up', component: LoginComponent },
+  { path: 'cart', component: CartComponent },
+  { path: 'orders', component: OrderProductComponent },
+  { path: 'categories', component: CategoryComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  
-  exports: [RouterModule]
+
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
