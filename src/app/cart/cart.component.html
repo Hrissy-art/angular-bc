@@ -1,30 +1,5 @@
-<!-- <p>cart works!</p>
+<!--
 
-<div *ngFor="let product of cart">
-    <div class="font-bold text-xl mb-2">Product ID: {{ product.id }}</div>
-    <p class="text-gray-700 text-base mb-2">Price: {{ product.price }}</p>
-    <p class="text-gray-700 text-base">Product Name: {{ product.product_name }}</p>
-    <button (click)="removeFromCart(cart.indexOf(product))">Remove from Cart</button>
-  </div>
-  <p>Total Price: {{ getTotalPrice() }}</p> -->
-
-<!-- <p>Cart works!</p>
-
-<div *ngFor="let product of cart">
-  <div class="font-bold text-xl mb-2">Product ID: {{ product.id }}</div>
-  <p class="text-gray-700 text-base mb-2">Price: {{ product.price }}</p>
-  <p class="text-gray-700 text-base">Product Name: {{ product.product_name }}</p>
-  <p *ngIf="product.services && product.services.length > 0">Services:</p>
-  <ul>
-    <li *ngFor="let service of product.services">
-      {{ service.name }}
-    </li>
-  </ul>
-  <button (click)="removeFromCart(cart.indexOf(product))">Remove from Cart</button>
-</div>
-
-<p>Total Price: {{ getTotalPrice() }}</p> -->
-<!-- Affichage des produits -->
 <div *ngFor="let product of cart">
   <div class="font-bold text-xl mb-2">Product ID: {{ product.id }}</div>
   <p class="text-gray-700 text-base mb-2">Price: {{ product.price }}</p>
@@ -37,12 +12,11 @@
       {{ service.name }}
     </li>
   </ul>
-  <button (click)="removeFromCart(cart.indexOf(product))">
+  <button class="btn-pink" (click)="removeFromCart(cart.indexOf(product))">
     Remove from Cart
   </button>
 </div>
 
-<!-- Affichage des services sélectionnés -->
 <div *ngIf="selectedServices && selectedServices.length > 0">
   <h3>Selected Services:</h3>
   <ul>
@@ -61,10 +35,134 @@
     {{ material.name }}
     {{ material.coeff }}
   </li>
+  <button (click)="removeSelectedMaterials()">Remove Selected Materials</button>
 </ul>
-<button (click)="removeSelectedMaterials()">Remove Selected Materials</button>
-
-<!-- Affichage du prix total -->
+ Affichage du prix total
 <p>Total Price: {{ getTotalPrice() }}</p>
 
-<button (click)="validateCart()">Valider</button>
+<button (click)="validateCart()">Valider</button> -->
+
+<!-- <div *ngIf="showButton">
+  <button (click)="navigateToNewPage()">Aller à la nouvelle page</button>
+</div> -->
+<div class="alert alert-danger" role="alert" *ngIf="showAlert">
+  Failed to redirect to user information page
+</div>
+<div
+  class="d-flex justify-content-center align-items-center"
+  style="height: 50vh"
+>
+  <form [formGroup]="formGroup" (ngSubmit)="onSubmit()" class="col-md-6">
+    <button
+      type="button"
+      class="btn btn-primary"
+      (click)="redirectToAnotherPage()"
+    >
+      User information
+    </button>
+    <div class="row mb-3">
+      <label for="dateOrder" class="col-sm-4 col-form-label"
+        >Date de dépôt:</label
+      >
+      <div class="col-sm-8">
+        <input
+          type="date"
+          id="dateOrder"
+          formControlName="dateOrder"
+          required
+          class="form-control"
+        />
+      </div>
+    </div>
+    <div class="row mb-3">
+      <label for="dateRender" class="col-sm-4 col-form-label"
+        >Date de récupération:</label
+      >
+      <div class="col-sm-8">
+        <input
+          type="date"
+          id="dateRender"
+          formControlName="dateRender"
+          required
+          class="form-control"
+        />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12"></div>
+    </div>
+    <input type="text" id="client" formControlName="client" required hidden />
+    <select
+      id="statusOrder"
+      type="hidden"
+      formControlName="statusOrder"
+      required
+      hidden
+    >
+      <option *ngFor="let status of statusOptions" [value]="status.value">
+        {{ status.label }}
+      </option>
+    </select>
+    <button type="submit" class="btn btn-primary">OK</button>
+  </form>
+</div>
+
+<!-- Affichage du panier -->
+<div
+  class="d-flex justify-content-center align-items-center"
+  style="height: 50vh"
+>
+  <div class="col-md-6">
+    <div *ngFor="let product of cart" class="mb-4">
+      <div class="font-bold text-xl mb-2">Product ID: {{ product.id }}</div>
+      <p class="text-gray-700 text-base mb-2">Price: {{ product.price }}</p>
+      <p class="text-gray-700 text-base">
+        Product Name: {{ product.product_name }}
+      </p>
+      <p *ngIf="product.services && product.services.length > 0">Services:</p>
+      <ul *ngIf="product.services && product.services.length > 0">
+        <li *ngFor="let service of product.services">{{ service.name }}</li>
+      </ul>
+      <button
+        class="btn btn-pink"
+        (click)="removeFromCart(cart.indexOf(product))"
+      >
+        Remove from Cart
+      </button>
+    </div>
+
+    <div *ngIf="selectedServices && selectedServices.length > 0" class="mb-4">
+      <h3>Selected Services:</h3>
+      <ul>
+        <li *ngFor="let service of selectedServices">
+          {{ service.name }} {{ service.coeff }}
+        </li>
+      </ul>
+      <button class="btn btn-primary" (click)="removeSelectedServices()">
+        Remove Selected Services
+      </button>
+    </div>
+
+    <div *ngIf="selectedMaterials && selectedMaterials.length > 0" class="mb-4">
+      <h3>Selected Materials:</h3>
+      <ul>
+        <li *ngFor="let material of selectedMaterials">
+          {{ material.name }} {{ material.coeff }}
+        </li>
+      </ul>
+      <button class="btn btn-primary" (click)="removeSelectedMaterials()">
+        Remove Selected Materials
+      </button>
+    </div>
+
+    <p class="mb-4">Total Price: {{ getTotalPrice() }}</p>
+
+    <button
+      *ngIf="formSubmitted && formGroup.valid && cart.length > 0"
+      class="btn btn-primary"
+      (click)="validateCart()"
+    >
+      Valider le panier
+    </button>
+  </div>
+</div>

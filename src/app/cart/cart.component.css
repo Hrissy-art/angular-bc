@@ -1,0 +1,12 @@
+.btn-pink {
+  background-color: #ff69b4;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.btn-pink:hover {
+  background-color: #ff4f9f;
+}
