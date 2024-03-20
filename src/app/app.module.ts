@@ -10,7 +10,6 @@ import { FooterComponent } from './footer/footer.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
-import { UserComponent } from './user/user.component';
 import { AuthComponent } from './auth/auth/auth.component';
 import { HomeComponent } from './HomeComponents/home/home.component';
 import { ProductComponent } from './product/product.component';
@@ -24,14 +23,15 @@ import { ServiceListComponent } from './service-list/service-list.component';
 import { OrderProductComponent } from './order-product/order-product.component';
 import { PopupServicesComponent } from './popup-services/popup-services.component';
 import { CategoryComponent } from './category/category.component';
-import { AdminHomeComponent } from './admin-home/admin-home.component';
-import { ClientFormComponent } from './client-form/client-form.component';
 import { FormComponent } from './form/form.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { OrderComponent } from './order/order.component';
-import { OrderSearchComponent } from './order-search/order-search.component';
 import { PaymentComponent } from './payment/payment.component';
+import { OrderSearchComponent } from './order-search/order-search.component';
+import { ClientFormComponent } from './client-form/client-form.component';
 
-
+// import { OrderComponent } from './order/order.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +40,6 @@ import { PaymentComponent } from './payment/payment.component';
     HeaderComponent,
     FooterComponent,
     ProductListComponent,
-    UserComponent,
     AuthComponent,
     HomeComponent,
     ProductComponent,
@@ -54,29 +53,24 @@ import { PaymentComponent } from './payment/payment.component';
     OrderProductComponent,
     PopupServicesComponent,
     CategoryComponent,
-    AdminHomeComponent,
-    ClientFormComponent,
-    FormComponent,
-    OrderComponent,
-    OrderSearchComponent,
-    PaymentComponent
-  ],
     
+    FormComponent,
+    AdminHomeComponent,
+    OrderComponent,
+    PaymentComponent,
+    OrderSearchComponent,
+    ClientFormComponent,
+  ],
+
   imports: [
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     CommonModule,
-
-
-  ] ,
+    ReactiveFormsModule,
+  ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
-
-
-
-
-
+export class AppModule {}

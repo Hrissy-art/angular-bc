@@ -5,7 +5,7 @@ import { Product } from './products';
 import { Service } from './service';
 
 export interface OrderProduct {
-  orders: Product;
+  orders: string;
   products: string;
   materials: Material[];
   services: Service[];

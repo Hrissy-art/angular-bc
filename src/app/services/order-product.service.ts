@@ -14,4 +14,8 @@ export class OrderProductService {
       `http://localhost:8000/api/order_products/${id}`
     );
   }
+
+  sendOrderProduct(products: OrderProduct): Observable<any> {
+    return this.http.post(`http://localhost:8000/api/order_products`, products);
+  }
 }
