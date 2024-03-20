@@ -1,6 +1,7 @@
 export interface Service {
-    id: any;
+  selected: unknown;
+  id: any;
 
-    name: string;
-    coeff: number;
+  name: string;
+  coeff: number;
 }

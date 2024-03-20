@@ -1,0 +1,46 @@
+<!-- <p>form works!</p>
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="products">Products:</label>
+    <input type="text" id="products" formControlName="products" />
+  </div>
+  <div>
+    <label for="orders">Orders:</label>
+    <input type="text" id="orders" formControlName="orders" />
+  </div>
+  <div>
+    <label for="materials">Materials:</label>
+    <textarea id="materials" formControlName="materials"></textarea>
+  </div>
+  <div>
+    <label for="services">Services:</label>
+    <textarea id="services" formControlName="services"></textarea>
+  </div>
+  <button type="submit">Submit</button>
+</form> -->
+
+<p>form works!</p>
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="products">Products:</label>
+    <input type="text" id="products" formControlName="products" />
+  </div>
+  <div>
+    <!-- Champ pour l'ID de la commande (order) -->
+    <input
+      type="hidden"
+      id="orders"
+      formControlName="orders"
+      [value]="orderIdUrl"
+    />
+  </div>
+  <div>
+    <label for="materials">Materials:</label>
+    <textarea id="materials" formControlName="materials"></textarea>
+  </div>
+  <div>
+    <label for="services">Services:</label>
+    <textarea id="services" formControlName="services"></textarea>
+  </div>
+  <button type="submit">Submit</button>
+</form>

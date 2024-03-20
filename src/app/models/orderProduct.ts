@@ -1,12 +1,13 @@
 import { Material } from './material';
-import { QualityProduct } from './qualityProduct';
+import { Order } from './order';
+import { Product } from './products';
+// import { QualityProduct } from './qualityProduct';
 import { Service } from './service';
-import { StatusOrder } from './statusOrder';
 
 export interface OrderProduct {
-  id: number;
-  quantity: number;
+  orders: Product;
+  products: string;
   materials: Material[];
-  qualityProducts: QualityProduct;
   services: Service[];
+  // payment_method: string;
 }

@@ -1,6 +1,7 @@
 export interface Material {
-    id: any;
-        
-    name: string;
-    coeff: number;
+  selected: unknown;
+  id: any;
+
+  name: string;
+  coeff: number;
 }

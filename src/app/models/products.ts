@@ -8,6 +8,9 @@ export interface Product {
     id: number;
     category_name: string;
   };
+  description: string;
+  product_img: string;
+
   services: Service[];
   order_product: {
     quantity: number; // Quantité de ce produit dans la commande
