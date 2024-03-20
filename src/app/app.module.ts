@@ -24,6 +24,7 @@ import { ServiceListComponent } from './service-list/service-list.component';
 import { OrderProductComponent } from './order-product/order-product.component';
 import { PopupServicesComponent } from './popup-services/popup-services.component';
 import { CategoryComponent } from './category/category.component';
+import { AdminHomeComponent } from './admin-home/admin-home.component';
 
 
 
@@ -47,7 +48,8 @@ import { CategoryComponent } from './category/category.component';
     ServiceListComponent,
     OrderProductComponent,
     PopupServicesComponent,
-    CategoryComponent
+    CategoryComponent,
+    AdminHomeComponent
   ],
     
   imports: [
