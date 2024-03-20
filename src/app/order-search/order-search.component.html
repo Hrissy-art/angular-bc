@@ -1,0 +1,72 @@
+<!-- <p>order-search works!</p>
+<div *ngIf="orders && orders.length > 0" class="container">
+  <div class="row">
+    <div *ngFor="let order of orders" class="col-md-6 mb-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Order ID: {{ order.id }}</h5>
+          <p class="card-text">Date Order: {{ order.dateOrder }}</p>
+          <p class="card-text">Date Render: {{ order.dateRender }}</p>
+          <p class="card-text">Client Email: {{ order.client.email }}</p>
+          <p class="card-text">Status Order: {{ order.statusOrder }}</p>
+
+          <button class="btn btn-primary">View Details</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<!-- <p>order-search works!</p>
+<input
+  type="number"
+  [(ngModel)]="searchOrderNumber"
+  placeholder="Numéro de commande"
+/>
+<button (click)="searchOrdersByOrderNumber()">Rechercher</button>
+
+<div *ngIf="filteredOrders && filteredOrders.length > 0" class="container">
+  <div class="row">
+    <div *ngFor="let order of filteredOrders" class="col-md-6 mb-4">
+    </div> -->
+
+<div *ngIf="orders && orders.length > 0" class="container">
+  <div class="row">
+    <div *ngFor="let order of orders" class="col-md-6 mb-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Order ID: {{ order.id }}</h5>
+          <p class="card-text">Date Order: {{ order.dateOrder | date }}</p>
+          <p class="card-text">Date Render: {{ order.dateRender | date }}</p>
+          <p class="card-text">Client Email: {{ order.client.email }}</p>
+          <p class="card-text">Status Order: {{ order.statusOrder.status }}</p>
+          <p class="card-text">Number Order: {{ order.numberOrder }}</p>
+
+          <!-- Affichage des produits de la commande -->
+          <h6>Order Products:</h6>
+          <ul>
+            <li *ngFor="let orderProduct of order.orderProducts">
+              <p>Product: {{ orderProduct.products }}</p>
+              <p>Materials:</p>
+              <ul>
+                <li *ngFor="let material of orderProduct.materials">
+                  {{ material.name }} - {{ material.coeff }}
+                  <!-- Afficher les détails du matériau -->
+                </li>
+              </ul>
+              <p>Services:</p>
+              <ul>
+                <li *ngFor="let service of orderProduct.services">
+                  {{ service.name }} - {{ service.coeff }}
+                  <!-- Afficher les détails du service -->
+                </li>
+              </ul>
+            </li>
+          </ul>
+
+          <button class="btn btn-primary">View Details</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

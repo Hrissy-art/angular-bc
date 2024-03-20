@@ -1,0 +1,17 @@
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+  <label for="dateOrder">Date de commande:</label>
+  <input type="date" id="dateOrder" formControlName="dateOrder" required />
+
+  <label for="dateRender">Date de rendu:</label>
+  <input type="date" id="dateRender" formControlName="dateRender" required />
+
+  <label for="client">Client:</label>
+  <input type="text" id="client" formControlName="client" required />
+
+  <label for="statusOrder">Statut de la commande:</label>
+  <select id="statusOrder" formControlName="statusOrder" required>
+    <option *ngFor="let status of statusOptions" [value]="status.value">
+      {{ status.label }}
+    </option>
+  </select>
+</form>

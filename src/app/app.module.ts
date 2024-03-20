@@ -27,6 +27,9 @@ import { CategoryComponent } from './category/category.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { ClientFormComponent } from './client-form/client-form.component';
 import { FormComponent } from './form/form.component';
+import { OrderComponent } from './order/order.component';
+import { OrderSearchComponent } from './order-search/order-search.component';
+import { PaymentComponent } from './payment/payment.component';
 
 
 
@@ -53,7 +56,10 @@ import { FormComponent } from './form/form.component';
     CategoryComponent,
     AdminHomeComponent,
     ClientFormComponent,
-    FormComponent
+    FormComponent,
+    OrderComponent,
+    OrderSearchComponent,
+    PaymentComponent
   ],
     
   imports: [

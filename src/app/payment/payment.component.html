@@ -1,0 +1,10 @@
+<p>payment works!</p>
+
+<div *ngIf="payment">
+  <h2>Payment Method</h2>
+  <select [(ngModel)]="selectedPaymentMethod">
+    <option *ngFor="let option of paymentOptions" [value]="option.value">
+      {{ option.label }}
+    </option>
+  </select>
+</div>

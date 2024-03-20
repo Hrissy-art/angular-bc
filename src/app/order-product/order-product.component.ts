@@ -11,6 +11,7 @@ import { Subscription } from 'rxjs';
 export class OrderProductComponent implements OnInit {
   orderProduct: OrderProduct | undefined;
   subscription: Subscription | undefined;
+  product_name: any;
 
   constructor(private orderProductService: OrderProductService) {}
 
