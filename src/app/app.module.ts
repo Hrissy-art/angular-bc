@@ -25,6 +25,7 @@ import { OrderProductComponent } from './order-product/order-product.component';
 import { PopupServicesComponent } from './popup-services/popup-services.component';
 import { CategoryComponent } from './category/category.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
+import { ClientFormComponent } from './client-form/client-form.component';
 
 
 
@@ -49,7 +50,8 @@ import { AdminHomeComponent } from './admin-home/admin-home.component';
     OrderProductComponent,
     PopupServicesComponent,
     CategoryComponent,
-    AdminHomeComponent
+    AdminHomeComponent,
+    ClientFormComponent
   ],
     
   imports: [
