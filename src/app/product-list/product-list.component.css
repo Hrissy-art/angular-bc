@@ -1,0 +1,29 @@
+.btn-pink {
+  background-color: #ff69b4;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.btn-pink:hover {
+  background-color: #ff4f9f;
+}
+
+.cover {
+  background-image: url("../../assets/repassage-350-250.jpg");
+  background-size: auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* height: 100vh; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  font: bold;
+}
+/* img {
+  max-width: 100%;
+  height: auto;
+} */

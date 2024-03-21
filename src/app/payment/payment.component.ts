@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Payment } from '../models/payment';
 import { PaymentService } from '../services/payment.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-payment',
@@ -16,7 +17,7 @@ export class PaymentComponent implements OnInit {
   ];
   selectedPaymentMethod: any;
 
-  constructor(private paymentService: PaymentService) {}
+  constructor(private paymentService: PaymentService, private router: Router) {}
 
   ngOnInit(): void {
     this.paymentMethod();
@@ -29,5 +30,9 @@ export class PaymentComponent implements OnInit {
       },
       (error: any) => {}
     );
+  }
+
+  redirectToAnotherPage() {
+    this.router.navigate(['/paymentInfo']);
   }
 }

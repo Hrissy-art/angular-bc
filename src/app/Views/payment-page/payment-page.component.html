@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row justify-content-center mt-5">
+    <div class="col-md-6">
+      <form>
+        <!-- Deux petits champs au-dessus du champ de numéro de carte -->
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="expirationMonth">Mois d'Expiration</label>
+            <input
+              type="text"
+              class="form-control"
+              id="expirationMonth"
+              placeholder="MM"
+            />
+          </div>
+          <div class="form-group col-md-6">
+            <label for="expirationYear">Année d'Expiration</label>
+            <input
+              type="text"
+              class="form-control"
+              id="expirationYear"
+              placeholder="YYYY"
+            />
+          </div>
+        </div>
+        <!-- Champ de numéro de carte -->
+        <div class="form-group">
+          <label for="cardNumber">Numéro de Carte</label>
+          <input
+            type="text"
+            class="form-control"
+            id="cardNumber"
+            placeholder="1234 5678 9012 3456"
+          />
+        </div>
+        <!-- Bouton de soumission -->
+        <button type="submit" class="btn btn-primary">Payer</button>
+      </form>
+    </div>
+  </div>
+</div>

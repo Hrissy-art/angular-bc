@@ -9,8 +9,8 @@ import { OrderService } from '../services/order.service';
   styleUrl: './order-search.component.css',
 })
 export class OrderSearchComponent implements OnInit {
-  orders: Order[] | undefined;
-  filteredOrders: Order[] | undefined;
+  orders!: Order[];
+  selectedOrder!: Order | null;
 
   statusOptions = [
     { label: 'En attente', value: '/api/status_orders/1' },
@@ -36,6 +36,15 @@ export class OrderSearchComponent implements OnInit {
       (option) => option.value === statusValue
     );
     return statusOption ? statusOption.label : 'Unknown';
+  }
+  CloseDetails(): void {
+    this.selectedOrder = null;
+    console.log('Bouton cliqué');
+  }
+
+  onSelectOrder(order: Order): void {
+    this.selectedOrder = order;
+    console.log('Order selected:', this.selectedOrder);
   }
 }
 

@@ -1,0 +1,21 @@
+<p>one-order-search works!</p>
+
+<div *ngIf="order" class="order-details-container">
+  <h3>Order Details</h3>
+  <ul class="list-group">
+    <li class="list-group-item">Order ID: {{ order.id }}</li>
+    <li class="list-group-item">Date Order: {{ order.dateOrder }}</li>
+    <li class="list-group-item">Date Render: {{ order.dateOrder }}</li>
+    <li class="list-group-item">Client: {{ order.client.email }}</li>
+    <li class="list-group-item">
+      Status Order: {{ order.statusOrder.status }}
+    </li>
+    <li class="list-group-item" *ngIf="order.numberOrder">
+      Number Order: {{ order.numberOrder }}
+    </li>
+  </ul>
+</div>
+
+<button class="btn btn-secondary mt-2" (click)="CloseDetails()">
+  Close Details
+</button>

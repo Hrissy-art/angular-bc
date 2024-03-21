@@ -16,6 +16,7 @@ import { OrderComponent } from './order/order.component';
 import { PaymentComponent } from './payment/payment.component';
 import { OrderSearchComponent } from './order-search/order-search.component';
 import { ClientFormComponent } from './client-form/client-form.component';
+import { PaymentPageComponent } from './Views/payment-page/payment-page.component';
 // import { OrderComponent } from './order/order.component';
 
 const routes: Routes = [
@@ -41,6 +42,7 @@ const routes: Routes = [
   { path: 'payment', component: PaymentComponent },
   { path: 'search', component: OrderSearchComponent },
   { path: 'client', component: ClientFormComponent },
+  { path: 'paymentInfo', component: PaymentPageComponent },
 ];
 
 @NgModule({

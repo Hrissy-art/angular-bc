@@ -18,7 +18,7 @@
 
 // }
 
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
@@ -59,6 +59,14 @@ export class OrderService {
   }
   createOrder(order: Order): Observable<any> {
     return this.http.post<any>(`http://localhost:8000/api/orders`, order);
+  }
+
+  getOneOrder(
+    orderId: number,
+    options: { headers: HttpHeaders }
+  ): Observable<Order> {
+    const url = `${`http://localhost:8000/api/orders`}/${orderId}`;
+    return this.http.get<Order>(url, options);
   }
 }
 
