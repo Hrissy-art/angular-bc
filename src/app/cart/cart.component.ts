@@ -34,6 +34,7 @@ export class CartComponent implements OnInit {
   formSubmitted: boolean = false;
   userId: string = '';
   showAlert: boolean = false;
+  isUserInformationClicked: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -182,6 +183,12 @@ export class CartComponent implements OnInit {
     // Naviguer vers une autre page lorsqu'on clique sur le bouton
     this.router.navigate(['/client']);
     this.showAlert = true;
+    this.isUserInformationClicked = true;
+  }
+
+  areAllInfosSelected(): boolean {
+    // Vérifiez si le FormGroup est invalide, ce qui signifie qu'au moins un champ du formulaire est invalide ou non rempli
+    return !this.formGroup.invalid;
   }
 }
 

@@ -48,6 +48,11 @@
 <div class="alert alert-danger" role="alert" *ngIf="showAlert">
   Failed to redirect to user information page
 </div>
+<ng-container *ngIf="formGroup.invalid && !isUserInformationClicked">
+  <div class="alert alert-danger" role="alert">
+    remplissez les informations d'utilisateur
+  </div>
+</ng-container>
 <div
   class="d-flex justify-content-center align-items-center"
   style="height: 50vh"
@@ -58,7 +63,7 @@
       class="btn btn-primary"
       (click)="redirectToAnotherPage()"
     >
-      User information
+      Informations dépôt
     </button>
     <div class="row mb-3">
       <label for="dateOrder" class="col-sm-4 col-form-label"
@@ -103,7 +108,13 @@
         {{ status.label }}
       </option>
     </select>
-    <button type="submit" class="btn btn-primary">OK</button>
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="!areAllInfosSelected()"
+    >
+      OK
+    </button>
   </form>
 </div>
 

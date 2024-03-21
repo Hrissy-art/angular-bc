@@ -1,5 +1,7 @@
 <p>hrjrjrkr</p>
 
+<a [routerLink]="['/search']">Voir les commandes</a>
+
 <div *ngIf="products && products.length > 0" class="container">
   <div class="row">
     <div *ngFor="let product of products" class="col-md-4 mb-4">
@@ -25,6 +27,9 @@
               class="img-fluid"
             />
           </div>
+          <button class="btn btn-pink mt-2" (click)="deleteProduct(product.id)">
+            Delete
+          </button>
 
           <!-- <button class="btn-pink" (click)="deleteProduct(product.id)">
             Delete

@@ -40,7 +40,11 @@ const routes: Routes = [
   { path: 'menage', component: AdminHomeComponent, canActivate: [adminGuard] },
   { path: 'form-order', component: OrderComponent },
   { path: 'payment', component: PaymentComponent },
-  { path: 'search', component: OrderSearchComponent },
+  {
+    path: 'search',
+    component: OrderSearchComponent,
+    canActivate: [adminGuard],
+  },
   { path: 'client', component: ClientFormComponent },
   { path: 'paymentInfo', component: PaymentPageComponent },
 ];

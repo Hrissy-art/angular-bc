@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from '../models/products';
 import { ProductService } from '../services/product.service';
 import { HttpHeaders } from '@angular/common/http';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-admin-home',
@@ -11,7 +12,10 @@ import { HttpHeaders } from '@angular/common/http';
 export class AdminHomeComponent implements OnInit {
   products: Product[] | undefined;
 
-  constructor(private productService: ProductService) {}
+  constructor(
+    private productService: ProductService,
+    private app: AppComponent
+  ) {}
 
   ngOnInit(): void {
     this.loadProducts();
@@ -24,6 +28,16 @@ export class AdminHomeComponent implements OnInit {
       .subscribe((data: any) => {
         this.products = data['hydra:member'];
         console.log(data);
+      });
+  }
+
+  deleteProduct(productId: number): void {
+    this.productService
+      .deleteProduct(productId, this.app.createCorsToken())
+      .subscribe(() => {
+        console.log('Product deleted with ID:', productId);
+        // Recharger la liste des produits après la suppression
+        this.loadProducts();
       });
   }
 }

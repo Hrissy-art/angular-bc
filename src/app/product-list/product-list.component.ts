@@ -13,6 +13,7 @@ import { AuthService } from '../services/auth.service';
 })
 export class ProductListComponent implements OnInit {
   products: Product[] | undefined;
+  selectedItem!: Product | null;
 
   constructor(
     private productService: ProductService,
@@ -74,16 +75,26 @@ export class ProductListComponent implements OnInit {
       });
   }
 
-  deleteProduct(productId: number): void {
-    this.productService
-      .deleteProduct(productId, this.app.createCorsToken())
-      .subscribe(() => {
-        console.log('Product deleted with ID:', productId);
-        // Recharger la liste des produits après la suppression
-        this.loadProducts();
-      });
-  }
+  // deleteProduct(productId: number): void {
+  //   this.productService
+  //     .deleteProduct(productId, this.app.createCorsToken())
+  //     .subscribe(() => {
+  //       console.log('Product deleted with ID:', productId);
+  //       // Recharger la liste des produits après la suppression
+  //       this.loadProducts();
+  //     });
+  // }
   // checkAdminStatus(): void {
   //   this.isAdmin = this.authService.isAdmin(); // Vérifiez si l'utilisateur est un administrateur
   // }
+
+  CloseDetails(): void {
+    this.selectedItem = null;
+    console.log('Bouton cliqué');
+  }
+
+  onSelectProduct(product: Product): void {
+    this.selectedItem = product;
+    console.log('Item selected:', this.selectedItem);
+  }
 }

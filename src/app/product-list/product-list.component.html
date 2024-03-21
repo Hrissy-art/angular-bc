@@ -89,16 +89,22 @@
             Add to Cart
           </button>
           <button
-            class="btn btn-pink mt-2"
-            (click)="deleteProduct(selectedProduct.id)"
+            class="btn btn-primary"
+            (click)="onSelectProduct(selectedProduct)"
           >
-            Delete
+            View Details
           </button>
         </div>
       </div>
+
+      <app-product
+        *ngIf="selectedItem"
+        [product]="selectedItem"
+        (closeDetails)="CloseDetails()"
+      ></app-product>
     </div>
   </div>
-  <button class="btn btn-pink mt-4" (click)="addProduct()">
-    Add New Product
-  </button>
 </div>
+<button class="btn btn-pink mt-4" (click)="addProduct()">
+  Add New Product
+</button>
