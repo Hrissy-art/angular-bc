@@ -13,6 +13,13 @@ export class OneOrderSearchComponent {
   selectedOrder: Order | undefined;
   selectedOrderId: number | undefined;
 
+  selectedStatus: string = ''; // to store the selected status
+  statusOptions = [
+    { label: 'En attente', value: '/api/status_orders/1' },
+    { label: 'En cours', value: '/api/status_orders/2' },
+    { label: 'Terminée', value: '/api/status_orders/3' },
+  ];
+
   @Input() order!: Order | null;
   @Output() closeDetails = new EventEmitter<void>();
   // selectedProducId: number=5;
@@ -44,5 +51,31 @@ export class OneOrderSearchComponent {
 
   CloseDetails(): void {
     this.closeDetails.emit();
+  }
+
+  updateOrderStatus(orderId: number, orderData: any): void {
+    this.orderService.updateOrderStatus(orderId, orderData).subscribe(
+      () => {
+        console.log('Le statut de la commande a été mis à jour avec succès');
+      },
+      (error) => {
+        console.error(
+          'Échec de la mise à jour du statut de la commande :',
+          error
+        );
+      }
+    );
+  }
+
+  updateOrder(): void {
+    const orderId = 1; // Remplacez par l'ID de la commande que vous souhaitez mettre à jour
+    const orderData = {
+      dateOrder: '2024-03-03T04:13:43+00:00',
+      dateRender: '2024-03-20T00:00:00+00:00',
+      client: '/api/clients/2',
+      statusOrder: '/api/status_orders/2',
+    };
+
+    this.updateOrderStatus(orderId, orderData);
   }
 }

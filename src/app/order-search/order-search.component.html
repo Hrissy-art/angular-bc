@@ -39,9 +39,11 @@
       <h5 class="card-title">Order ID: {{ order.id }}</h5>
       <p class="card-text">Date Order: {{ order.dateOrder | date }}</p>
       <p class="card-text">Date Render: {{ order.dateRender | date }}</p>
+      <p class="card-text">Client ID: /api/clients/{{ order.client.id }}</p>
       <p class="card-text">Client Email: {{ order.client.email }}</p>
       <p class="card-text">Status Order: {{ order.statusOrder.status }}</p>
       <p class="card-text">Number Order: {{ order.numberOrder }}</p>
+
       <button class="btn btn-primary" (click)="onSelectOrder(order)">
         View Details
       </button>

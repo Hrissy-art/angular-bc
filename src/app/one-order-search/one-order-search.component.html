@@ -3,10 +3,13 @@
 <div *ngIf="order" class="order-details-container">
   <h3>Order Details</h3>
   <ul class="list-group">
-    <li class="list-group-item">Order ID: {{ order.id }}</li>
+    <!-- <li class="list-group-item">Order ID: {{ order.id }}</li> -->
     <li class="list-group-item">Date Order: {{ order.dateOrder }}</li>
     <li class="list-group-item">Date Render: {{ order.dateOrder }}</li>
-    <li class="list-group-item">Client: {{ order.client.email }}</li>
+    <li class="list-group-item">
+      Client ID: /api/clients/{{ order.client.id }}
+    </li>
+    <!-- <li class="list-group-item">Client: {{ order.client.email }}</li> -->
     <li class="list-group-item">
       Status Order: {{ order.statusOrder.status }}
     </li>
@@ -14,8 +17,20 @@
       Number Order: {{ order.numberOrder }}
     </li>
   </ul>
-</div>
+  <li class="list-group-item">
+    Status Order:
+    <select [(ngModel)]="selectedStatus">
+      <option *ngFor="let status of statusOptions" [value]="status.value">
+        {{ status.label }}
+      </option>
+    </select>
+  </li>
 
-<button class="btn btn-secondary mt-2" (click)="CloseDetails()">
-  Close Details
-</button>
+  <button class="btn btn-primary mt-2" (click)="updateOrder()">
+    Update Status
+  </button>
+
+  <button class="btn btn-secondary mt-2" (click)="CloseDetails()">
+    Close Details
+  </button>
+</div>

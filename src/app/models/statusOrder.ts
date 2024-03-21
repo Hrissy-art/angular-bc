@@ -1,4 +1,5 @@
 export interface StatusOrder {
-        
-    status: string;
+  id: any;
+
+  status: string;
 }

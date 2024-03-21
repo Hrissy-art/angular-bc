@@ -68,6 +68,18 @@ export class OrderService {
     const url = `${`http://localhost:8000/api/orders`}/${orderId}`;
     return this.http.get<Order>(url, options);
   }
+
+  updateOrderStatus(orderId: number, orderData: any): Observable<any> {
+    const url = `http://localhost:8000/api/orders/${orderId}`;
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+    return this.http.put(url, orderData, { headers }).pipe(
+      catchError((error) => {
+        throw error;
+      })
+    );
+  }
 }
 
 // import { HttpClient } from '@angular/common/http';
