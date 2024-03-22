@@ -89,4 +89,8 @@ export class CartService {
   removeMaterialsFromCart(): void {
     this.selectedMaterials = [];
   }
+
+  isCartFull(): boolean {
+    return this.cart.length >= 1;
+  }
 }

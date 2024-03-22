@@ -1,5 +1,7 @@
 <p>order-assign works!</p>
 
+lorem
+
 <div *ngIf="orders && orders.length > 0" class="container">
   <div class="row">
     <div *ngFor="let order of orders" class="col-md-6 mb-4">
@@ -33,8 +35,8 @@
   </div>
 </div>
 
-<app-one-order-search
+<app-one-order-assign
   *ngIf="selectedOrder"
   [order]="selectedOrder"
   (closeDetails)="CloseDetails()"
-></app-one-order-search>
+></app-one-order-assign>

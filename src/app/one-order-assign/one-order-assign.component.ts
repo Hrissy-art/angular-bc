@@ -12,12 +12,13 @@ import { HttpHeaders } from '@angular/common/http';
 export class OneOrderAssignComponent {
   selectedOrder: Order | undefined;
   selectedOrderId?: number;
+  selectedEmployee: string = '';
 
   selectedStatus: string = ''; // to store the selected status
-  statusOptions = [
-    { label: 'En attente', value: '/api/status_orders/1' },
-    { label: 'En cours', value: '/api/status_orders/2' },
-    { label: 'Terminée', value: '/api/status_orders/3' },
+  employeeOptions = [
+    { label: 'Pauline', value: '/api/employees/11' },
+    { label: 'Julien', value: '/api/employees/12' },
+    { label: 'Charlotte', value: '/api/employees/13' },
   ];
 
   @Input() order!: Order | null;
@@ -32,12 +33,6 @@ export class OneOrderAssignComponent {
     // this.getProduct(<number>this.selectedProductId);
   }
 
-  // ngOnInit(): void {
-  //   this.route.params.subscribe((params) => {
-  //     this.selectedOrderId = +params['id']; // Convertir l'ID en nombre
-  //     this.getOrder(this.selectedOrderId);
-  //   });
-  // }
   ngOnInit(): void {
     const selectedOrderId = localStorage.getItem('selectedOrderId');
     if (selectedOrderId) {
@@ -61,16 +56,19 @@ export class OneOrderAssignComponent {
     this.closeDetails.emit();
   }
 
-  updateOrderStatus(orderId: number, orderData: any): void {
-    this.orderService.updateOrderStatus(orderId, orderData).subscribe(
+  updateEmployee(employeeId: number): void {
+    if (!this.order || isNaN(this.order.id)) {
+      console.error('Invalid order or order ID.');
+      return;
+    }
+
+    const orderId = this.order.id;
+    this.orderService.updateEmployee(orderId, employeeId).subscribe(
       () => {
-        console.log('Le statut de la commande a été mis à jour avec succès');
+        console.log('Employee updated successfully.');
       },
       (error) => {
-        console.error(
-          'Échec de la mise à jour du statut de la commande :',
-          error
-        );
+        console.error('Failed to update employee:', error);
       }
     );
   }
@@ -83,15 +81,22 @@ export class OneOrderAssignComponent {
 
     const orderId = this.selectedOrder.id;
     const clientId = this.selectedOrder.client['@id'];
+    const statusOrderId = this.selectedOrder.statusOrder['@id'];
     const orderData = {
       dateOrder: this.selectedOrder.dateOrder, // Utilisez les données actuelles
       dateRender: this.selectedOrder.dateRender, // Utilisez les données actuelles
       client: clientId,
-      statusOrder: this.selectedStatus, // Utilisez le statut sélectionné
-      // Ajoutez d'autres champs nécessaires ici
+      statusOrder: statusOrderId,
+      employee: this.selectedEmployee,
     };
     console.log('Données de commande à envoyer :', orderData);
-
-    this.updateOrderStatus(orderId, orderData);
+    this.orderService.updateEmployee(orderId, orderData).subscribe(
+      () => {
+        console.log('Commande mise à jour avec succès.');
+      },
+      (error) => {
+        console.error('Échec de la mise à jour de la commande :', error);
+      }
+    );
   }
 }

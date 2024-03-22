@@ -1,0 +1,4 @@
+/* Styles pour masquer l'icône de panier plein */
+.bi-cart-check-fill.hidden {
+  display: none;
+}
