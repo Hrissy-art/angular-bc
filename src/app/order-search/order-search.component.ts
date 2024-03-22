@@ -1,5 +1,5 @@
 import { HttpHeaders } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Order } from '../models/order';
 import { OrderService } from '../services/order.service';
 
@@ -11,6 +11,8 @@ import { OrderService } from '../services/order.service';
 export class OrderSearchComponent implements OnInit {
   orders!: Order[];
   selectedOrder!: Order | null;
+
+  @Output() orderSelected = new EventEmitter<number>();
 
   statusOptions = [
     { label: 'En attente', value: '/api/status_orders/1' },
@@ -42,9 +44,13 @@ export class OrderSearchComponent implements OnInit {
     console.log('Bouton cliqué');
   }
 
+  // onSelectOrder(order: Order): void {
+  //   this.selectedOrder = order;
+  //   console.log('Order selected:', this.selectedOrder);
+  // }
   onSelectOrder(order: Order): void {
     this.selectedOrder = order;
-    console.log('Order selected:', this.selectedOrder);
+    localStorage.setItem('selectedOrderId', order.id.toString());
   }
 }
 

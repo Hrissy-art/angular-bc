@@ -80,6 +80,22 @@ export class OrderService {
       })
     );
   }
+
+  // updateEmployee(employeeId: number, employeeData: any): Observable<any> {
+  //   const url = `http://localhost:8000/api/orders/${employeeId}`;
+  //   const headers = new HttpHeaders({
+  //     'Content-Type': 'application/json',
+  //   });
+
+  //   return this.http.put(url, employeeData, { headers }).pipe(
+  //     catchError((error) => {
+  //       console.error('An error occurred while updating employee:', error);
+  //       return throwError(
+  //         new Error('An error occurred while updating employee.')
+  //       );
+  //     })
+  //   );
+  // }
 }
 
 // import { HttpClient } from '@angular/common/http';

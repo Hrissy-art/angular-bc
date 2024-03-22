@@ -1,6 +1,6 @@
 export interface User {
+  '@id'?: string;
   id?: any;
-
   email: string;
   password: string;
   firstName: string;
