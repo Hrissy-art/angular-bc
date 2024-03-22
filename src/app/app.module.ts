@@ -32,6 +32,8 @@ import { OrderSearchComponent } from './order-search/order-search.component';
 import { ClientFormComponent } from './client-form/client-form.component';
 import { PaymentPageComponent } from './Views/payment-page/payment-page.component';
 import { OneOrderSearchComponent } from './one-order-search/one-order-search.component';
+import { OrderAssignComponent } from './order-assign/order-assign.component';
+import { OneOrderAssignComponent } from './one-order-assign/one-order-assign.component';
 
 // import { OrderComponent } from './order/order.component';
 
@@ -63,6 +65,8 @@ import { OneOrderSearchComponent } from './one-order-search/one-order-search.com
     ClientFormComponent,
     PaymentPageComponent,
     OneOrderSearchComponent,
+    OrderAssignComponent,
+    OneOrderAssignComponent,
   ],
 
   imports: [
