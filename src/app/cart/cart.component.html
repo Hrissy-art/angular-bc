@@ -125,7 +125,7 @@
 >
   <div class="col-md-6">
     <div *ngFor="let product of cart" class="mb-4">
-      <div class="font-bold text-xl mb-2">Product ID: {{ product.id }}</div>
+      <!-- <div class="font-bold text-xl mb-2">Product ID: {{ product.id }}</div> -->
       <p class="text-gray-700 text-base mb-2">Price: {{ product.price }}</p>
       <p class="text-gray-700 text-base">
         Product Name: {{ product.product_name }}
@@ -168,12 +168,13 @@
 
     <p class="mb-4">Total Price: {{ getTotalPrice() }}</p>
 
-    <button
+    <div
       *ngIf="formSubmitted && formGroup.valid && cart.length > 0"
-      class="btn btn-primary"
-      (click)="validateCart()"
+      class="popup-button-container"
     >
-      Valider le panier
-    </button>
+      <button class="btn btn-primary validator" (click)="validateCart()">
+        Valider le panier
+      </button>
+    </div>
   </div>
 </div>

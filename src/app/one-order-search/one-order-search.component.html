@@ -4,21 +4,30 @@
   <h3>Order Details</h3>
   <ul class="list-group">
     <!-- <li class="list-group-item">Order ID: {{ order.id }}</li> -->
-    <li class="list-group-item">Date Order: {{ order.dateOrder }}</li>
-    <li class="list-group-item">Date Render: {{ order.dateOrder }}</li>
+    <li class="list-group-item">Date de dépôt: {{ order.dateOrder }}</li>
+    <li class="list-group-item">Date de retrait: {{ order.dateOrder }}</li>
     <li class="list-group-item">
       Client ID: /api/clients/{{ order.client.id }}
     </li>
     <li class="list-group-item">Client: {{ order.client.email }}</li>
     <li class="list-group-item">
-      Status Order: {{ order.statusOrder.status }}
+      Status de la Commande: {{ order.statusOrder.status }}
     </li>
     <li class="list-group-item" *ngIf="order.numberOrder">
-      Number Order: {{ order.numberOrder }}
+      Numéro de la Commande: {{ order.numberOrder }}
     </li>
+    <p class="card-text">Manager en charge: {{ order.employee?.firstName }}</p>
+    <!-- <div class="form-group">
+      <label for="managerSelect">Manager:</label>
+      <select class="form-control" id="managerSelect" [(ngModel)]="order.selectedManagerId">
+        <option *ngFor="let employee of employees" [value]="employee['@id']">
+          {{ employee.firstName }} {{ employee.lastName }}
+        </option>
+      </select>
+    </div> -->
   </ul>
   <li class="list-group-item">
-    Status Order:
+    Changer le statut de la commande:
     <select [(ngModel)]="selectedStatus">
       <option *ngFor="let status of statusOptions" [value]="status.value">
         {{ status.label }}
@@ -27,10 +36,10 @@
   </li>
 
   <button class="btn btn-primary mt-2" (click)="updateOrder()">
-    Update Status
+    Mise à jour du statut
   </button>
 
   <button class="btn btn-secondary mt-2" (click)="CloseDetails()">
-    Close Details
+    Fermer les détail
   </button>
 </div>

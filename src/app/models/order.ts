@@ -11,4 +11,5 @@ export interface Order {
   client: User;
   statusOrder: StatusOrder;
   numberOrder?: number;
+  employee?: User;
 }

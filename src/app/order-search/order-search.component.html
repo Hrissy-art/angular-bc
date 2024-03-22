@@ -1,40 +1,5 @@
-<!-- <p>order-search works!</p>
-<div *ngIf="orders && orders.length > 0" class="container">
+<!-- <div *ngIf="orders && orders.length > 0" class="container">
   <div class="row">
-    <div *ngFor="let order of orders" class="col-md-6 mb-4">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Order ID: {{ order.id }}</h5>
-          <p class="card-text">Date Order: {{ order.dateOrder }}</p>
-          <p class="card-text">Date Render: {{ order.dateRender }}</p>
-          <p class="card-text">Client Email: {{ order.client.email }}</p>
-          <p class="card-text">Status Order: {{ order.statusOrder }}</p>
-
-          <button class="btn btn-primary">View Details</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div> -->
-
-<!-- <p>order-search works!</p>
-<input
-  type="number"
-  [(ngModel)]="searchOrderNumber"
-  placeholder="Numéro de commande"
-/>
-<button (click)="searchOrdersByOrderNumber()">Rechercher</button>
-
-<div *ngIf="filteredOrders && filteredOrders.length > 0" class="container">
-  <div class="row">
-    <div *ngFor="let order of filteredOrders" class="col-md-6 mb-4">
-    </div> -->
-
-<div *ngIf="orders && orders.length > 0" class="container">
-  <div class="row">
-    <!-- <div *ngFor="let order of orders" class="col-md-6 mb-4">
-      <div class="card">
-        <div class="card-body"> -->
     <li *ngFor="let order of orders" class="list-group-item">
       <h5 class="card-title">Order ID: {{ order.id }}</h5>
       <p class="card-text">Date Order: {{ order.dateOrder | date }}</p>
@@ -50,9 +15,46 @@
     </li>
   </div>
 </div>
-<!-- </div> -->
-<!-- </div>
-</div> -->
+
+<app-one-order-search
+  *ngIf="selectedOrder"
+  [order]="selectedOrder"
+  (closeDetails)="CloseDetails()"
+></app-one-order-search> -->
+
+<div *ngIf="orders && orders.length > 0" class="container">
+  <div class="row">
+    <div *ngFor="let order of orders" class="col-md-6 mb-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Order ID: {{ order.id }}</h5>
+          <p class="card-text">Date de dépôt: {{ order.dateOrder | date }}</p>
+          <p class="card-text">
+            Date de retrait: {{ order.dateRender | date }}
+          </p>
+          <p class="card-text">Client ID: /api/clients/{{ order.client.id }}</p>
+          <p class="card-text">
+            Adresse email du client: {{ order.client.email }}
+          </p>
+          <p class="card-text">
+            Status de la Commande: {{ order.statusOrder.status }}
+          </p>
+          <p class="card-text">
+            Number de la commande: {{ order.numberOrder }}
+          </p>
+          <p class="card-text">
+            Manager en charge: {{ order.employee?.firstName }}
+          </p>
+
+          <button class="btn btn-primary" (click)="onSelectOrder(order)">
+            Voir les détails
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <app-one-order-search
   *ngIf="selectedOrder"
   [order]="selectedOrder"
