@@ -1,30 +1,45 @@
-<div *ngIf="orderProduct">
+<!-- <div *ngIf="orderProduct">
   <h2>Informations sur la commande</h2>
   <ul>
     <li *ngIf="orderProduct.products">
-      <strong>Product:</strong>
+      <strong>Product:</strong> {{ orderProduct.products.product_name }}
+    </li>
+    <li *ngIf="orderProduct.materials && orderProduct.materials.length > 0">
+      <strong>Matériau:</strong>
       <ul>
-        <li *ngFor="let product of orderProduct.products">
-          {{ product_name }}
+        <li *ngFor="let material of orderProduct.materials">
+          {{ material.name }}
         </li>
       </ul>
+    </li>
+    <li *ngIf="orderProduct.services && orderProduct.services.length > 0">
+      <strong>Services:</strong>
       <ul>
-        <li *ngIf="orderProduct.materials">
-          <strong>Matériau:</strong>
+        <li *ngFor="let service of orderProduct.services">
+          {{ service.name }}
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div> -->
+<div *ngIf="orderProducts && orderProducts.length > 0">
+  <h2>Informations sur les commandes</h2>
+  <ul>
+    <li *ngFor="let orderProduct of orderProducts">
+      <strong>Commande {{ orderProduct.id }}:</strong>
+      <ul>
+        <li>
+          <strong>Produit:</strong> {{ orderProduct.products.product_name }}
+        </li>
+        <li>
+          <strong>Matériaux:</strong>
           <ul>
             <li *ngFor="let material of orderProduct.materials">
               {{ material.name }}
             </li>
           </ul>
         </li>
-        <!-- <li *ngIf="orderProduct.qualityProducts">
-      <strong>Qualité:</strong> {{ orderProduct.qualityProducts.statusName }}
-    </li> -->
-        <!-- <li *ngIf="orderProduct.statusOrders">
-      <strong>Statut de la commande:</strong>
-      {{ orderProduct.statusOrders.status }}
-    </li> -->
-        <li *ngIf="orderProduct.services.length > 0">
+        <li>
           <strong>Services:</strong>
           <ul>
             <li *ngFor="let service of orderProduct.services">
@@ -33,17 +48,6 @@
           </ul>
         </li>
       </ul>
-
-      <!--
-  <select [(ngModel)]="selectedService">
-    <option *ngFor="let service of services" [value]="service.id">{{ service.name }}</option>
-  </select>
-
-  <select [(ngModel)]="selectedMaterial">
-    <option *ngFor="let material of materials" [value]="material.id">{{ material.name }}</option>
-  </select>
-
-  <button (click)="order()">Commander</button> -->
     </li>
   </ul>
 </div>

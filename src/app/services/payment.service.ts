@@ -1,6 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, catchError, throwError } from 'rxjs';
+import { Observable, catchError, tap, throwError } from 'rxjs';
 import { Payment } from '../models/payment';
 
 @Injectable({
@@ -9,8 +9,8 @@ import { Payment } from '../models/payment';
 export class PaymentService {
   constructor(private http: HttpClient) {}
 
-  getPaymentMethod(): Observable<Payment> {
-    return this.http.get<Payment>(`http://localhost:8000/api/payments`).pipe(
+  getPaymentMethod(options: { headers: HttpHeaders }): Observable<Payment[]> {
+    return this.http.get<Payment[]>(`http://localhost:8000/api/payments`).pipe(
       catchError((error) => {
         console.error('An error occurred:', error);
         return throwError(

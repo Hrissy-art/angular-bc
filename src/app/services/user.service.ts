@@ -9,8 +9,8 @@ import { User } from '../models/user';
 export class UserService {
   constructor(private http: HttpClient) {}
 
-  getEmployee(): Observable<User> {
-    return this.http.get<User>(`http://localhost:8000/api/users`).pipe(
+  getEmployees(): Observable<User[]> {
+    return this.http.get<User[]>(`http://localhost:8000/api/employees`).pipe(
       catchError((error) => {
         console.error('An error occurred:', error);
         return throwError(
@@ -21,7 +21,7 @@ export class UserService {
   }
 
   updateEmployee(employeeId: number, employeeData: any): Observable<any> {
-    const url = `http://localhost:8000/api/users/${employeeId}`;
+    const url = `http://localhost:8000/api/employees/${employeeId}`;
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });

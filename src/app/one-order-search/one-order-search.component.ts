@@ -194,6 +194,7 @@ export class OneOrderSearchComponent {
     const orderData = {
       dateOrder: this.selectedOrder.dateOrder, // Utilisez les données actuelles
       dateRender: this.selectedOrder.dateRender, // Utilisez les données actuelles
+      numberOrder: this.selectedOrder.numberOrder,
       client: clientId,
       statusOrder: this.selectedStatus, // Utilisez le statut sélectionné
       // Ajoutez d'autres champs nécessaires ici

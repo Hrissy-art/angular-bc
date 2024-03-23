@@ -1,4 +1,4 @@
-<!-- <p>one-order-assign works!</p>
+<p>one-order-assign works!</p>
 
 <p>one-order-search works!</p>
 
@@ -21,21 +21,20 @@
     <p class="card-text">Manager en charge: {{ order.employee?.firstName }}</p>
     <div class="form-group">
       <label for="managerSelect">Manager:</label>
-      <select class="form-control" id="managerSelect" [(ngModel)]="order.selectedManagerId">
-        <option *ngFor="let employee of employees" [value]="employee['@id']">
-          {{ employee.firstName }} {{ employee.lastName }}
+      <select
+        class="form-control"
+        id="managerSelect"
+        [(ngModel)]="selectedEmployee"
+      >
+        <option
+          *ngFor="let employee of employeeOptions"
+          [value]="employee['@id']"
+        >
+          {{ employee.firstName }}
         </option>
       </select>
     </div>
   </ul>
-  <li class="list-group-item">
-    Changer le statut de la commande:
-    <select [(ngModel)]="selectedStatus">
-      <option *ngFor="let status of statusOptions" [value]="status.value">
-        {{ status.label }}
-      </option>
-    </select>
-  </li>
 
   <button class="btn btn-primary mt-2" (click)="updateOrder()">
     Mise à jour du statut
@@ -44,10 +43,10 @@
   <button class="btn btn-secondary mt-2" (click)="CloseDetails()">
     Fermer les détail
   </button>
-</div> -->
+</div>
 hgjgjgkgkgk
 
-<div *ngIf="order" class="order-details-container">
+<!-- <div *ngIf="order" class="order-details-container">
   <h3>Order Details</h3>
   <ul class="list-group">
     <li class="list-group-item">Order ID: {{ order.id }}</li>
@@ -88,4 +87,4 @@ hgjgjgkgkgk
   <button class="btn btn-secondary mt-2" (click)="CloseDetails()">
     Fermer les détails
   </button>
-</div>
+</div> -->

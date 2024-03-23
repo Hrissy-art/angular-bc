@@ -1,0 +1,37 @@
+/* Style pour l'en-tête */
+.payment-header {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+/* Style pour la liste déroulante personnalisée */
+.custom-select {
+  position: relative;
+  width: 200px; /* ajustez la largeur selon vos besoins */
+}
+
+/* Style pour la flèche de la liste déroulante */
+.select-arrow {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid #333; /* Couleur de la flèche */
+}
+
+/* Style pour la liste déroulante */
+.select-box {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  appearance: none; /* Masque le style natif */
+  -webkit-appearance: none; /* Pour les anciens navigateurs WebKit */
+  -moz-appearance: none; /* Pour les anciens navigateurs Firefox */
+  background-color: #fff;
+  cursor: pointer;
+}

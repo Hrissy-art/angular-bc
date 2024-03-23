@@ -15,6 +15,12 @@ export class OrderProductService {
     );
   }
 
+  getAllOrderProducts(): Observable<OrderProduct[]> {
+    return this.http.get<OrderProduct[]>(
+      'http://localhost:8000/api/order_products'
+    );
+  }
+
   sendOrderProduct(products: OrderProduct): Observable<any> {
     return this.http.post(`http://localhost:8000/api/order_products`, products);
   }

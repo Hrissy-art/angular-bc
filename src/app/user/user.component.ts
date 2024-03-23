@@ -20,15 +20,15 @@ export class UserComponent implements OnInit {
   constructor(private employeeService: UserService, private router: Router) {}
 
   ngOnInit(): void {
-    this.employeeChoice();
+    // this.employeeChoice();
   }
 
-  employeeChoice(): void {
-    this.employeeService.getEmployee().subscribe(
-      (employee: User) => {
-        this.employee = employee;
-      },
-      (error: any) => {}
-    );
-  }
+  //   employeeChoice(): void {
+  //     this.employeeService.getEmployees().subscribe(
+  //       (employee: User[]) => {
+  //         this.employee = employee;
+  //       },
+  //       (error: any) => {}
+  //     );
+  //   }
 }

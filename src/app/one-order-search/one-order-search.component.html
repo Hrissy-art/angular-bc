@@ -1,5 +1,3 @@
-<p>one-order-search works!</p>
-
 <div *ngIf="order" class="order-details-container">
   <h3>Order Details</h3>
   <ul class="list-group">
@@ -16,15 +14,8 @@
     <li class="list-group-item" *ngIf="order.numberOrder">
       Numéro de la Commande: {{ order.numberOrder }}
     </li>
+
     <p class="card-text">Manager en charge: {{ order.employee?.firstName }}</p>
-    <!-- <div class="form-group">
-      <label for="managerSelect">Manager:</label>
-      <select class="form-control" id="managerSelect" [(ngModel)]="order.selectedManagerId">
-        <option *ngFor="let employee of employees" [value]="employee['@id']">
-          {{ employee.firstName }} {{ employee.lastName }}
-        </option>
-      </select>
-    </div> -->
   </ul>
   <li class="list-group-item">
     Changer le statut de la commande:

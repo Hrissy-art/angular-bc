@@ -5,8 +5,9 @@ import { Product } from './products';
 import { Service } from './service';
 
 export interface OrderProduct {
+  id?: any;
   orders: string;
-  products: string;
+  products: Product;
   materials: Material[];
   services: Service[];
   // payment_method: string;

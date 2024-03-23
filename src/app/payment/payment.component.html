@@ -1,4 +1,4 @@
-<div *ngIf="payment" class="container">
+<!-- <div *ngIf="payment" class="container">
   <h2 class="mt-4">Payment Method</h2>
   <div class="form-group">
     <select class="form-control" [(ngModel)]="selectedPaymentMethod">
@@ -7,6 +7,23 @@
       </option>
     </select>
   </div>
+  <button
+    type="button"
+    class="btn btn-primary"
+    (click)="redirectToAnotherPage()"
+  >
+    Confirmer
+  </button>
+</div> -->
+
+<h3 class="payment-header">Options de paiement :</h3>
+<div class="custom-select">
+  <select class="select-box" [(ngModel)]="selectedPaymentMethod">
+    <option *ngFor="let payment of payments" [value]="payment.payment_method">
+      {{ payment.payment_method }}
+    </option>
+  </select>
+  <div class="select-arrow"></div>
   <button
     type="button"
     class="btn btn-primary"
