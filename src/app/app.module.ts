@@ -34,6 +34,7 @@ import { PaymentPageComponent } from './Views/payment-page/payment-page.componen
 import { OneOrderSearchComponent } from './one-order-search/one-order-search.component';
 import { OrderAssignComponent } from './order-assign/order-assign.component';
 import { OneOrderAssignComponent } from './one-order-assign/one-order-assign.component';
+import { ClientOrderComponent } from './client-order/client-order.component';
 
 // import { OrderComponent } from './order/order.component';
 
@@ -67,6 +68,7 @@ import { OneOrderAssignComponent } from './one-order-assign/one-order-assign.com
     OneOrderSearchComponent,
     OrderAssignComponent,
     OneOrderAssignComponent,
+    ClientOrderComponent,
   ],
 
   imports: [

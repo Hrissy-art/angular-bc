@@ -39,6 +39,7 @@ import { OrderProductService } from '../services/order-product.service';
 import { Subscription } from 'rxjs';
 import { Service } from '../models/service';
 import { Material } from '../models/material';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-order-product',
@@ -46,12 +47,15 @@ import { Material } from '../models/material';
   styleUrls: ['./order-product.component.css'], // Utilisation de styleUrls au lieu de styleUrl
 })
 export class OrderProductComponent implements OnInit {
-  orderProducts: OrderProduct[] = []; // Utilisation d'un tableau pour stocker tous les ordres de produits
+  orderProducts: OrderProduct[] = [];
   subscription: Subscription | undefined;
   services: Service[] = [];
   materials: Material[] = [];
 
-  constructor(private orderProductService: OrderProductService) {}
+  constructor(
+    private orderProductService: OrderProductService,
+    private app: AppComponent
+  ) {}
 
   ngOnInit(): void {
     this.getAllOrderProducts(); // Appel de la méthode pour récupérer tous les ordres de produits
@@ -59,10 +63,10 @@ export class OrderProductComponent implements OnInit {
 
   getAllOrderProducts(): void {
     this.subscription = this.orderProductService
-      .getAllOrderProducts()
+      .getAllOrderProducts(this.app.createCorsToken())
       .subscribe({
-        next: (orderProducts: OrderProduct[]) => {
-          this.orderProducts = orderProducts;
+        next: (data: any) => {
+          this.orderProducts = data['hydra:member'];
           console.log('All Order Products:', this.orderProducts);
         },
         error: (error: any) => {

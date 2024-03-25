@@ -22,27 +22,53 @@
     </li>
   </ul>
 </div> -->
-<div *ngIf="orderProducts && orderProducts.length > 0">
-  <h2>Informations sur les commandes</h2>
+<div
+  *ngIf="orderProducts && orderProducts.length > 0"
+  class="border rounded-md shadow-md p-4 bg-white"
+>
+  <h2 class="text-2xl font-bold mb-4">Informations sur les commandes</h2>
   <ul>
-    <li *ngFor="let orderProduct of orderProducts">
-      <strong>Commande {{ orderProduct.id }}:</strong>
-      <ul>
+    <li *ngFor="let orderProduct of orderProducts" class="mb-4">
+      <strong class="text-lg">Commande {{ orderProduct.id }}:</strong>
+      <ul class="ml-4">
         <li>
-          <strong>Produit:</strong> {{ orderProduct.products.product_name }}
+          <strong>Produit:</strong>
+          <span>
+            {{
+              orderProduct?.products?.product_name ||
+                "Nom du produit non disponible"
+            }}
+          </span>
+        </li>
+        <li>
+          <strong>Description du produit:</strong>
+          <span>
+            {{
+              orderProduct?.products?.description ||
+                "Description du produit non disponible"
+            }}
+          </span>
+        </li>
+        <li>
+          <strong>Prix du produit:</strong>
+          <span>
+            {{
+              orderProduct?.products?.price || "Prix du produit non disponible"
+            }}
+          </span>
         </li>
         <li>
           <strong>Matériaux:</strong>
-          <ul>
-            <li *ngFor="let material of orderProduct.materials">
+          <ul class="ml-4">
+            <li *ngFor="let material of orderProduct?.materials">
               {{ material.name }}
             </li>
           </ul>
         </li>
         <li>
           <strong>Services:</strong>
-          <ul>
-            <li *ngFor="let service of orderProduct.services">
+          <ul class="ml-4">
+            <li *ngFor="let service of orderProduct?.services">
               {{ service.name }}
             </li>
           </ul>

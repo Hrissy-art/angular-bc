@@ -124,9 +124,7 @@ export class OneOrderAssignComponent {
 
   @Input() order!: Order | null;
   @Output() closeDetails = new EventEmitter<void>();
-  // selectedProducId: number=5;
 
-  // j'ai ajouté private route: Activated Route pour accéder à l'id du produit sélectionné
   constructor(
     private orderService: OrderService,
     private employeeService: EmployeeService,

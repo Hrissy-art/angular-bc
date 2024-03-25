@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { OrderProduct } from '../models/orderProduct';
 
@@ -15,7 +15,9 @@ export class OrderProductService {
     );
   }
 
-  getAllOrderProducts(): Observable<OrderProduct[]> {
+  getAllOrderProducts(options: {
+    headers: HttpHeaders;
+  }): Observable<OrderProduct[]> {
     return this.http.get<OrderProduct[]>(
       'http://localhost:8000/api/order_products'
     );

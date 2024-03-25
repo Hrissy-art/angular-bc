@@ -19,6 +19,7 @@ import { ClientFormComponent } from './client-form/client-form.component';
 import { PaymentPageComponent } from './Views/payment-page/payment-page.component';
 import { OrderAssignComponent } from './order-assign/order-assign.component';
 import { employeeGuard } from './services/employee-guard.service';
+import { ClientOrderComponent } from './client-order/client-order.component';
 // import { OrderComponent } from './order/order.component';
 
 const routes: Routes = [
@@ -50,6 +51,7 @@ const routes: Routes = [
   { path: 'client', component: ClientFormComponent },
   { path: 'paymentInfo', component: PaymentPageComponent },
   { path: 'assign', component: OrderAssignComponent },
+  { path: 'clientCheck', component: ClientOrderComponent },
 ];
 
 @NgModule({

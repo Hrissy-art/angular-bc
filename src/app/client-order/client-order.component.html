@@ -1,0 +1,57 @@
+<div class="container">
+  <!-- Autres éléments de votre formulaire ou de votre mise en page -->
+
+  <!-- Champ de saisie pour le numéro souhaité -->
+  <div class="form-group">
+    <label for="desiredNumberInput">Numéro souhaité :</label>
+    <input
+      type="number"
+      id="desiredNumberInput"
+      [(ngModel)]="desiredNumber"
+      class="form-control"
+    />
+  </div>
+
+  <!-- Autres éléments de votre formulaire ou de votre mise en page -->
+
+  <div *ngIf="orders && orders.length > 0" class="container">
+    <div class="row">
+      <div *ngFor="let order of orders">
+        <div class="col-md-6 mb-4" *ngIf="filterCondition(order)">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Order ID: {{ order.id }}</h5>
+              <p class="card-text">
+                Date de dépôt: {{ order.dateOrder | date }}
+              </p>
+              <p class="card-text">
+                Date de retrait: {{ order.dateRender | date }}
+              </p>
+              <p class="card-text">
+                Client ID: /api/clients/{{ order.client.id }}
+              </p>
+              <p class="card-text">
+                Adresse email du client: {{ order.client.email }}
+              </p>
+              <p class="card-text">
+                Status de la Commande: {{ order.statusOrder.status }}
+              </p>
+              <p class="card-text">
+                Number de la commande: {{ order.numberOrder }}
+              </p>
+              <li class="list-group-item" *ngIf="selectedOrder?.numberOrder">
+                Numéro de la Commande: {{ selectedOrder?.numberOrder }}
+              </li>
+              <p class="card-text">
+                Manager en charge: {{ order.employee?.firstName }}
+              </p>
+              <button class="btn btn-primary" (click)="onSelectOrder(order)">
+                Voir les détails
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
