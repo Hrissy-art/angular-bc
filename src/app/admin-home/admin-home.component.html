@@ -1,7 +1,14 @@
-<p>hrjrjrkr</p>
+<div>
+  <a [routerLink]="['/search']">Statut des commandes</a>
+</div>
+<div>
+  <a [routerLink]="['/assign']">Assignation des tâches</a>
+</div>
+<div>
+  <a [routerLink]="['/orders']">séléction de produits et services</a>
+</div>
 
-<a [routerLink]="['/search']">Voir les commandes</a>
-
+<h2>Liste des produits</h2>
 <div *ngIf="products && products.length > 0" class="container">
   <div class="row">
     <div *ngFor="let product of products" class="col-md-4 mb-4">
@@ -30,11 +37,6 @@
           <button class="btn btn-pink mt-2" (click)="deleteProduct(product.id)">
             Delete
           </button>
-
-          <!-- <button class="btn-pink" (click)="deleteProduct(product.id)">
-            Delete
-          </button>
-        </div> -->
         </div>
       </div>
     </div>

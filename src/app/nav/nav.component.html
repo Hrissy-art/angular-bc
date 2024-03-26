@@ -20,7 +20,7 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" routerLink="/auth" routerLinkActive="active"
-          >Authetificate</a
+          >Connexion</a
         >
       </li>
       <li class="nav-item">
@@ -35,7 +35,7 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" routerLink="/sign up" routerLinkActive="active"
-          >Sign up</a
+          >Inscription</a
         >
       </li>
       <li class="nav-item" *ngIf="authService.isLoggedIn()">
@@ -59,14 +59,14 @@
           >Form Order</a
         >
       </li>
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a
           class="btn btn-link nav-link"
           routerLink="/test"
           routerLinkActive="active"
           >test</a
         >
-      </li>
+      </li> -->
       <li class="nav-item">
         <a
           class="btn btn-link nav-link"
@@ -75,22 +75,22 @@
           >admin</a
         >
       </li>
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a
           class="btn btn-link nav-link"
           routerLink="/search"
           routerLinkActive="active"
           >Search Orders</a
         >
-      </li>
-      <li class="nav-item">
+      </li> -->
+      <!-- <li class="nav-item">
         <a
           class="btn btn-link nav-link"
           routerLink="/assign"
           routerLinkActive="active"
           >assign</a
         >
-      </li>
+      </li> -->
       <li class="nav-item">
         <a
           class="btn btn-link nav-link"
@@ -99,12 +99,12 @@
           >clientForm</a
         >
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="authService.isLoggedIn()">
         <a
           class="btn btn-link nav-link"
           routerLink="/clientCheck"
           routerLinkActive="active"
-          >orderCheck</a
+          >Commandes</a
         >
       </li>
 

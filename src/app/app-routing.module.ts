@@ -37,10 +37,13 @@ const routes: Routes = [
   {
     path: 'categories',
     component: CategoryComponent,
-    canActivate: [adminGuard],
   },
   { path: 'form', component: FormComponent },
-  { path: 'menage', component: AdminHomeComponent, canActivate: [adminGuard] },
+  {
+    path: 'menage',
+    component: AdminHomeComponent,
+    canActivate: [employeeGuard],
+  },
   { path: 'form-order', component: OrderComponent },
   { path: 'payment', component: PaymentComponent },
   {
@@ -50,7 +53,11 @@ const routes: Routes = [
   },
   { path: 'client', component: ClientFormComponent },
   { path: 'paymentInfo', component: PaymentPageComponent },
-  { path: 'assign', component: OrderAssignComponent },
+  {
+    path: 'assign',
+    component: OrderAssignComponent,
+    canActivate: [adminGuard],
+  },
   { path: 'clientCheck', component: ClientOrderComponent },
 ];
 

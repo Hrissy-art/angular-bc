@@ -64,8 +64,6 @@ export class ClientOrderComponent implements OnInit {
     );
   }
   filterCondition(order: Order): boolean {
-    // Définissez ici votre condition de filtrage
-    // Par exemple, pour filtrer les commandes avec un numéro de commande spécifique :
     return order.numberOrder === this.desiredNumber;
   }
 }

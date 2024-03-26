@@ -60,7 +60,6 @@ export class ProductListComponent implements OnInit {
       .addProduct(newProduct, this.app.createCorsToken())
       .subscribe((product: Product) => {
         console.log('New product added:', product);
-        // Recharger la liste des produits après l'ajout
         this.loadProducts();
       });
   }
@@ -70,7 +69,6 @@ export class ProductListComponent implements OnInit {
       .updateProduct(productId, updatedProduct, this.app.createCorsToken())
       .subscribe(() => {
         console.log('Product updated:', productId);
-        // Recharger la liste des produits après la mise à jour
         this.loadProducts();
       });
   }

@@ -19,7 +19,6 @@
   <button type="submit">Submit</button>
 </form> -->
 
-<p>form works!</p>
 <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
   <div>
     <label for="products">Products:</label>
@@ -42,5 +41,7 @@
     <label for="services">Services:</label>
     <textarea id="services" formControlName="services"></textarea>
   </div>
-  <button type="submit">Poursuivre la commande</button>
+  <div class="text-center">
+    <button type="submit" class="btn btn-pink">Poursuivre la commande</button>
+  </div>
 </form>
