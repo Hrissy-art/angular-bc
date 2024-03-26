@@ -1,0 +1,17 @@
+<p>material-list works!</p>
+
+<div>
+  <h2 class="text-center">Liste des matériaux</h2>
+</div>
+<div class="card-body">
+  <div *ngIf="materials && materials.length > 0; else noMaterials">
+    <ul class="list-group">
+      <li *ngFor="let material of materials" class="list-group-item">
+        <strong>{{ material.name }} {{ material.coeff }}</strong> -
+      </li>
+    </ul>
+  </div>
+  <ng-template #noMaterials>
+    <p class="text-center">Aucun service trouvé.</p>
+  </ng-template>
+</div>

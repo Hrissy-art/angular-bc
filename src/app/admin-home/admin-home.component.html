@@ -7,6 +7,17 @@
 <div>
   <a [routerLink]="['/orders']">séléction de produits et services</a>
 </div>
+<div>
+  <a [routerLink]="['/users']">Liste de tous les utilisateurs</a>
+</div>
+<div>
+  <a [routerLink]="['/servicesList']">Liste de tous les services proposés</a>
+</div>
+<div>
+  <a [routerLink]="['/materialsLis']">Liste de tous les matériaux</a>
+</div>
+
+<!-- liste employees, clients, matériaux, services  -->
 
 <h2>Liste des produits</h2>
 <div *ngIf="products && products.length > 0" class="container">

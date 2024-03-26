@@ -3,6 +3,7 @@ import { UserService } from '../services/user.service';
 import { UserStoreService } from '../services/user-store.service';
 import { Router } from '@angular/router';
 import { User } from '../models/user';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-user',
@@ -10,25 +11,24 @@ import { User } from '../models/user';
   styleUrl: './user.component.css',
 })
 export class UserComponent implements OnInit {
-  employee: User | undefined;
-  paymentOptions = [
-    { label: 'Charlotte', value: '/api/employee/11' },
-    { label: 'Pauline', value: '/api/employee/12' },
-    { label: 'Denis', value: '/api/employee/13' },
-  ];
+  users: User[] | undefined;
+
   selectedPaymentMethod: any;
-  constructor(private employeeService: UserService, private router: Router) {}
+  constructor(
+    private userService: UserService,
+    private router: Router,
+    private app: AppComponent
+  ) {}
 
   ngOnInit(): void {
-    // this.employeeChoice();
+    this.loadUsers();
   }
 
-  //   employeeChoice(): void {
-  //     this.employeeService.getEmployees().subscribe(
-  //       (employee: User[]) => {
-  //         this.employee = employee;
-  //       },
-  //       (error: any) => {}
-  //     );
-  //   }
+  loadUsers(): void {
+    this.userService
+      .getUsers(this.app.createCorsToken())
+      .subscribe((data: any) => {
+        this.users = data['hydra:member'];
+      });
+  }
 }

@@ -9,15 +9,18 @@ import { User } from '../models/user';
 export class UserService {
   constructor(private http: HttpClient) {}
 
-  getEmployees(): Observable<User[]> {
-    return this.http.get<User[]>(`http://localhost:8000/api/employees`).pipe(
-      catchError((error) => {
-        console.error('An error occurred:', error);
-        return throwError(
-          () => new Error('An error occurred while fetching the order details.')
-        );
-      })
-    );
+  getUsers(options: { headers: HttpHeaders }): Observable<User[]> {
+    return this.http
+      .get<User[]>(`http://localhost:8000/api/users`, options)
+      .pipe(
+        catchError((error) => {
+          console.error('An error occurred:', error);
+          return throwError(
+            () =>
+              new Error('An error occurred while fetching the order details.')
+          );
+        })
+      );
   }
 
   updateEmployee(employeeId: number, employeeData: any): Observable<any> {

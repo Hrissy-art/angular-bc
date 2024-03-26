@@ -1,17 +1,17 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Service } from '../models/service';
+import { Material } from '../models/material';
 import { catchError, Observable, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
-export class ServiceService {
+export class MaterialService {
   constructor(private http: HttpClient) {}
 
-  getServices(options: { headers: HttpHeaders }): Observable<Service[]> {
+  getMaterials(options: { headers: HttpHeaders }): Observable<Material[]> {
     return this.http
-      .get<Service[]>(`http://localhost:8000/api/services`, options)
+      .get<Material[]>(`http://localhost:8000/api/materials`, options)
       .pipe(
         catchError((error) => {
           console.error('An error occurred:', error);

@@ -1,1 +1,16 @@
 <p>service-list works!</p>
+<div>
+  <h2 class="text-center">Liste des services</h2>
+</div>
+<div class="card-body">
+  <div *ngIf="services && services.length > 0; else noServices">
+    <ul class="list-group">
+      <li *ngFor="let service of services" class="list-group-item">
+        <strong>{{ service.name }} {{ service.coeff }}</strong> -
+      </li>
+    </ul>
+  </div>
+  <ng-template #noServices>
+    <p class="text-center">Aucun service trouvé.</p>
+  </ng-template>
+</div>

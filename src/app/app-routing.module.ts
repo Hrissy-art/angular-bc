@@ -20,6 +20,10 @@ import { PaymentPageComponent } from './Views/payment-page/payment-page.componen
 import { OrderAssignComponent } from './order-assign/order-assign.component';
 import { employeeGuard } from './services/employee-guard.service';
 import { ClientOrderComponent } from './client-order/client-order.component';
+import { UserComponent } from './user/user.component';
+import { ServiceComponent } from './HomeComponents/service/service.component';
+import { ServiceListComponent } from './service-list/service-list.component';
+import { MaterialListComponent } from './material-list/material-list.component';
 // import { OrderComponent } from './order/order.component';
 
 const routes: Routes = [
@@ -59,6 +63,9 @@ const routes: Routes = [
     canActivate: [adminGuard],
   },
   { path: 'clientCheck', component: ClientOrderComponent },
+  { path: 'users', component: UserComponent },
+  { path: 'servicesList', component: ServiceListComponent },
+  { path: 'materialsList', component: MaterialListComponent },
 ];
 
 @NgModule({

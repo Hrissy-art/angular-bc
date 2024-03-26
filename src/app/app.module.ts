@@ -35,6 +35,9 @@ import { OneOrderSearchComponent } from './one-order-search/one-order-search.com
 import { OrderAssignComponent } from './order-assign/order-assign.component';
 import { OneOrderAssignComponent } from './one-order-assign/one-order-assign.component';
 import { ClientOrderComponent } from './client-order/client-order.component';
+import { UserComponent } from './user/user.component';
+import { MaterialComponent } from './material/material.component';
+import { MaterialListComponent } from './material-list/material-list.component';
 
 // import { OrderComponent } from './order/order.component';
 
@@ -69,6 +72,9 @@ import { ClientOrderComponent } from './client-order/client-order.component';
     OrderAssignComponent,
     OneOrderAssignComponent,
     ClientOrderComponent,
+    UserComponent,
+    MaterialComponent,
+    MaterialListComponent,
   ],
 
   imports: [
