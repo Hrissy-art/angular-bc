@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Service } from '../models/service';
 import { ServiceService } from '../services/service.service';
 import { AppComponent } from '../app.component';
@@ -9,7 +9,10 @@ import { AppComponent } from '../app.component';
   styleUrl: './service-list.component.css',
 })
 export class ServiceListComponent implements OnInit {
-  services: Service[] | undefined;
+  services!: Service[];
+  selectedService!: Service | null;
+
+  @Output() serviceSelected = new EventEmitter<number>();
 
   constructor(
     private serviceService: ServiceService,
@@ -25,5 +28,31 @@ export class ServiceListComponent implements OnInit {
       .subscribe((data: any) => {
         this.services = data['hydra:member'];
       });
+  }
+
+  deleteService(serviceId: number): void {
+    this.serviceService
+      .deleteService(serviceId, this.app.createCorsToken())
+      .subscribe(() => {
+        console.log('Product deleted with ID:', serviceId);
+        // Recharger la liste des produits après la suppression
+        this.loadServices();
+      });
+  }
+
+  CloseDetails(): void {
+    this.selectedService = null;
+    console.log('Bouton cliqué');
+  }
+
+  onSelectService(service: Service): void {
+    console.log('Selected service:', service);
+
+    this.selectedService = service;
+    if (service.id !== undefined && service.id !== null) {
+      localStorage.setItem('selectedServiceId', service.id.toString());
+    } else {
+      console.error('Service ID is undefined or null.');
+    }
   }
 }

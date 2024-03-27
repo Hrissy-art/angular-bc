@@ -8,10 +8,23 @@
     <ul class="list-group">
       <li *ngFor="let material of materials" class="list-group-item">
         <strong>{{ material.name }} {{ material.coeff }}</strong> -
+
+        <button class="btn btn-pink mt-2" (click)="deleteMaterial(material.id)">
+          Delete
+        </button>
+        <button class="btn btn-primary" (click)="onSelectMaterial(material)">
+          Voir les détails
+        </button>
       </li>
     </ul>
   </div>
   <ng-template #noMaterials>
-    <p class="text-center">Aucun service trouvé.</p>
+    <p class="text-center">Aucune matière trouvée.</p>
   </ng-template>
 </div>
+
+<app-one-material
+  *ngIf="selectedMaterial"
+  [material]="selectedMaterial"
+  (closeDetails)="CloseDetails()"
+></app-one-material>

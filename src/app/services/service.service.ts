@@ -8,6 +8,7 @@ import { catchError, Observable, throwError } from 'rxjs';
 })
 export class ServiceService {
   constructor(private http: HttpClient) {}
+  private apiUrl = 'http://localhost:8000/api/services';
 
   getServices(options: { headers: HttpHeaders }): Observable<Service[]> {
     return this.http
@@ -21,5 +22,37 @@ export class ServiceService {
           );
         })
       );
+  }
+
+  getOneService(
+    serviceId: number,
+    options: { headers: HttpHeaders }
+  ): Observable<Service> {
+    const url = `${this.apiUrl}/${serviceId}`;
+    return this.http.get<Service>(url, options);
+  }
+
+  deleteService(
+    serviceId: number,
+    options: { headers: HttpHeaders }
+  ): Observable<void> {
+    const url = `${this.apiUrl}/${serviceId}`;
+    return this.http.delete<void>(url, options);
+  }
+
+  updateService(
+    serviceId: number,
+    updatedService: Service,
+    options: any
+  ): Observable<Service> {
+    const url = `${this.apiUrl}/${serviceId}`;
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+    return this.http.put<Service>(url, updatedService, { headers }).pipe(
+      catchError((error) => {
+        return throwError(error);
+      })
+    );
   }
 }

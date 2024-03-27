@@ -1,0 +1,20 @@
+<p>service works!</p>
+
+<div *ngIf="service" class="service-details-container">
+  <h3>Service Details</h3>
+  <ul class="list-group">
+    <li class="list-group-item">Service ID: {{ service?.id }}</li>
+    <li class="list-group-item">
+      Nom: <input type="text" [(ngModel)]="service.name" />
+    </li>
+    <li class="list-group-item">
+      Coeff: <input type="number" [(ngModel)]="service.coeff" />
+    </li>
+  </ul>
+  <button class="btn btn-primary mt-2" (click)="updateServiceDetails()">
+    Mettre à jour les détails du service
+  </button>
+  <button class="btn btn-secondary mt-2" (click)="CloseDetails()">
+    Fermer les détails
+  </button>
+</div>

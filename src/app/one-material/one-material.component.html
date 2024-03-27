@@ -1,0 +1,21 @@
+<p>one-material works!</p>
+<p>material works!</p>
+
+<div *ngIf="material" class="service-details-container">
+  <h3>Materail Details</h3>
+  <ul class="list-group">
+    <li class="list-group-item">Material ID: {{ material?.id }}</li>
+    <li class="list-group-item">
+      Nom: <input type="text" [(ngModel)]="material.name" />
+    </li>
+    <li class="list-group-item">
+      Coeff: <input type="number" [(ngModel)]="material.coeff" />
+    </li>
+  </ul>
+  <button class="btn btn-primary mt-2" (click)="updateMaterialDetails()">
+    Mettre à jour les détails de la matière
+  </button>
+  <button class="btn btn-secondary mt-2" (click)="CloseDetails()">
+    Fermer les détails
+  </button>
+</div>

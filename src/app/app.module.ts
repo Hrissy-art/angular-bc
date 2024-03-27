@@ -36,8 +36,9 @@ import { OrderAssignComponent } from './order-assign/order-assign.component';
 import { OneOrderAssignComponent } from './one-order-assign/one-order-assign.component';
 import { ClientOrderComponent } from './client-order/client-order.component';
 import { UserComponent } from './user/user.component';
-import { MaterialComponent } from './material/material.component';
 import { MaterialListComponent } from './material-list/material-list.component';
+import { OneServiceComponent } from './one-service/one-service.component';
+import { OneMaterialComponent } from './one-material/one-material.component';
 
 // import { OrderComponent } from './order/order.component';
 
@@ -73,8 +74,9 @@ import { MaterialListComponent } from './material-list/material-list.component';
     OneOrderAssignComponent,
     ClientOrderComponent,
     UserComponent,
-    MaterialComponent,
     MaterialListComponent,
+    OneServiceComponent,
+    OneMaterialComponent,
   ],
 
   imports: [

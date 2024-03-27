@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Material } from '../models/material';
 import { MaterialService } from '../services/material.service';
 import { AppComponent } from '../app.component';
@@ -10,9 +10,12 @@ import { AppComponent } from '../app.component';
 })
 export class MaterialListComponent implements OnInit {
   materials: Material[] | undefined;
+  selectedMaterial!: Material | null;
+
+  @Output() materialSelected = new EventEmitter<number>();
 
   constructor(
-    private serviceMaterial: MaterialService,
+    private materialService: MaterialService,
     private app: AppComponent
   ) {}
   ngOnInit(): void {
@@ -20,10 +23,35 @@ export class MaterialListComponent implements OnInit {
   }
 
   loadMaterials(): void {
-    this.serviceMaterial
+    this.materialService
       .getMaterials(this.app.createCorsToken())
       .subscribe((data: any) => {
         this.materials = data['hydra:member'];
       });
+  }
+  deleteMaterial(materialId: number): void {
+    this.materialService
+      .deleteMaterial(materialId, this.app.createCorsToken())
+      .subscribe(() => {
+        console.log('Product deleted with ID:', materialId);
+        // Recharger la liste des produits après la suppression
+        this.loadMaterials();
+      });
+  }
+
+  CloseDetails(): void {
+    this.selectedMaterial = null;
+    console.log('Bouton cliqué');
+  }
+
+  onSelectMaterial(material: Material): void {
+    console.log('Selected material:', material);
+
+    this.selectedMaterial = material;
+    if (material.id !== undefined && material.id !== null) {
+      localStorage.setItem('selectedMaterialId', material.id.toString());
+    } else {
+      console.error('Material ID is undefined or null.');
+    }
   }
 }

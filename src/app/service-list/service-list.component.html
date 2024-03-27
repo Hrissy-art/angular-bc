@@ -6,7 +6,15 @@
   <div *ngIf="services && services.length > 0; else noServices">
     <ul class="list-group">
       <li *ngFor="let service of services" class="list-group-item">
-        <strong>{{ service.name }} {{ service.coeff }}</strong> -
+        <strong
+          >{{ service.id }} {{ service.name }} - {{ service.coeff }}</strong
+        >
+        <button class="btn btn-pink mt-2" (click)="deleteService(service.id)">
+          Delete
+        </button>
+        <button class="btn btn-primary" (click)="onSelectService(service)">
+          Voir les détails
+        </button>
       </li>
     </ul>
   </div>
@@ -14,3 +22,9 @@
     <p class="text-center">Aucun service trouvé.</p>
   </ng-template>
 </div>
+
+<app-one-service
+  *ngIf="selectedService"
+  [service]="selectedService"
+  (closeDetails)="CloseDetails()"
+></app-one-service>
