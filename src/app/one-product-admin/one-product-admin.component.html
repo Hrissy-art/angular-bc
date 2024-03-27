@@ -1,0 +1,111 @@
+<!-- <p>one-product-admin works!</p>
+
+<div *ngIf="product" class="order-details-container">
+  <h3>Description</h3>
+  <div class="px-6 py-4">
+    <div class="font-bold text-xl mb-2">
+      {{ product.description }}
+    </div>
+  </div>
+  <div>
+    {{ product.price }}
+  </div>
+  <div>
+    {{ product.product_name }}
+  </div>
+  <div>
+    {{ product.product_img }}
+  </div>
+  <button class="btn btn-secondary mt-2" (click)="CloseDetails()">
+    Close Details
+  </button>
+</div>
+<div *ngIf="product" class="order-details-container">
+  <h3>Description</h3>
+  <div class="px-6 py-4">
+    <div class="font-bold text-xl mb-2">
+      {{ product.description }}
+    </div>
+    <ul class="list-group">
+      <li class="list-group-item">Service ID: {{ product?.id }}</li>
+      <li class="list-group-item">
+        Nom: <input type="text" [(ngModel)]="product.product_name" />
+      </li>
+      <li class="list-group-item">
+        Price: <input type="number" [(ngModel)]="product.price" />
+      </li>
+      <li class="list-group-item">
+        Image: <input type="number" [(ngModel)]="product.product_img" />
+      </li>
+      <li class="list-group-item">
+        Description: <input type="number" [(ngModel)]="product.description" />
+      </li>
+    </ul>
+    <button class="btn btn-primary mt-2" (click)="updateProductDetails()">
+      Mettre à jour les détails du produit
+    </button>
+    <button class="btn btn-secondary mt-2" (click)="CloseDetails()">
+      Fermer les détails
+    </button>
+  </div>
+</div> -->
+
+<p>one-product-admin works!</p>
+
+<div *ngIf="product" class="order-details-container">
+  <h3>Description</h3>
+  <div class="px-6 py-4">
+    <div class="font-bold text-xl mb-2">
+      {{ product.description }}
+    </div>
+    <ul class="list-group">
+      <li class="list-group-item">Product ID: {{ product.id }}</li>
+      <li class="list-group-item">
+        Nom: <input type="text" [(ngModel)]="product.product_name" />
+      </li>
+      <li class="list-group-item">
+        Prix: <input type="number" [(ngModel)]="product.price" />
+      </li>
+      <li class="list-group-item">
+        Image: <input type="text" [(ngModel)]="product.product_img" />
+      </li>
+      <li class="list-group-item">
+        Description: <input type="text" [(ngModel)]="product.description" />
+      </li>
+      <li class="list-group-item">
+        <p>Catégorie ID: {{ product.category?.['@id'] }}</p>
+      </li>
+    </ul>
+    <button class="btn btn-primary mt-2" (click)="updateProductDetails()">
+      Mettre à jour les détails du produit
+    </button>
+    <button class="btn btn-secondary mt-2" (click)="CloseDetails()">
+      Fermer les détails
+    </button>
+  </div>
+</div>
+<div class="create-product-container">
+  <h3>Créer un nouveau produit</h3>
+  <div class="px-6 py-4">
+    <ul class="list-group">
+      <li class="list-group-item">
+        Nom: <input type="text" [(ngModel)]="newProduct.productName" />
+      </li>
+      <li class="list-group-item">
+        Prix: <input type="number" [(ngModel)]="newProduct.price" />
+      </li>
+      <li class="list-group-item">
+        Image: <input type="text" [(ngModel)]="newProduct.productImg" />
+      </li>
+      <li class="list-group-item">
+        Description: <input type="text" [(ngModel)]="newProduct.description" />
+      </li>
+      <li class="list-group-item">
+        Catégorie ID: <input type="text" [(ngModel)]="newProduct.category" />
+      </li>
+    </ul>
+    <button class="btn btn-primary mt-2" (click)="createProduct()">
+      Créer le produit
+    </button>
+  </div>
+</div>

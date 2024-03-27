@@ -39,6 +39,7 @@ import { UserComponent } from './user/user.component';
 import { MaterialListComponent } from './material-list/material-list.component';
 import { OneServiceComponent } from './one-service/one-service.component';
 import { OneMaterialComponent } from './one-material/one-material.component';
+import { OneProductAdminComponent } from './one-product-admin/one-product-admin.component';
 
 // import { OrderComponent } from './order/order.component';
 
@@ -77,6 +78,7 @@ import { OneMaterialComponent } from './one-material/one-material.component';
     MaterialListComponent,
     OneServiceComponent,
     OneMaterialComponent,
+    OneProductAdminComponent,
   ],
 
   imports: [

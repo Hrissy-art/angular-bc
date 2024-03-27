@@ -1,5 +1,5 @@
 export interface Service {
-  selected: unknown;
+  selected?: unknown;
   id?: any;
 
   name: string;

@@ -51,17 +51,17 @@ export class ProductListComponent implements OnInit {
       product_img: '',
 
       services: [],
-      order_product: {
-        quantity: 0,
-      },
+      // order_product: {
+      //   quantity: 0,
+      // },
     };
 
-    this.productService
-      .addProduct(newProduct, this.app.createCorsToken())
-      .subscribe((product: Product) => {
-        console.log('New product added:', product);
-        this.loadProducts();
-      });
+    // this.productService
+    //   .addProduct(newProduct, this.app.createCorsToken())
+    //   .subscribe((product: Product) => {
+    //     console.log('New product added:', product);
+    //     this.loadProducts();
+    //   });
   }
 
   updateProduct(productId: number, updatedProduct: Product): void {

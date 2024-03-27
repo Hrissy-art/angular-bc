@@ -1,4 +1,4 @@
-<p>service works!</p>
+<!-- <p>service works!</p>
 
 <div *ngIf="service" class="service-details-container">
   <h3>Service Details</h3>
@@ -17,4 +17,77 @@
   <button class="btn btn-secondary mt-2" (click)="CloseDetails()">
     Fermer les détails
   </button>
+</div> -->
+
+<div class="container-fluid">
+  <div class="row justify-content-center mt-5">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header bg-primary text-white">
+          <h2 class="text-center">Service</h2>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col">
+              <div *ngIf="service" class="service-details-container">
+                <h3>Mise à jour</h3>
+                <ul class="list-group">
+                  <li class="list-group-item">Service ID: {{ service.id }}</li>
+                  <li class="list-group-item">
+                    Nom: <input type="text" [(ngModel)]="service.name" />
+                  </li>
+                  <li class="list-group-item">
+                    Coeff: <input type="number" [(ngModel)]="service.coeff" />
+                  </li>
+                </ul>
+                <button
+                  class="btn btn-primary mt-2"
+                  (click)="updateServiceDetails()"
+                >
+                  Mettre à jour les détails du service
+                </button>
+                <button class="btn btn-secondary mt-2" (click)="CloseDetails()">
+                  Fermer les détails
+                </button>
+              </div>
+            </div>
+            <div class="col">
+              <h3>Ajouter un nouveau service</h3>
+              <form (submit)="addService()">
+                <div class="form-group">
+                  <label for="name">Nom:</label>
+                  <input
+                    id="name"
+                    name="name"
+                    type="text"
+                    autocomplete="name"
+                    required
+                    class="form-control"
+                    placeholder="Nom"
+                    [(ngModel)]="newService.name"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="coeff">Coeff:</label>
+                  <input
+                    id="coeff"
+                    name="coeff"
+                    type="number"
+                    autocomplete="coeff"
+                    required
+                    class="form-control"
+                    placeholder="Coeff"
+                    [(ngModel)]="newService.coeff"
+                  />
+                </div>
+                <button type="submit" class="btn btn-primary">
+                  Ajouter Service
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

@@ -1,5 +1,5 @@
 export interface Material {
-  selected: unknown;
+  selected?: unknown;
   id?: any;
 
   name: string;

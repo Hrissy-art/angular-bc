@@ -54,4 +54,9 @@ export class MaterialService {
       })
     );
   }
+
+  addMaterial(newMaterial: Material): Observable<any> {
+    const url = `${this.apiUrl}`;
+    return this.http.post(url, newMaterial);
+  }
 }

@@ -16,6 +16,11 @@ export class OneMaterialComponent {
   @Input() material!: Material | null;
   @Output() closeDetails = new EventEmitter<void>();
 
+  newMaterial: Material = {
+    name: '',
+    coeff: 0,
+  };
+
   constructor(
     private materialService: MaterialService,
     private route: ActivatedRoute
@@ -82,5 +87,19 @@ export class OneMaterialComponent {
           }
         );
     }
+  }
+
+  addMaterial(): void {
+    this.materialService.addMaterial(this.newMaterial).subscribe(
+      (response) => {
+        console.log('Nouveau matériau ajouté avec succès:', response);
+        // Réinitialiser les champs du formulaire après l'ajout du matériau
+        this.newMaterial.name = '';
+        this.newMaterial.coeff = 0;
+      },
+      (error) => {
+        console.error("Erreur lors de l'ajout du matériau:", error);
+      }
+    );
   }
 }

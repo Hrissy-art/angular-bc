@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Product } from '../models/products';
 import { ProductService } from '../services/product.service';
 import { HttpHeaders } from '@angular/common/http';
@@ -11,6 +11,10 @@ import { AppComponent } from '../app.component';
 })
 export class AdminHomeComponent implements OnInit {
   products: Product[] | undefined;
+
+  selectedProduct!: Product | null;
+
+  @Output() serviceProduct = new EventEmitter<number>();
 
   constructor(
     private productService: ProductService,
@@ -39,5 +43,20 @@ export class AdminHomeComponent implements OnInit {
         // Recharger la liste des produits après la suppression
         this.loadProducts();
       });
+  }
+  CloseDetails(): void {
+    this.selectedProduct = null;
+    console.log('Bouton cliqué');
+  }
+
+  onSelectProduct(product: Product): void {
+    console.log('Selected producte:', product);
+
+    this.selectedProduct = product;
+    if (product.id !== undefined && product.id !== null) {
+      localStorage.setItem('selectedProductId', product.id.toString());
+    } else {
+      console.error('Service ID is undefined or null.');
+    }
   }
 }

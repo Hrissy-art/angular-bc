@@ -5,6 +5,7 @@ import { Observable, catchError, map } from 'rxjs';
 import { OrderProductService } from './order-product.service';
 import { Material } from '../models/material';
 import { Service } from '../models/service';
+import { Prod } from '../models/productCreate';
 
 @Injectable({
   providedIn: 'root',
@@ -26,10 +27,10 @@ export class ProductService {
   }
 
   addProduct(
-    product: Product,
+    product: Prod,
     options: { headers: HttpHeaders }
-  ): Observable<Product> {
-    return this.http.post<Product>(this.apiUrl, product, options);
+  ): Observable<Prod> {
+    return this.http.post<Prod>(this.apiUrl, product, options);
   }
 
   updateProduct(

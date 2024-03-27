@@ -16,6 +16,11 @@ export class OneServiceComponent {
   @Input() service!: Service | null;
   @Output() closeDetails = new EventEmitter<void>();
 
+  newService: Service = {
+    name: '',
+    coeff: 0,
+  };
+
   constructor(
     private serviceService: ServiceService,
     private route: ActivatedRoute
@@ -82,5 +87,19 @@ export class OneServiceComponent {
           }
         );
     }
+  }
+
+  addService(): void {
+    this.serviceService.addService(this.newService).subscribe(
+      (response) => {
+        console.log('Nouveau matériau ajouté avec succès:', response);
+        // Réinitialiser les champs du formulaire après l'ajout du matériau
+        this.newService.name = '';
+        this.newService.coeff = 0;
+      },
+      (error) => {
+        console.error("Erreur lors de l'ajout du matériau:", error);
+      }
+    );
   }
 }
