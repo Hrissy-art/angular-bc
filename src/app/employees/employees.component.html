@@ -1,0 +1,41 @@
+<div class="container-fluid">
+  <div class="row justify-content-center mt-5">
+    <div class="col-md-6">
+      <div *ngIf="employees && employees.length > 0" class="container">
+        <div class="row">
+          <div *ngFor="let employee of employees" class="col-md-6 mb-4">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Employee ID: {{ employee.id }}</h5>
+                <p class="card-text">
+                  Nom complet: {{ employee.firstName }} {{ employee.lastName }}
+                </p>
+                <p class="card-text">Email: {{ employee.email }}</p>
+                <p class="card-text">Adresse: {{ employee.adress }}</p>
+                <p class="card-text">
+                  Numéro de rue: {{ employee.street_number }}
+                </p>
+                <!-- Ajoutez d'autres détails de l'employé ici selon vos besoins -->
+                <button
+                  class="btn btn-primary"
+                  (click)="onSelectEmployee(employee)"
+                >
+                  Voir les détails
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="!employees || employees.length === 0" class="text-center">
+        <p>Aucun employé trouvé.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-one-employee
+  *ngIf="selectedEmployee"
+  [employee]="selectedEmployee"
+  (closeDetails)="CloseDetails()"
+></app-one-employee>

@@ -24,6 +24,7 @@ import { UserComponent } from './user/user.component';
 import { ServiceComponent } from './HomeComponents/service/service.component';
 import { ServiceListComponent } from './service-list/service-list.component';
 import { MaterialListComponent } from './material-list/material-list.component';
+import { EmployeesComponent } from './employees/employees.component';
 // import { OrderComponent } from './order/order.component';
 
 const routes: Routes = [
@@ -66,6 +67,7 @@ const routes: Routes = [
   { path: 'users', component: UserComponent },
   { path: 'servicesList', component: ServiceListComponent },
   { path: 'materialsList', component: MaterialListComponent },
+  { path: 'employeesList', component: EmployeesComponent },
 ];
 
 @NgModule({

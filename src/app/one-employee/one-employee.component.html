@@ -1,0 +1,61 @@
+<div class="container-fluid">
+  <div class="row justify-content-center mt-5">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header bg-primary text-white">
+          <h2 class="text-center">Détails de l'employé</h2>
+        </div>
+        <div class="card-body">
+          <form #employeeForm="ngForm" (ngSubmit)="updateEmployee()">
+            <div *ngIf="selectedEmployee">
+              <ul class="list-group">
+                <li class="list-group-item">
+                  <strong>Nom: </strong>
+                  <input
+                    type="text"
+                    [(ngModel)]="selectedEmployee.firstName"
+                    name="firstName"
+                    required
+                  />
+                </li>
+                <li class="list-group-item">
+                  <strong>Prénom: </strong>
+                  <input
+                    type="text"
+                    [(ngModel)]="selectedEmployee.lastName"
+                    name="lastName"
+                    required
+                  />
+                </li>
+                <li class="list-group-item">
+                  <strong>Email: </strong>
+                  <input
+                    type="email"
+                    [(ngModel)]="selectedEmployee.email"
+                    name="email"
+                    required
+                  />
+                </li>
+                <!-- Ajoutez d'autres champs pour les détails de l'employé ici selon vos besoins -->
+              </ul>
+            </div>
+            <div *ngIf="!selectedEmployee" class="text-center">
+              <p>Aucun employé trouvé.</p>
+            </div>
+            <button
+              type="submit"
+              class="btn btn-primary mt-2"
+              [disabled]="!employeeForm.valid"
+            >
+              Mettre à jour les détails
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<button class="btn btn-secondary mt-2" (click)="CloseDetails()">
+  Fermer les détails
+</button>

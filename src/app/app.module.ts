@@ -40,6 +40,8 @@ import { MaterialListComponent } from './material-list/material-list.component';
 import { OneServiceComponent } from './one-service/one-service.component';
 import { OneMaterialComponent } from './one-material/one-material.component';
 import { OneProductAdminComponent } from './one-product-admin/one-product-admin.component';
+import { EmployeesComponent } from './employees/employees.component';
+import { OneEmployeeComponent } from './one-employee/one-employee.component';
 
 // import { OrderComponent } from './order/order.component';
 
@@ -79,6 +81,8 @@ import { OneProductAdminComponent } from './one-product-admin/one-product-admin.
     OneServiceComponent,
     OneMaterialComponent,
     OneProductAdminComponent,
+    EmployeesComponent,
+    OneEmployeeComponent,
   ],
 
   imports: [
