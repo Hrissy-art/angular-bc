@@ -59,3 +59,136 @@
 <button class="btn btn-secondary mt-2" (click)="CloseDetails()">
   Fermer les détails
 </button>
+
+<div class="container-fluid">
+  <div class="row justify-content-center mt-5">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header bg-primary text-white">
+          <h2 class="text-center">Ajouter un nouvel employé</h2>
+        </div>
+        <div class="card-body">
+          <form (submit)="addEmployee()">
+            <div class="form-group">
+              <label for="empNumber">Numéro d'employé:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="empNumber"
+                name="empNumber"
+                [(ngModel)]="newEmployee.empNumber"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="email">Email:</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                name="email"
+                [(ngModel)]="newEmployee.email"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="password">Mot de passe:</label>
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                name="password"
+                [(ngModel)]="newEmployee.password"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="firstName">Prénom:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="firstName"
+                name="firstName"
+                [(ngModel)]="newEmployee.firstName"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="lastName">Nom:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="lastName"
+                name="lastName"
+                [(ngModel)]="newEmployee.lastName"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="adress">Adresse:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="adress"
+                name="adress"
+                [(ngModel)]="newEmployee.adress"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="street_number">Numéro de rue:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="street_number"
+                name="street_number"
+                [(ngModel)]="newEmployee.street_number"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="town">Ville:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="town"
+                name="town"
+                [(ngModel)]="newEmployee.town"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="district">District:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="district"
+                name="district"
+                [(ngModel)]="newEmployee.district"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="country">Pays:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="country"
+                name="country"
+                [(ngModel)]="newEmployee.country"
+                required
+              />
+            </div>
+            <button
+              type="submit"
+              class="btn btn-primary"
+              [disabled]="!employeeForm.valid"
+            >
+              Ajouter employé
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

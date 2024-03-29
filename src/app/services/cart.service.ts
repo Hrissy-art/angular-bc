@@ -65,7 +65,6 @@ export class CartService {
   }
 
   addServicesToCart(services: Service[]): void {
-    // Ajoutez votre logique pour ajouter les services au panier
     this.selectedServices.push(...services);
   }
 
@@ -78,7 +77,6 @@ export class CartService {
   }
 
   addMaterialsToCart(materials: Material[]): void {
-    // Ajoutez votre logique pour ajouter les matériaux au panier
     this.selectedMaterials.push(...materials);
   }
 

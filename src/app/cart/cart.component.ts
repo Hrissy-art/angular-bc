@@ -189,13 +189,9 @@ export class CartComponent implements OnInit {
   }
 
   areAllInfosSelected(): boolean {
-    // Vérifiez si le FormGroup est invalide, ce qui signifie qu'au moins un champ du formulaire est invalide ou non rempli
     return !this.formGroup.invalid;
   }
   onClickOk() {
-    // Logique pour effectuer l'opération
-
-    // Mettre à jour la variable d'état de l'opération réussie
     this.operationReussie = true;
   }
 

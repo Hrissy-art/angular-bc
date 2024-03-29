@@ -17,6 +17,20 @@ export class OneEmployeeComponent {
   @Input() employee!: Employee | null;
   @Output() closeDetails = new EventEmitter<void>();
 
+  newEmployee: Employee = {
+    empNumber: 0,
+    email: '',
+    password: '',
+    firstName: '',
+    lastName: '',
+    birthday: new Date(),
+    adress: '',
+    street_number: '',
+    town: '',
+    district: '',
+    country: '',
+  };
+
   constructor(
     private employeeService: EmployeeService,
     private app: AppComponent,
@@ -63,5 +77,29 @@ export class OneEmployeeComponent {
           }
         );
     }
+  }
+
+  addEmployee(): void {
+    const headers = new HttpHeaders();
+    this.employeeService.addEmployee(this.newEmployee, { headers }).subscribe(
+      (response) => {
+        console.log('Nouvel employé ajouté avec succès:', response);
+        // Réinitialiser les champs du formulaire après l'ajout du matériau
+
+        (this.newEmployee.empNumber = 0), (this.newEmployee.email = '');
+        this.newEmployee.password = '';
+        this.newEmployee.firstName = '';
+        this.newEmployee.lastName = '';
+        this.newEmployee.birthday = new Date();
+        this.newEmployee.adress = '';
+        this.newEmployee.street_number = '';
+        this.newEmployee.town = '';
+        this.newEmployee.district = '';
+        this.newEmployee.country = '';
+      },
+      (error) => {
+        console.error("Erreur lors de l'ajout du matériau:", error);
+      }
+    );
   }
 }

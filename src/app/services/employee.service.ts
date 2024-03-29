@@ -57,4 +57,20 @@ export class EmployeeService {
       })
     );
   }
+
+  addEmployee(
+    employee: Employee,
+    options: { headers: HttpHeaders }
+  ): Observable<Employee> {
+    return this.http
+      .post<Employee>(`http://localhost:8000/api/employees`, employee, options)
+      .pipe(
+        catchError((error) => {
+          console.error('An error occurred:', error);
+          return throwError(
+            () => new Error('An error occurred while adding the employee.')
+          );
+        })
+      );
+  }
 }

@@ -1,7 +1,7 @@
 export interface Employee {
   '@id'?: string;
   id?: any;
-  empNumber: string;
+  empNumber: number;
   email: string;
   password: string;
   firstName: string;
