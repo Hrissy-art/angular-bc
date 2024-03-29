@@ -90,7 +90,9 @@
           <div>
             <button
               class="btn btn-pink mt-2"
+              [disabled]="!isSelectionValid()"
               (click)="addToCart(selectedProduct)"
+              (click)="poursuivreCommande()"
             >
               Add to Cart
             </button>

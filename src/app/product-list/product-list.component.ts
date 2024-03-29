@@ -95,4 +95,18 @@ export class ProductListComponent implements OnInit {
     this.selectedItem = product;
     console.log('Item selected:', this.selectedItem);
   }
+
+  poursuivreCommande() {
+    // Logique pour envoyer un e-mail et obtenir le numéro de commande
+
+    // Afficher le message avec le numéro de commande
+    alert(`Votre produit à été ajouté au panier `);
+  }
+
+  isSelectionValid(): boolean {
+    return (
+      this.cartService.getSelectedServices().length > 0 ||
+      this.cartService.getSelectedMaterials().length > 0
+    );
+  }
 }

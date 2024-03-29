@@ -246,4 +246,10 @@ export class FormComponent implements OnInit {
       }
     );
   }
+  poursuivreCommande() {
+    // Logique pour envoyer un e-mail et obtenir le numéro de commande
+
+    // Afficher le message avec le numéro de commande
+    alert(`Vous avez dépôsé le produit dans le panier `);
+  }
 }

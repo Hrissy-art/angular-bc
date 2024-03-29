@@ -1,56 +1,9 @@
-<!--
-
-<div *ngFor="let product of cart">
-  <div class="font-bold text-xl mb-2">Product ID: {{ product.id }}</div>
-  <p class="text-gray-700 text-base mb-2">Price: {{ product.price }}</p>
-  <p class="text-gray-700 text-base">
-    Product Name: {{ product.product_name }}
-  </p>
-  <p *ngIf="product.services && product.services.length > 0">Services:</p>
-  <ul *ngIf="product.services && product.services.length > 0">
-    <li *ngFor="let service of product.services">
-      {{ service.name }}
-    </li>
-  </ul>
-  <button class="btn-pink" (click)="removeFromCart(cart.indexOf(product))">
-    Remove from Cart
-  </button>
-</div>
-
-<div *ngIf="selectedServices && selectedServices.length > 0">
-  <h3>Selected Services:</h3>
-  <ul>
-    <li *ngFor="let service of selectedServices">
-      {{ service.name }}
-      {{ service.coeff }}
-    </li>
-  </ul>
-  <button (click)="removeSelectedServices()">Remove Selected Services</button>
-</div>
-<div *ngIf="selectedMaterials && selectedMaterials.length > 0">
-  selected Materials:
-</div>
-<ul>
-  <li *ngFor="let material of selectedMaterials">
-    {{ material.name }}
-    {{ material.coeff }}
-  </li>
-  <button (click)="removeSelectedMaterials()">Remove Selected Materials</button>
-</ul>
- Affichage du prix total
-<p>Total Price: {{ getTotalPrice() }}</p>
-
-<button (click)="validateCart()">Valider</button> -->
-
-<!-- <div *ngIf="showButton">
-  <button (click)="navigateToNewPage()">Aller à la nouvelle page</button>
-</div> -->
 <div class="alert alert-danger" role="alert" *ngIf="showAlert">
   Failed to redirect to user information page
 </div>
 <ng-container *ngIf="formGroup.invalid && !isUserInformationClicked">
-  <div class="alert alert-danger" role="alert">
-    remplissez les informations d'utilisateur
+  <div class="alert alert-info" role="alert">
+    remplissez les informations dépôt
   </div>
 </ng-container>
 <div
@@ -63,7 +16,7 @@
       class="btn btn-primary"
       (click)="redirectToAnotherPage()"
     >
-      Informations dépôt
+      1. Remplir les informations dépôt
     </button>
     <div class="row mb-3">
       <label for="dateOrder" class="col-sm-4 col-form-label"
@@ -76,12 +29,13 @@
           formControlName="dateOrder"
           required
           class="form-control"
+          [min]="todayDate()"
         />
       </div>
     </div>
     <div class="row mb-3">
       <label for="dateRender" class="col-sm-4 col-form-label"
-        >Date de retrait:</label
+        >Date de retrait souhaité:</label
       >
       <div class="col-sm-8">
         <input
@@ -90,6 +44,7 @@
           formControlName="dateRender"
           required
           class="form-control"
+          [min]="minimumRetraitDate()"
         />
       </div>
     </div>
@@ -112,20 +67,123 @@
       type="submit"
       class="btn btn-primary"
       [disabled]="!areAllInfosSelected()"
+      (click)="onClickOk()"
     >
       OK
     </button>
   </form>
 </div>
 
+<div *ngIf="operationReussie" class="alert alert-success" role="alert">
+  Merci! Vos dates on été prises en compte!
+</div>
+
+<div class="container-fluid">
+  <div
+    class="row justify-content-center align-items-center"
+    style="min-height: 50vh"
+  >
+    <div class="col-md-6" *ngIf="!isCartEmpty()">
+      <div *ngFor="let product of cart" class="mb-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Product Name: {{ product.product_name }}</h5>
+            <p class="card-text">Price: {{ product.price }}</p>
+            <ul
+              *ngIf="product.services && product.services.length > 0"
+              class="list-group"
+            >
+              <li
+                *ngFor="let service of product.services"
+                class="list-group-item"
+              >
+                {{ service.name }}
+              </li>
+            </ul>
+            <button
+              class="btn btn-danger"
+              (click)="removeFromCart(cart.indexOf(product))"
+            >
+              Remove from Cart
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Selected Services -->
+      <div *ngIf="selectedServices && selectedServices.length > 0" class="mb-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Selected Services:</h5>
+            <ul class="list-group">
+              <li
+                *ngFor="let service of selectedServices"
+                class="list-group-item"
+              >
+                {{ service.name }} {{ service.coeff }}
+              </li>
+            </ul>
+            <button class="btn btn-primary" (click)="removeSelectedServices()">
+              Remove Selected Services
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Selected Materials -->
+      <div
+        *ngIf="selectedMaterials && selectedMaterials.length > 0"
+        class="mb-4"
+      >
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Selected Materials:</h5>
+            <ul class="list-group">
+              <li
+                *ngFor="let material of selectedMaterials"
+                class="list-group-item"
+              >
+                {{ material.name }} {{ material.coeff }}
+              </li>
+            </ul>
+            <button class="btn btn-primary" (click)="removeSelectedMaterials()">
+              Remove Selected Materials
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Total Price -->
+      <div class="mb-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Total Price:</h5>
+            <p class="card-text">{{ getTotalPrice() }}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Validate Cart Button -->
+      <div
+        *ngIf="formSubmitted && formGroup.valid && cart.length > 0"
+        class="popup-button-container"
+      >
+        <button class="btn btn-primary validator" (click)="validateCart()">
+          Valider le panier
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- Affichage du panier -->
-<div
+<!-- <div
   class="d-flex justify-content-center align-items-center"
   style="height: 50vh"
 >
   <div class="col-md-6">
     <div *ngFor="let product of cart" class="mb-4">
-      <!-- <div class="font-bold text-xl mb-2">Product ID: {{ product.id }}</div> -->
+
       <p class="text-gray-700 text-base mb-2">Price: {{ product.price }}</p>
       <p class="text-gray-700 text-base">
         Product Name: {{ product.product_name }}
@@ -177,4 +235,4 @@
       </button>
     </div>
   </div>
-</div>
+</div> -->

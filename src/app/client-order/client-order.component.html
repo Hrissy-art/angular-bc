@@ -20,16 +20,17 @@
         <div class="col-md-6 mb-4" *ngIf="filterCondition(order)">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Order ID: {{ order.id }}</h5>
+              <h5>Information commande</h5>
+              <!-- <h5 class="card-title">Order ID: {{ order.id }}</h5> -->
               <p class="card-text">
                 Date de dépôt: {{ order.dateOrder | date }}
               </p>
               <p class="card-text">
                 Date de retrait: {{ order.dateRender | date }}
               </p>
-              <p class="card-text">
+              <!-- <p class="card-text">
                 Client ID: /api/clients/{{ order.client.id }}
-              </p>
+              </p> -->
               <p class="card-text">
                 Adresse email du client: {{ order.client.email }}
               </p>
@@ -43,15 +44,19 @@
                 Numéro de la Commande: {{ selectedOrder?.numberOrder }}
               </li>
               <p class="card-text">
-                Manager en charge: {{ order.employee?.firstName }}
+                Vous êtes servis par: {{ order.employee?.firstName }}
               </p>
-              <button class="btn btn-primary" (click)="onSelectOrder(order)">
+              <!-- <button class="btn btn-primary" (click)="onSelectOrder(order)">
                 Voir les détails
-              </button>
+              </button> -->
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+
+  <a class="logo" href="#">
+    <img src="../../assets/repassage-350-250.jpg" alt="Logo" />
+  </a>
 </div>

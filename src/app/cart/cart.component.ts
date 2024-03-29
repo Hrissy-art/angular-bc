@@ -19,6 +19,8 @@ import { AuthService } from '../services/auth.service';
 export class CartComponent implements OnInit {
   formGroup: FormGroup;
   orderId: string = '';
+  operationReussie: boolean = false;
+
   statusOptions = [
     { label: 'En attente', value: '/api/status_orders/1' },
     { label: 'En cours', value: '/api/status_orders/2' },
@@ -189,6 +191,37 @@ export class CartComponent implements OnInit {
   areAllInfosSelected(): boolean {
     // Vérifiez si le FormGroup est invalide, ce qui signifie qu'au moins un champ du formulaire est invalide ou non rempli
     return !this.formGroup.invalid;
+  }
+  onClickOk() {
+    // Logique pour effectuer l'opération
+
+    // Mettre à jour la variable d'état de l'opération réussie
+    this.operationReussie = true;
+  }
+
+  isCartEmpty(): boolean {
+    return this.cart.length === 0;
+  }
+
+  todayDate(): string {
+    return new Date().toISOString().split('T')[0];
+  }
+
+  minimumRetraitDate(): string {
+    const formGroup = this.formGroup;
+    if (formGroup) {
+      const dateOrderControl = formGroup.get('dateOrder');
+      if (dateOrderControl) {
+        const dateOrderValue = new Date(dateOrderControl.value);
+        const currentDate = new Date(dateOrderValue);
+
+        currentDate.setDate(currentDate.getDate() + 5);
+
+        return currentDate.toISOString().split('T')[0];
+      }
+    }
+
+    return '';
   }
 }
 
