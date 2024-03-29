@@ -73,4 +73,12 @@ export class EmployeeService {
         })
       );
   }
+
+  deleteEmployee(
+    employeeId: number,
+    options: { headers: HttpHeaders }
+  ): Observable<void> {
+    const url = `http://localhost:8000/api/employees/${employeeId}`;
+    return this.http.delete<void>(url, options);
+  }
 }

@@ -15,7 +15,12 @@
                 <p class="card-text">
                   Numéro de rue: {{ employee.street_number }}
                 </p>
-                <!-- Ajoutez d'autres détails de l'employé ici selon vos besoins -->
+                <button
+                  class="btn btn-pink mt-2"
+                  (click)="deleteEmployee(employee.id)"
+                >
+                  Delete
+                </button>
                 <button
                   class="btn btn-primary"
                   (click)="onSelectEmployee(employee)"
