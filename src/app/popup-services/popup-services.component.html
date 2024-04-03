@@ -99,7 +99,7 @@ Button trigger modal
     Afficher les matières disponibles
   </button>
   <div *ngIf="materials.length > 0">
-    <h3>Matériel disponible :</h3>
+    <h3>Matières disponibles :</h3>
     <ul>
       <li *ngFor="let material of materials">
         <label>
@@ -118,5 +118,5 @@ Button trigger modal
 </div>
 
 <button class="btn-pink" (click)="addToCart()" [disabled]="!isSelectionValid()">
-  choose option
+  choix des options
 </button>

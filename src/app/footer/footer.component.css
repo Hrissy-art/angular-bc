@@ -1,3 +1,15 @@
-.footer {
-  background-color: #714164;
+footer {
+  background-color: #a15d82;
+}
+
+.links a,
+.social-media a,
+div.footer a {
+  color: black;
+}
+
+.links a:hover,
+.social-media a:hover,
+div.footer a:hover {
+  color: #333;
 }

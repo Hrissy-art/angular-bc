@@ -14,7 +14,7 @@
 .container {
   background-image: url("../../assets/repassage-350-250.jpg");
   background-size: auto;
-  background-position: center;
+  /* background-position: center; */
   background-repeat: no-repeat;
   /* height: 100vh; */
   display: flex;

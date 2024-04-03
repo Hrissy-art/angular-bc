@@ -1,7 +1,7 @@
 <p>material-list works!</p>
 
 <div>
-  <h2 class="text-center">Liste des matériaux</h2>
+  <h2 class="text-center">Liste des matières</h2>
 </div>
 <div class="card-body">
   <div *ngIf="materials && materials.length > 0; else noMaterials">
@@ -10,10 +10,10 @@
         <strong>{{ material.name }} {{ material.coeff }}</strong> -
 
         <button class="btn btn-pink mt-2" (click)="deleteMaterial(material.id)">
-          Delete
+          Supprimer
         </button>
         <button class="btn btn-primary" (click)="onSelectMaterial(material)">
-          Voir les détails
+          Mettre à jour et ajouter une nouvelle matière
         </button>
       </li>
     </ul>

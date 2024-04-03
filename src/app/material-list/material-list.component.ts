@@ -33,7 +33,7 @@ export class MaterialListComponent implements OnInit {
     this.materialService
       .deleteMaterial(materialId, this.app.createCorsToken())
       .subscribe(() => {
-        console.log('Product deleted with ID:', materialId);
+        console.log('Material deleted with ID:', materialId);
         // Recharger la liste des produits après la suppression
         this.loadMaterials();
       });
