@@ -144,6 +144,8 @@ export class FormComponent implements OnInit {
   materialUrls: string[] = [];
   orderIdUrl: string = '';
   totalPrice: number = 0;
+  showPaymentButton: boolean = false;
+  showConfirmation: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -244,18 +246,28 @@ export class FormComponent implements OnInit {
       (response) => {
         console.log('OrderProduct sent successfully!', response);
         // Réinitialiser le formulaire ou effectuer toute autre action nécessaire après l'envoi réussi
-        this.router.navigate(['/payment']);
+        // this.router.navigate(['/payment']);
       },
       (error) => {
         console.error('Error sending OrderProduct:', error);
         // Gérer les erreurs ici, par exemple, afficher un message d'erreur à l'utilisateur
       }
     );
+    this.showPaymentButton = true;
+    this.showConfirmation = true;
   }
   poursuivreCommande() {
     // Logique pour envoyer un e-mail et obtenir le numéro de commande
 
     // Afficher le message avec le numéro de commande
-    alert(`Vous avez dépôsé le produit dans le panier `);
+    alert(`Merci pour votre confirmation`);
+  }
+
+  continuerAchats() {
+    this.router.navigate(['/product-list']);
+  }
+
+  procederAuPaiement() {
+    this.router.navigate(['/payment']);
   }
 }

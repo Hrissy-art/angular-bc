@@ -1,0 +1,8 @@
+<h3 class="payment-header">Options de paiement :</h3>
+<div class="payment-options">
+  <ul>
+    <li *ngFor="let payment of payments">
+      {{ payment.payment_method }}
+    </li>
+  </ul>
+</div>

@@ -38,6 +38,7 @@ export class CartComponent implements OnInit {
   userId: string = '';
   showAlert: boolean = false;
   isUserInformationClicked: boolean = false;
+  // isOKButtonDisabled: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -203,6 +204,7 @@ export class CartComponent implements OnInit {
   }
   onClickOk() {
     this.operationReussie = true;
+    // this.isOKButtonDisabled = true;
   }
 
   isCartEmpty(): boolean {
