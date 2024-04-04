@@ -18,7 +18,12 @@
   </div>
   <button type="submit">Submit</button>
 </form> -->
-
+<div class="container-fluid">
+  <!-- Autres éléments HTML -->
+  <div class="text-center">
+    <p>Total Price: {{ totalPrice }}</p>
+  </div>
+</div>
 <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
   <div>
     <label for="products">Products:</label>

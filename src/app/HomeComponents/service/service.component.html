@@ -23,9 +23,11 @@
   <h2 class="mb-5">Nos services</h2>
   <div class="row g-5">
     <div class="col-4" *ngFor="let service of serviceList">
-      <img [src]="service.imgUrl" alt="service" class="rounded-circle" />
-      <br />
-      <strong>{{ service.name }}</strong>
+      <div class="card">
+        <img [src]="service.imgUrl" alt="service" class="rounded-circle" />
+        <br />
+        <strong>{{ service.name }}</strong>
+      </div>
     </div>
   </div>
 </section>

@@ -20,6 +20,7 @@ export class CartComponent implements OnInit {
   formGroup: FormGroup;
   orderId: string = '';
   operationReussie: boolean = false;
+  totalPrice: number = 0;
 
   statusOptions = [
     { label: 'En attente', value: '/api/status_orders/1' },
@@ -63,6 +64,7 @@ export class CartComponent implements OnInit {
     this.selectedServices = this.cartService.getSelectedServices();
     this.selectedMaterials = this.cartService.getSelectedMaterials();
     this.updateSelectedIds();
+    this.calculateTotalPrice();
   }
 
   onSubmit(): void {
@@ -175,6 +177,14 @@ export class CartComponent implements OnInit {
     this.selectedMaterialIds = this.selectedMaterials.map(
       (material) => material.id
     );
+  }
+
+  calculateTotalPrice(): void {
+    // Logique pour calculer le prix total à partir des éléments du panier
+    this.totalPrice = this.getTotalPrice();
+
+    // Sauvegarder le prix total dans le stockage local
+    localStorage.setItem('totalPrice', this.totalPrice.toString());
   }
 
   isAuthenticated(): boolean {

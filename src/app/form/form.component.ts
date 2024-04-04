@@ -143,6 +143,7 @@ export class FormComponent implements OnInit {
   serviceUrls: string[] = [];
   materialUrls: string[] = [];
   orderIdUrl: string = '';
+  totalPrice: number = 0;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -173,6 +174,11 @@ export class FormComponent implements OnInit {
     // Récupérer l'ID de la commande depuis le stockage local
     const orderId = localStorage.getItem('orderId');
     this.orderIdUrl = orderId ? `/api/orders/${orderId}` : '';
+
+    const totalPriceFromStorage = localStorage.getItem('totalPrice');
+    if (totalPriceFromStorage) {
+      this.totalPrice = parseFloat(totalPriceFromStorage);
+    }
   }
 
   initFormData() {

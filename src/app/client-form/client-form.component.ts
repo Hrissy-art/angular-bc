@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class ClientFormComponent implements OnInit {
   birthday: string = '';
-  userId: string = ''; // Définir userId de type string
+  userId: string = '';
 
   constructor(private loginService: LoginService, private router: Router) {}
 
