@@ -1,0 +1,247 @@
+<p>one-client works!</p>
+<div class="container-fluid">
+  <div class="row justify-content-center mt-5">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header bg-primary text-white">
+          <h2 class="text-center">Détails du client</h2>
+        </div>
+        <div class="card-body">
+          <form #clientForm="ngForm" (ngSubmit)="updateClient()">
+            <div *ngIf="selectedClient">
+              <ul class="list-group">
+                <li class="list-group-item">
+                  <strong>Nom: </strong>
+                  <input
+                    type="text"
+                    [(ngModel)]="selectedClient.firstName"
+                    name="firstName"
+                    required
+                  />
+                </li>
+                <li class="list-group-item">
+                  <strong>Prénom: </strong>
+                  <input
+                    type="text"
+                    [(ngModel)]="selectedClient.lastName"
+                    name="lastName"
+                    required
+                  />
+                </li>
+                <li class="list-group-item">
+                  <strong>Email: </strong>
+                  <input
+                    type="email"
+                    [(ngModel)]="selectedClient.email"
+                    name="email"
+                    required
+                  />
+                </li>
+                <li class="list-group-item">
+                  <strong>First Name: </strong>
+                  <input
+                    type="firstName"
+                    [(ngModel)]="selectedClient.firstName"
+                    name="firstName"
+                    required
+                  />
+                </li>
+                <li class="list-group-item">
+                  <strong>Last Name: </strong>
+                  <input
+                    type="lastName"
+                    [(ngModel)]="selectedClient.lastName"
+                    name="lastName"
+                    required
+                  />
+                </li>
+                <li class="list-group-item">
+                  <strong>Adress: </strong>
+                  <input
+                    type="adress"
+                    [(ngModel)]="selectedClient.adress"
+                    name="adress"
+                    required
+                  />
+                </li>
+                <li class="list-group-item">
+                  <strong>Street number: </strong>
+                  <input
+                    type="street_number"
+                    [(ngModel)]="selectedClient.street_number"
+                    name="street_number"
+                    required
+                  />
+                </li>
+                <li class="list-group-item">
+                  <strong>Town: </strong>
+                  <input
+                    type="town"
+                    [(ngModel)]="selectedClient.town"
+                    name="town"
+                    required
+                  />
+                </li>
+                <li class="list-group-item">
+                  <strong>District: </strong>
+                  <input
+                    type="district"
+                    [(ngModel)]="selectedClient.district"
+                    name="district"
+                    required
+                  />
+                </li>
+                <li class="list-group-item">
+                  <strong>Country: </strong>
+                  <input
+                    type="country"
+                    [(ngModel)]="selectedClient.country"
+                    name="country"
+                    required
+                  />
+                </li>
+                <!-- Ajoutez d'autres champs pour les détails de l'employé ici selon vos besoins -->
+              </ul>
+            </div>
+            <div *ngIf="!selectedClient" class="text-center">
+              <p>Aucun client trouvé.</p>
+            </div>
+            <button
+              type="submit"
+              class="btn btn-primary mt-2"
+              [disabled]="!clientForm.valid"
+            >
+              Mettre à jour les détails
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<button class="btn btn-secondary mt-2" (click)="CloseDetails()">
+  Fermer les détails
+</button>
+
+<div class="container-fluid">
+  <div class="row justify-content-center mt-5">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header bg-primary text-white">
+          <h2 class="text-center">Ajouter un nouveau client</h2>
+        </div>
+        <div class="card-body">
+          <form (submit)="addClient()">
+            <div class="form-group">
+              <label for="email">Email:</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                name="email"
+                [(ngModel)]="newClient.email"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="password">Mot de passe:</label>
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                name="password"
+                [(ngModel)]="newClient.password"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="firstName">Prénom:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="firstName"
+                name="firstName"
+                [(ngModel)]="newClient.firstName"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="lastName">Nom:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="lastName"
+                name="lastName"
+                [(ngModel)]="newClient.lastName"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="adress">Adresse:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="adress"
+                name="adress"
+                [(ngModel)]="newClient.adress"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="street_number">Numéro de rue:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="street_number"
+                name="street_number"
+                [(ngModel)]="newClient.street_number"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="town">Ville:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="town"
+                name="town"
+                [(ngModel)]="newClient.town"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="district">District:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="district"
+                name="district"
+                [(ngModel)]="newClient.district"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="country">Pays:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="country"
+                name="country"
+                [(ngModel)]="newClient.country"
+                required
+              />
+            </div>
+            <button
+              type="submit"
+              class="btn btn-primary"
+              [disabled]="!clientForm.valid"
+            >
+              Ajouter employé
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
