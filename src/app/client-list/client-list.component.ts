@@ -15,6 +15,9 @@ export class ClientListComponent {
   error: string | null = null;
 
   @Output() clientSelected = new EventEmitter<number>();
+  searchTerm: string = '';
+  filteredClients: Client[] = [];
+  showFilteredClients: boolean = false;
 
   constructor(
     private clientService: ClientsService,
@@ -30,6 +33,7 @@ export class ClientListComponent {
       (data: any) => {
         this.clients = data['hydra:member'];
         console.log(data);
+        this.applyFilter();
       },
       (error) => {
         this.error = 'An error occurred while fetching the employees.';
@@ -55,5 +59,24 @@ export class ClientListComponent {
         // Recharger la liste des produits après la suppression
         this.loadClients();
       });
+  }
+
+  applyFilter(): void {
+    if (!this.searchTerm) {
+      this.filteredClients = []; // Réinitialiser les clients filtrés si la boîte de recherche est vide
+      this.showFilteredClients = false; // Masquer la liste des clients filtrés
+      return;
+    }
+
+    const searchTermLower = this.searchTerm.toLowerCase();
+    this.filteredClients = this.clients.filter((client) => {
+      // Filtrer les clients dont le prénom ou le nom de famille contient le terme de recherche
+      return (
+        client.firstName.toLowerCase().includes(searchTermLower) ||
+        client.lastName.toLowerCase().includes(searchTermLower)
+      );
+    });
+
+    this.showFilteredClients = true; // Afficher la liste des clients filtrés
   }
 }

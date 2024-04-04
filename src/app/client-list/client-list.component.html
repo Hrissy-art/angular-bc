@@ -3,46 +3,76 @@
 <div class="container-fluid">
   <div class="row justify-content-center mt-5">
     <div class="col-md-6">
-      <div *ngIf="clients && clients.length > 0" class="container">
-        <div class="row">
-          <div *ngFor="let client of clients" class="col-md-6 mb-4">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Client ID: {{ client.id }}</h5>
-                <p class="card-text">
-                  Nom complet: {{ client.firstName }} {{ client.lastName }}
-                </p>
-                <p class="card-text">Email: {{ client.email }}</p>
-                <p class="card-text">Adresse: {{ client.adress }}</p>
-                <p class="card-text">
-                  Numéro de rue: {{ client.street_number }}
-                </p>
-                <button
-                  class="btn btn-pink mt-2"
-                  (click)="deleteClient(client.id)"
-                >
-                  Delete
-                </button>
-                <button
-                  class="btn btn-primary"
-                  (click)="onSelectClient(client)"
-                >
-                  Voir les détails
-                </button>
+      <input
+        type="text"
+        class="form-control mb-3"
+        placeholder="Rechercher par nom de client"
+        [(ngModel)]="searchTerm"
+      />
+      <button class="btn btn-primary" (click)="applyFilter()">
+        Rechercher
+      </button>
+      <!-- <div
+        *ngIf="showFilteredClients && filteredClients.length > 0"
+        class="container"
+      > -->
+      <div class="row">
+        <div *ngFor="let client of filteredClients" class="col-md-6 mb-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Client ID: {{ client.id }}</h5>
+              <p class="card-text">
+                Nom complet: {{ client.firstName }} {{ client.lastName }}
+              </p>
+              <p class="card-text">Email: {{ client.email }}</p>
+              <p class="card-text">Adresse: {{ client.adress }}</p>
+              <p class="card-text">Numéro de rue: {{ client.street_number }}</p>
+            </div>
+          </div>
+        </div>
+        <!-- </div> -->
+
+        <div *ngIf="clients && clients.length > 0" class="container">
+          <div class="row">
+            <div *ngFor="let client of clients" class="col-md-6 mb-4">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Client ID: {{ client.id }}</h5>
+                  <p class="card-text">
+                    Nom complet: {{ client.firstName }} {{ client.lastName }}
+                  </p>
+                  <p class="card-text">Email: {{ client.email }}</p>
+                  <p class="card-text">Adresse: {{ client.adress }}</p>
+                  <p class="card-text">
+                    Numéro de rue: {{ client.street_number }}
+                  </p>
+                  <button
+                    class="btn btn-pink mt-2"
+                    (click)="deleteClient(client.id)"
+                  >
+                    Delete
+                  </button>
+                  <button
+                    class="btn btn-primary"
+                    (click)="onSelectClient(client)"
+                  >
+                    Voir les détails
+                  </button>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <div *ngIf="!clients || clients.length === 0" class="text-center">
-        <p>Aucun client trouvé.</p>
+        <div *ngIf="!clients || clients.length === 0" class="text-center">
+          <p>Aucun client trouvé.</p>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<app-one-client
-  *ngIf="selectedClient"
-  [client]="selectedClient"
-  (closeDetails)="CloseDetails()"
-></app-one-client>
+  <app-one-client
+    *ngIf="selectedClient"
+    [client]="selectedClient"
+    (closeDetails)="CloseDetails()"
+  ></app-one-client>
+</div>
