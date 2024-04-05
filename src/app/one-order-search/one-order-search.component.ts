@@ -111,6 +111,9 @@ import { Order } from '../models/order';
 import { OrderService } from '../services/order.service';
 import { ActivatedRoute } from '@angular/router';
 import { HttpHeaders } from '@angular/common/http';
+import { StatusService } from '../services/status.service';
+import { StatusOrder } from '../models/statusOrder';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-one-order-search',
@@ -120,20 +123,23 @@ import { HttpHeaders } from '@angular/common/http';
 export class OneOrderSearchComponent {
   selectedOrder: Order | undefined;
   selectedOrderId?: number;
+  statusesOptions: { '@id': string; status: string }[] = [];
 
   selectedStatus: string = ''; // to store the selected status
-  statusOptions = [
-    { label: 'En attente', value: '/api/status_orders/1' },
-    { label: 'En cours', value: '/api/status_orders/2' },
-    { label: 'Terminée', value: '/api/status_orders/3' },
-  ];
+  // statusOptions = [
+  //   { label: 'En attente', value: '/api/status_orders/1' },
+  //   { label: 'En cours', value: '/api/status_orders/2' },
+  //   { label: 'Terminée', value: '/api/status_orders/3' },
+  // ];
 
   @Input() order!: Order | null;
   @Output() closeDetails = new EventEmitter<void>();
 
   constructor(
     private orderService: OrderService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private statusService: StatusService,
+    private app: AppComponent
   ) {
     // this.getProduct(<number>this.selectedProductId);
   }
@@ -151,8 +157,17 @@ export class OneOrderSearchComponent {
     } else {
       console.error('ID de commande invalide:', selectedOrderId);
     }
+
+    this.loadStatusOptions();
   }
 
+  loadStatusOptions(): void {
+    this.statusService
+      .getStatus(this.app.createCorsToken())
+      .subscribe((data: any) => {
+        this.statusesOptions = data['hydra:member'];
+      });
+  }
   // Méthode pour récupérer un seul order en fonction de son ID en utilisant le nouveau service
   getOrder(orderId: number): void {
     this.orderService

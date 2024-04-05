@@ -46,6 +46,8 @@ import { ClientListComponent } from './client-list/client-list.component';
 import { OneClientComponent } from './one-client/one-client.component';
 import { PaymentMethodsComponent } from './payment-methods/payment-methods.component';
 import { OnePaymentComponent } from './one-payment/one-payment.component';
+import { StatusesListComponent } from './statuses-list/statuses-list.component';
+import { OneStatusComponent } from './one-status/one-status.component';
 
 // import { OrderComponent } from './order/order.component';
 
@@ -91,6 +93,8 @@ import { OnePaymentComponent } from './one-payment/one-payment.component';
     OneClientComponent,
     PaymentMethodsComponent,
     OnePaymentComponent,
+    StatusesListComponent,
+    OneStatusComponent,
   ],
 
   imports: [
