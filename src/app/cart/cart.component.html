@@ -1,79 +1,81 @@
-<div class="alert alert-danger" role="alert" *ngIf="showAlert">
-  Failed to redirect to user information page
-</div>
-<ng-container *ngIf="formGroup.invalid && !isUserInformationClicked">
-  <div class="alert alert-info" role="alert">
-    remplissez les informations dépôt
+<ng-container *ngIf="!isCartEmpty()">
+  <div class="alert alert-danger" role="alert" *ngIf="showAlert">
+    Failed to redirect to user information page
+  </div>
+  <ng-container *ngIf="formGroup.invalid && !isUserInformationClicked">
+    <div class="alert alert-info" role="alert">
+      remplissez les informations dépôt
+    </div>
+  </ng-container>
+  <div
+    class="d-flex justify-content-center align-items-center"
+    style="height: 50vh"
+  >
+    <form [formGroup]="formGroup" (ngSubmit)="onSubmit()" class="col-md-6">
+      <button
+        type="button"
+        class="btn btn-primary"
+        (click)="redirectToAnotherPage()"
+      >
+        ! Veuillez remplir les informations client
+      </button>
+      <div class="row mb-3">
+        <label for="dateOrder" class="col-sm-4 col-form-label"
+          >Veuillez sélectionner une date de dépôt pour afficher le contenu du
+          panier:</label
+        >
+        <div class="col-sm-8">
+          <input
+            type="date"
+            id="dateOrder"
+            formControlName="dateOrder"
+            required
+            class="form-control"
+            [min]="todayDate()"
+          />
+        </div>
+      </div>
+      <div class="row mb-3">
+        <label for="dateRender" class="col-sm-4 col-form-label"
+          >Date de retrait souhaité:</label
+        >
+        <div class="col-sm-8">
+          <input
+            type="date"
+            id="dateRender"
+            formControlName="dateRender"
+            required
+            class="form-control"
+            [min]="minimumRetraitDate()"
+          />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12"></div>
+      </div>
+      <input type="text" id="client" formControlName="client" required hidden />
+      <select
+        id="statusOrder"
+        type="hidden"
+        formControlName="statusOrder"
+        required
+        hidden
+      >
+        <option *ngFor="let status of statusOptions" [value]="status.value">
+          {{ status.label }}
+        </option>
+      </select>
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="!areAllInfosSelected()"
+        (click)="onClickOk()"
+      >
+        OK
+      </button>
+    </form>
   </div>
 </ng-container>
-<div
-  class="d-flex justify-content-center align-items-center"
-  style="height: 50vh"
->
-  <form [formGroup]="formGroup" (ngSubmit)="onSubmit()" class="col-md-6">
-    <button
-      type="button"
-      class="btn btn-primary"
-      (click)="redirectToAnotherPage()"
-    >
-      ! Veuillez remplir les informations client
-    </button>
-    <div class="row mb-3">
-      <label for="dateOrder" class="col-sm-4 col-form-label"
-        >Veuillez sélectionner une date de dépôt pour afficher le contenu du
-        panier:</label
-      >
-      <div class="col-sm-8">
-        <input
-          type="date"
-          id="dateOrder"
-          formControlName="dateOrder"
-          required
-          class="form-control"
-          [min]="todayDate()"
-        />
-      </div>
-    </div>
-    <div class="row mb-3">
-      <label for="dateRender" class="col-sm-4 col-form-label"
-        >Date de retrait souhaité:</label
-      >
-      <div class="col-sm-8">
-        <input
-          type="date"
-          id="dateRender"
-          formControlName="dateRender"
-          required
-          class="form-control"
-          [min]="minimumRetraitDate()"
-        />
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-12"></div>
-    </div>
-    <input type="text" id="client" formControlName="client" required hidden />
-    <select
-      id="statusOrder"
-      type="hidden"
-      formControlName="statusOrder"
-      required
-      hidden
-    >
-      <option *ngFor="let status of statusOptions" [value]="status.value">
-        {{ status.label }}
-      </option>
-    </select>
-    <button
-      type="submit"
-      class="btn btn-primary"
-      [disabled]="!areAllInfosSelected()"
-      (click)="onClickOk()"
-    >
-      OK
-    </button>
-  </form>
-</div>
 
 <div *ngIf="operationReussie" class="alert alert-success" role="alert">
   Merci! Vos dates on été prises en compte!

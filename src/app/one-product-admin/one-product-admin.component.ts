@@ -5,6 +5,8 @@ import { ActivatedRoute } from '@angular/router';
 import { HttpHeaders } from '@angular/common/http';
 import { Category } from '../models/category';
 import { Prod } from '../models/productCreate';
+import { CategoryService } from '../services/category.service';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-one-product-admin',
@@ -22,16 +24,22 @@ export class OneProductAdminComponent {
     description: '',
     productImg: '',
   };
+  categoriesOptions: { '@id': string; category_name: string }[] = [];
+  selectedCategorie: string = '';
 
   @Input() product!: Product | null;
   @Output() closeDetails = new EventEmitter<void>();
   constructor(
     private productService: ProductService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private categorieService: CategoryService,
+    private app: AppComponent
   ) {
     // this.getProduct(<number>this.selectedProductId);
   }
-
+  ngOnInit(): void {
+    this.loadECategorieOptions();
+  }
   CloseDetails(): void {
     this.closeDetails.emit();
   }
@@ -60,6 +68,25 @@ export class OneProductAdminComponent {
   //       );
   //   }
   // }
+  loadECategorieOptions(): void {
+    this.categorieService.getCategories().subscribe(
+      (data: any[]) => {
+        // Vérifiez si les données renvoyées sont un tableau
+        if (Array.isArray(data)) {
+          this.categoriesOptions = data;
+          console.log('Categories récupérés:', this.categoriesOptions);
+        } else {
+          console.error('Les données reçues ne sont pas un tableau.');
+        }
+      },
+      (error) => {
+        console.error(
+          "Une erreur s'est produite lors de la récupération des catégories :",
+          error
+        );
+      }
+    );
+  }
 
   updateProductDetails(): void {
     if (this.product) {
@@ -71,14 +98,15 @@ export class OneProductAdminComponent {
         price: this.product.price,
         description: this.product.description,
         product_img: this.product.product_img,
+        category: this.selectedCategorie,
       };
 
       // Vérification de l'existence de la catégorie et de son @id
-      const categoryId = this.product.category?.['@id'];
+      // const categoryId = this.product.category?.['@id'];
 
-      if (categoryId) {
-        updatedProduct.category = categoryId;
-      }
+      // if (categoryId) {
+      //   updatedProduct.category = categoryId;
+      // }
 
       this.productService
         .updateProduct(this.product.id, updatedProduct, options)

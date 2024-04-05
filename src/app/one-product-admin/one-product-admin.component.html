@@ -72,8 +72,23 @@
       <li class="list-group-item">
         Description: <input type="text" [(ngModel)]="product.description" />
       </li>
-      <li class="list-group-item">
+      <!-- <li class="list-group-item">
         <p>Catégorie ID: {{ product.category?.['@id'] }}</p>
+      </li> -->
+      <li class="list-group-item">
+        <label for="categorieSelect">Categorie:</label>
+        <select
+          class="form-control"
+          id="categorieSelect"
+          [(ngModel)]="selectedCategorie"
+        >
+          <option
+            *ngFor="let categorie of categoriesOptions"
+            [value]="categorie['@id']"
+          >
+            {{ categorie.category_name }}
+          </option>
+        </select>
       </li>
     </ul>
     <button class="btn btn-primary mt-2" (click)="updateProductDetails()">
@@ -100,8 +115,23 @@
       <li class="list-group-item">
         Description: <input type="text" [(ngModel)]="newProduct.description" />
       </li>
-      <li class="list-group-item">
+      <!-- <li class="list-group-item">
         Catégorie ID: <input type="text" [(ngModel)]="newProduct.category" />
+      </li> -->
+      <li class="list-group-item">
+        <label for="categorieSelect">Catégorie:</label>
+        <select
+          class="form-control"
+          id="categorieSelect"
+          [(ngModel)]="newProduct.category"
+        >
+          <option
+            *ngFor="let categorie of categoriesOptions"
+            [value]="categorie['@id']"
+          >
+            {{ categorie.category_name }}
+          </option>
+        </select>
       </li>
     </ul>
     <button class="btn btn-primary mt-2" (click)="createProduct()">

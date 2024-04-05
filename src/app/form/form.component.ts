@@ -181,6 +181,15 @@ export class FormComponent implements OnInit {
     if (totalPriceFromStorage) {
       this.totalPrice = parseFloat(totalPriceFromStorage);
     }
+    // const previousTotalPrices = JSON.parse(
+    //   localStorage.getItem('totalPrices') || '[]'
+    // );
+
+    // // Calculer le montant total
+    // this.totalPrice = previousTotalPrices.reduce(
+    //   (acc: number, curr: number) => acc + curr,
+    //   0
+    // );
   }
 
   initFormData() {
