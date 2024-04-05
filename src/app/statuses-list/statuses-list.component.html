@@ -1,10 +1,46 @@
 <p>statuses-list works!</p>
 
-<h3 class="payment-header">Status disponibles :</h3>
+<!-- <div>
+  <h2 class="text-center">Liste des matières</h2>
+</div>
+<div class="card-body">
+  <div *ngIf="materials && materials.length > 0; else noMaterials">
+    <ul class="list-group">
+      <li *ngFor="let material of materials" class="list-group-item">
+        <strong>{{ material.name }} {{ material.coeff }}</strong> -
+
+        <button class="btn btn-pink mt-2" (click)="deleteMaterial(material.id)">
+          Supprimer
+        </button>
+        <button class="btn btn-primary" (click)="onSelectMaterial(material)">
+          Mettre à jour et ajouter une nouvelle matière
+        </button>
+      </li>
+    </ul>
+  </div>
+  <ng-template #noMaterials>
+    <p class="text-center">Aucune matière trouvée.</p>
+  </ng-template>
+</div> -->
+
+<h3 class="payment-header">Statuts disponibles :</h3>
 <div class="payment-options">
   <ul>
     <li *ngFor="let status of statuses">
       {{ status.status }}
+
+      <button class="btn btn-pink mt-2" (click)="deleteStatus(status.id)">
+        Supprimer
+      </button>
+      <button class="btn btn-primary" (click)="onSelectStatus(status)">
+        Mettre à jour et ajouter un nouveau statut
+      </button>
     </li>
   </ul>
 </div>
+
+<app-one-status
+  *ngIf="selectedStatusOrder"
+  [status]="selectedStatusOrder"
+  (closeDetails)="CloseDetails()"
+></app-one-status>

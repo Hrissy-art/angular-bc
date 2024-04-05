@@ -1,1 +1,59 @@
 <p>one-status works!</p>
+
+<div class="container-fluid">
+  <div class="row justify-content-center mt-5">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header bg-primary text-white">
+          <h2 class="text-center">Matière</h2>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col">
+              <div *ngIf="status" class="service-details-container">
+                <h3>Mise à jour</h3>
+                <ul class="list-group">
+                  <li class="list-group-item">Status ID: {{ status.id }}</li>
+                  <li class="list-group-item">
+                    Nom: <input type="text" [(ngModel)]="status.status" />
+                  </li>
+                </ul>
+                <button
+                  class="btn btn-primary mt-2"
+                  (click)="updateStatusDetails()"
+                >
+                  Mettre à jour les détails du status
+                </button>
+                <button class="btn btn-secondary mt-2" (click)="CloseDetails()">
+                  Fermer les détails
+                </button>
+              </div>
+            </div>
+            <div class="col">
+              <h3>Ajouter un nouveau statut</h3>
+              <form (submit)="addStatus()">
+                <div class="form-group">
+                  <label for="name">Nom:</label>
+                  <input
+                    id="name"
+                    name="name"
+                    type="text"
+                    autocomplete="name"
+                    required
+                    class="form-control"
+                    placeholder="Nom"
+                    [(ngModel)]="newStatus.status"
+                  />
+                </div>
+
+                <button type="submit" class="btn btn-primary">
+                  Ajouter Statut
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

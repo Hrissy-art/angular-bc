@@ -8,6 +8,7 @@ import { StatusOrder } from '../models/statusOrder';
 })
 export class StatusService {
   constructor(private http: HttpClient) {}
+  private apiUrl = 'http://localhost:8000/api/status_orders';
 
   // getCategories(): Observable<Category[]> {
   //   return this.http.get<any>(this.apiUrl).pipe(
@@ -35,5 +36,42 @@ export class StatusService {
           );
         })
       );
+  }
+
+  deleteStatus(
+    statusId: number,
+    options: { headers: HttpHeaders }
+  ): Observable<void> {
+    const url = `${this.apiUrl}/${statusId}`;
+    return this.http.delete<void>(url, options);
+  }
+
+  updateStatus(
+    statusId: number,
+    updatedStatus: StatusOrder,
+    options: any
+  ): Observable<StatusOrder> {
+    const url = `${this.apiUrl}/${statusId}`;
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+    return this.http.put<StatusOrder>(url, updatedStatus, { headers }).pipe(
+      catchError((error) => {
+        return throwError(error);
+      })
+    );
+  }
+
+  addStatus(newStatus: StatusOrder): Observable<any> {
+    const url = `${this.apiUrl}`;
+    return this.http.post(url, newStatus);
+  }
+
+  getOneStatus(
+    statusId: number,
+    options: { headers: HttpHeaders }
+  ): Observable<StatusOrder> {
+    const url = `${this.apiUrl}/${statusId}`;
+    return this.http.get<StatusOrder>(url, options);
   }
 }
