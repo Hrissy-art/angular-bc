@@ -1,3 +1,9 @@
+<ng-container *ngIf="isCartEmpty()">
+  <div class="text-center">
+    <h3>Votre panier est vide</h3>
+  </div>
+</ng-container>
+
 <ng-container *ngIf="!isCartEmpty()">
   <div class="alert alert-danger" role="alert" *ngIf="showAlert">
     Failed to redirect to user information page
@@ -37,7 +43,7 @@
       </div>
       <div class="row mb-3">
         <label for="dateRender" class="col-sm-4 col-form-label"
-          >Date de retrait souhaité:</label
+          >Date de retrait souhaitée:</label
         >
         <div class="col-sm-8">
           <input
@@ -81,7 +87,7 @@
   Merci! Vos dates on été prises en compte!
 </div>
 
-<div class="container-fluid">
+<div class="container-fluid cart">
   <div
     class="row justify-content-center align-items-center"
     style="min-height: 50vh"
@@ -90,8 +96,8 @@
       <div *ngFor="let product of cart" class="mb-4">
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">Product Name: {{ product.product_name }}</h5>
-            <p class="card-text">Price: {{ product.price }}</p>
+            <h5 class="card-title">Produit: {{ product.product_name }}</h5>
+            <p class="card-text">Prix: {{ product.price }}</p>
             <ul
               *ngIf="product.services && product.services.length > 0"
               class="list-group"
@@ -107,17 +113,16 @@
               class="btn btn-danger"
               (click)="removeFromCart(cart.indexOf(product))"
             >
-              Remove from Cart
+              Supprimer du panier
             </button>
           </div>
         </div>
       </div>
 
-      <!-- Selected Services -->
       <div *ngIf="selectedServices && selectedServices.length > 0" class="mb-4">
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">Selected Services:</h5>
+            <h5 class="card-title">Services séléctionnés:</h5>
             <ul class="list-group">
               <li
                 *ngFor="let service of selectedServices"
@@ -127,20 +132,19 @@
               </li>
             </ul>
             <button class="btn btn-primary" (click)="removeSelectedServices()">
-              Remove Selected Services
+              Supprimer les services séléctionnés
             </button>
           </div>
         </div>
       </div>
 
-      <!-- Selected Materials -->
       <div
         *ngIf="selectedMaterials && selectedMaterials.length > 0"
         class="mb-4"
       >
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">Selected Materials:</h5>
+            <h5 class="card-title">Matières séléctionnées:</h5>
             <ul class="list-group">
               <li
                 *ngFor="let material of selectedMaterials"
@@ -150,23 +154,21 @@
               </li>
             </ul>
             <button class="btn btn-primary" (click)="removeSelectedMaterials()">
-              Remove Selected Materials
+              Supprimer les matières séléctionnées
             </button>
           </div>
         </div>
       </div>
 
-      <!-- Total Price -->
       <div class="mb-4">
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">Total Price:</h5>
+            <h5 class="card-title">Total:</h5>
             <p class="card-text">{{ getTotalPrice() }}</p>
           </div>
         </div>
       </div>
 
-      <!-- Validate Cart Button -->
       <div
         *ngIf="formSubmitted && formGroup.valid && cart.length > 0"
         class="popup-button-container"

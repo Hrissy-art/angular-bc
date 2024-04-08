@@ -18,16 +18,22 @@
   </div>
   <button type="submit">Submit</button>
 </form> -->
-<div class="container-fluid">
+<div class="container-fluid cover-container">
   <!-- Autres éléments HTML -->
-  <div class="text-center">
-    <h3>Total Price: {{ totalPrice }}</h3>
+  <div class="text-center total">
+    <h3>Prix total: {{ totalPrice }} euros</h3>
   </div>
 </div>
 <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
   <div>
-    <label for="products">Products:</label>
-    <input type="text" id="products" formControlName="products" />
+    <label for="products" style="display: none">Products:</label>
+    <input
+      type="hidden"
+      type="text"
+      id="products"
+      formControlName="products"
+      style="display: none"
+    />
   </div>
   <div>
     <!-- Champ pour l'ID de la commande (order) -->
@@ -39,25 +45,41 @@
     />
   </div>
   <div>
-    <label for="materials">Materials:</label>
-    <textarea id="materials" formControlName="materials"></textarea>
+    <label for="materials" style="display: none">Materials:</label>
+    <textarea
+      type="hidden"
+      id="materials"
+      formControlName="materials"
+      style="display: none"
+    ></textarea>
   </div>
   <div>
-    <label for="services">Services:</label>
-    <textarea id="services" formControlName="services"></textarea>
+    <label for="services" style="display: none">Services:</label>
+    <textarea
+      type="hidden"
+      id="services"
+      formControlName="services"
+      style="display: none"
+    ></textarea>
   </div>
 
-  <button type="submit" class="btn btn-primary">Confirmer</button>
+  <!-- <div class="text-center mt-3">
+    <button type="submit" class="btn btn-pink btn-lg">Confirmer</button>
+  </div> -->
   <!-- Bouton pour continuer les achats -->
   <!-- <button type="button" class="btn btn-secondary" (click)="continuerAchats()">
     Continuer mes achats
   </button> -->
-  <!-- <div class="text-center">
-    <button type="submit" class="btn btn-pink" (click)="poursuivreCommande()">
-      Poursuivre la commande
+  <div class="text-center mt-3">
+    <button
+      type="submit"
+      class="btn btn-pink btn-lg"
+      (click)="poursuivreCommande()"
+    >
+      Confirmer
     </button>
-  </div> -->
-  <div class="text-center mt-3" *ngIf="showConfirmation">
+  </div>
+  <!-- <div class="text-center mt-3" *ngIf="showConfirmation">
     <button
       type="button"
       class="btn btn-secondary mr-2"
@@ -73,13 +95,14 @@
       Procéder au paiement
     </button>
   </div>
-</form>
-<!-- <button type="submit" class="btn btn-pink" (click)="poursuivreCommande()">
+</form> -->
+  <!-- <button type="submit" class="btn btn-pink" (click)="poursuivreCommande()">
   Poursuivre la commande
 </button> -->
 
-<!-- <div class="text-center mt-3" *ngIf="showPaymentButton">
+  <!-- <div class="text-center mt-3" *ngIf="showPaymentButton">
   <button type="button" class="btn btn-success" (click)="procederAuPaiement()">
     Procéder au paiement
   </button>
 </div> -->
+</form>

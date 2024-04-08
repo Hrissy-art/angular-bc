@@ -255,7 +255,7 @@ export class FormComponent implements OnInit {
       (response) => {
         console.log('OrderProduct sent successfully!', response);
         // Réinitialiser le formulaire ou effectuer toute autre action nécessaire après l'envoi réussi
-        // this.router.navigate(['/payment']);
+        this.router.navigate(['/payment']);
       },
       (error) => {
         console.error('Error sending OrderProduct:', error);
@@ -269,7 +269,9 @@ export class FormComponent implements OnInit {
     // Logique pour envoyer un e-mail et obtenir le numéro de commande
 
     // Afficher le message avec le numéro de commande
-    alert(`Merci pour votre confirmation`);
+    alert(
+      `Merci pour votre confirmation. Vous venez de recevoir un email avec le numéro de votre commande`
+    );
   }
 
   continuerAchats() {

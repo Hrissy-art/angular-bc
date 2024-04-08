@@ -11,24 +11,6 @@
             <div *ngIf="selectedClient">
               <ul class="list-group">
                 <li class="list-group-item">
-                  <strong>Nom: </strong>
-                  <input
-                    type="text"
-                    [(ngModel)]="selectedClient.firstName"
-                    name="firstName"
-                    required
-                  />
-                </li>
-                <li class="list-group-item">
-                  <strong>Prénom: </strong>
-                  <input
-                    type="text"
-                    [(ngModel)]="selectedClient.lastName"
-                    name="lastName"
-                    required
-                  />
-                </li>
-                <li class="list-group-item">
                   <strong>Email: </strong>
                   <input
                     type="email"
@@ -100,7 +82,6 @@
                     required
                   />
                 </li>
-                <!-- Ajoutez d'autres champs pour les détails de l'employé ici selon vos besoins -->
               </ul>
             </div>
             <div *ngIf="!selectedClient" class="text-center">

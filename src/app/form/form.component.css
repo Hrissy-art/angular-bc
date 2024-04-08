@@ -2,3 +2,32 @@
   background-color: pink;
   color: white;
 }
+
+.btn-pink {
+  background-color: pink;
+  border-color: pink;
+}
+.btn-pink:hover {
+  background-color: #ff80bf;
+  border-color: #ff80bf;
+}
+.container-fluid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  padding: 20px; /* Ajout de l'espacement intérieur */
+  border-radius: 10px;
+}
+
+.cover-container {
+  background-image: url("../../assets/retouche-350-250.jpg");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.total {
+  background-color: #c4c3be;
+  border: solid 3px;
+}
