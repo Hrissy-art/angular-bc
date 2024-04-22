@@ -1,25 +1,11 @@
-<!-- <p>form works!</p>
-<form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
-  <div>
-    <label for="products">Products:</label>
-    <input type="text" id="products" formControlName="products" />
-  </div>
-  <div>
-    <label for="orders">Orders:</label>
-    <input type="text" id="orders" formControlName="orders" />
-  </div>
-  <div>
-    <label for="materials">Materials:</label>
-    <textarea id="materials" formControlName="materials"></textarea>
-  </div>
-  <div>
-    <label for="services">Services:</label>
-    <textarea id="services" formControlName="services"></textarea>
-  </div>
-  <button type="submit">Submit</button>
-</form> -->
+<div
+  *ngIf="successMessageCommande"
+  class="alert alert-success mt-2"
+  role="alert"
+>
+  {{ successMessageCommande }}
+</div>
 <div class="container-fluid cover-container">
-  <!-- Autres éléments HTML -->
   <div class="text-center total">
     <h3>Prix total: {{ totalPrice }} euros</h3>
   </div>

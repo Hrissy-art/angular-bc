@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { catchError, Observable, throwError } from 'rxjs';
 import { User } from '../models/user';
 import { Client } from '../models/client';
+// import { ClientCreate } from '../models/clientCreate';
 
 @Injectable({
   providedIn: 'root',
@@ -50,7 +51,7 @@ export class ClientsService {
       catchError((error) => {
         console.error('An error occurred:', error);
         return throwError(
-          () => new Error('An error occurred while updating the employee.')
+          () => new Error('An error occurred while updating the client.')
         );
       })
     );

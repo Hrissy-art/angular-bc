@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-service',
   templateUrl: './service.component.html',
-  styleUrl: './service.component.css'
+  styleUrl: './service.component.css',
 })
 export class ServiceComponent {
   serviceList = [
@@ -13,7 +13,6 @@ export class ServiceComponent {
     { imgUrl: '../assets/nettoyage-sec-350-250.jpg', name: 'Nettoyage à sec' },
     { imgUrl: '../assets/repassage-350-250.jpg', name: 'Repassage' },
     { imgUrl: '../assets/retouche-350-250.jpg', name: 'Retouche' },
-    { imgUrl: '../assets/taches-350-250.jpg', name: 'Détachage' }
+    // { imgUrl: '../assets/taches-350-250.jpg', name: 'Détachage' }
   ];
-
 }

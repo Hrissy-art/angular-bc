@@ -1,24 +1,3 @@
-<!-- <p>service works!</p>
-
-<div *ngIf="service" class="service-details-container">
-  <h3>Service Details</h3>
-  <ul class="list-group">
-    <li class="list-group-item">Service ID: {{ service?.id }}</li>
-    <li class="list-group-item">
-      Nom: <input type="text" [(ngModel)]="service.name" />
-    </li>
-    <li class="list-group-item">
-      Coeff: <input type="number" [(ngModel)]="service.coeff" />
-    </li>
-  </ul>
-  <button class="btn btn-primary mt-2" (click)="updateServiceDetails()">
-    Mettre à jour les détails du service
-  </button>
-  <button class="btn btn-secondary mt-2" (click)="CloseDetails()">
-    Fermer les détails
-  </button>
-</div> -->
-
 <div class="container-fluid">
   <div class="row justify-content-center mt-5">
     <div class="col-md-6">
@@ -49,6 +28,13 @@
                 <button class="btn btn-secondary mt-2" (click)="CloseDetails()">
                   Fermer les détails
                 </button>
+                <div
+                  *ngIf="successMessage"
+                  class="alert alert-success mt-2"
+                  role="alert"
+                >
+                  {{ successMessage }}
+                </div>
               </div>
             </div>
             <div class="col">
@@ -83,6 +69,13 @@
                 <button type="submit" class="btn btn-primary">
                   Ajouter Service
                 </button>
+                <div
+                  *ngIf="successMessageNewService"
+                  class="alert alert-success mt-2"
+                  role="alert"
+                >
+                  {{ successMessageNewService }}
+                </div>
               </form>
             </div>
           </div>

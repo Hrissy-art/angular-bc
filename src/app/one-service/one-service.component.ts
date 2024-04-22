@@ -12,6 +12,8 @@ import { HttpHeaders } from '@angular/common/http';
 export class OneServiceComponent {
   selectedService: Service | undefined;
   selectedServiceId?: number;
+  successMessage: string | null = null;
+  successMessageNewService: string | null = null;
 
   @Input() service!: Service | null;
   @Output() closeDetails = new EventEmitter<void>();
@@ -78,6 +80,8 @@ export class OneServiceComponent {
             console.log(
               'Les détails du service ont été mis à jour avec succès'
             );
+            this.successMessage =
+              'Les détails du service ont été mis à jour avec succès';
           },
           (error) => {
             console.error(
@@ -92,13 +96,13 @@ export class OneServiceComponent {
   addService(): void {
     this.serviceService.addService(this.newService).subscribe(
       (response) => {
-        console.log('Nouveau matériau ajouté avec succès:', response);
-        // Réinitialiser les champs du formulaire après l'ajout du matériau
+        console.log('Nouveau service ajouté avec succès:', response);
         this.newService.name = '';
         this.newService.coeff = 0;
+        this.successMessageNewService = 'Nouveau service ajouté avec succès';
       },
       (error) => {
-        console.error("Erreur lors de l'ajout du matériau:", error);
+        console.error("Erreur lors de l'ajout du service:", error);
       }
     );
   }

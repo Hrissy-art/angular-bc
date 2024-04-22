@@ -31,3 +31,28 @@
   background-color: #c4c3be;
   border: solid 3px;
 }
+
+.text-center {
+  text-align: center;
+}
+
+.mt-3 {
+  margin-top: 15px;
+}
+
+.container-fluid {
+  padding: 20px;
+}
+
+.total h3 {
+  font-size: 24px;
+}
+
+.alert-success {
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+  color: #3c763d;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 10px 15px;
+}

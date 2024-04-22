@@ -17,6 +17,7 @@ export class OneProductAdminComponent {
   selectedProduct: Product | undefined;
   selectedProductId?: number;
   categories: Category[] = [];
+  successMessageUpdate: string | null = null;
 
   newProduct: Prod = {
     productName: '',
@@ -91,7 +92,7 @@ export class OneProductAdminComponent {
   updateProductDetails(): void {
     if (this.product) {
       console.log('Données du produit avant la mise à jour :', this.product);
-      const options = { headers: new HttpHeaders() }; // Ajoutez vos en-têtes personnalisés ici si nécessaire
+      const options = { headers: new HttpHeaders() };
       const updatedProduct: any = {
         id: this.product.id,
         product_name: this.product.product_name,
@@ -116,7 +117,8 @@ export class OneProductAdminComponent {
               'Détails du produit mis à jour avec succès :',
               updatedProduct
             );
-            // Vous pouvez ajouter ici une logique pour traiter la réponse mise à jour si nécessaire
+            this.successMessageUpdate =
+              'Le produit a été mis à jour avec succès';
           },
           (error) => {
             console.error(

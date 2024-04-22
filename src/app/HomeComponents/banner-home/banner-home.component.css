@@ -1,26 +1,34 @@
 .cover-container {
-    background-image: url('../../../assets/1280-500-pull.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 100vh; /* Ajustez la hauteur selon vos besoins */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color:black;
-font:bold;}
-    img {
-        max-width: 100%;
-        height: auto;
-      }
+  background-image: url("../../../assets/1280-500-pull.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh; /* Ajustez la hauteur selon vos besoins */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  font: bold;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+h1 {
+  font-size: 5rem;
+}
+@media screen and (max-width: 768px) {
+  .cover-container {
+    height: 60vh;
+  }
 
-      @media screen and (max-width: 768px) {
-        .cover-container {
-          height: 60vh; /* Ajustement de la hauteur pour les petits écrans */
-        }}
+  h1 {
+    font-size: 2rem;
+  }
+}
 
-        .btn-custom {
-          background-color: white; 
-          font-size: 1.8rem; 
-          padding: 12px 24px; 
-      }
+.btn-custom {
+  background-color: white;
+  font-size: 1.8rem;
+  padding: 12px 24px;
+}

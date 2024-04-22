@@ -1,6 +1,4 @@
 <section class="lotus d-flex align-items-center justify-content-center">
-  <!-- photo -->
-
   <div class="first text-center">
     <!-- <h1 class="mb-auto p-5 bd-highlight">Pressing “Lotus”</h1>
    <a href="" class="p-7 bd-highlight buton-first">COMMANDER</a> -->
@@ -13,20 +11,20 @@
     <div class="row">
       <div class="col-lg-12 affaires">
         <div class="border mb-3"></div>
-        <h2 class="text-center">//Laissez nous prendre soin vos affaires</h2>
+        <h2 class="text-center">//Nos services</h2>
       </div>
     </div>
   </div>
 </section>
 
-<section class="prestation container text-center">
-  <h2 class="mb-5">Nos services</h2>
+<section class="prestation container text-center my-5">
+  <!-- <h2 class="mb-5">Nos services</h2> -->
   <div class="row g-5">
-    <div class="col-4" *ngFor="let service of serviceList">
-      <div class="card">
+    <div class="col-12 col-md-4" *ngFor="let service of serviceList">
+      <div class="">
         <img [src]="service.imgUrl" alt="service" class="rounded-circle" />
         <br />
-        <strong>{{ service.name }}</strong>
+        <strong class="service-name">{{ service.name }}</strong>
       </div>
     </div>
   </div>

@@ -2,7 +2,7 @@ footer {
   background-color: #a15d82;
 }
 
-.links a,
+.links li a,
 .social-media a,
 div.footer a {
   color: black;
@@ -12,4 +12,8 @@ div.footer a {
 .social-media a:hover,
 div.footer a:hover {
   color: #333;
+}
+
+.social-icon-container {
+  margin: 0 15px;
 }

@@ -43,10 +43,6 @@ export class OrderAssignComponent implements OnInit {
     console.log('Bouton cliqué');
   }
 
-  // onSelectOrder(order: Order): void {
-  //   this.selectedOrder = order;
-  //   console.log('Order selected:', this.selectedOrder);
-  // }
   onSelectOrder(order: Order): void {
     this.selectedOrder = order;
     localStorage.setItem('selectedOrderId', order.id.toString());

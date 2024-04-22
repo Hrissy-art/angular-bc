@@ -26,7 +26,6 @@ export class AdminHomeComponent implements OnInit {
   }
 
   loadProducts(): void {
-    // Appel de la méthode getProducts() avec un objet vide pour l'argument options
     this.productService
       .getProducts({ headers: new HttpHeaders() })
       .subscribe((data: any) => {
@@ -40,7 +39,6 @@ export class AdminHomeComponent implements OnInit {
       .deleteProduct(productId, this.app.createCorsToken())
       .subscribe(() => {
         console.log('Product deleted with ID:', productId);
-        // Recharger la liste des produits après la suppression
         this.loadProducts();
       });
   }

@@ -12,7 +12,7 @@ import { HttpHeaders } from '@angular/common/http';
 export class OneStatusComponent {
   selectedStatus: StatusOrder | undefined;
   selectedStatusId?: number;
-
+  successMessageNewStatus: string | null = null;
   @Input() status!: StatusOrder | null;
   @Output() closeDetails = new EventEmitter<void>();
 
@@ -89,12 +89,14 @@ export class OneStatusComponent {
   addStatus(): void {
     this.statusService.addStatus(this.newStatus).subscribe(
       (response) => {
-        console.log('Nouveau matériau ajouté avec succès:', response);
+        console.log('Nouveau statut ajouté avec succès:', response);
         // Réinitialiser les champs du formulaire après l'ajout du matériau
         this.newStatus.status = '';
+        this.successMessageNewStatus =
+          'Le statut de la commande a été mise à jour avec succès';
       },
       (error) => {
-        console.error("Erreur lors de l'ajout du matériau:", error);
+        console.error("Erreur lors de l'ajout du statut:", error);
       }
     );
   }

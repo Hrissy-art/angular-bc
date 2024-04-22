@@ -27,6 +27,13 @@
                 <button class="btn btn-secondary mt-2" (click)="CloseDetails()">
                   Fermer les détails
                 </button>
+                <div
+                  *ngIf="successMessageNewStatus"
+                  class="alert alert-success mt-2"
+                  role="alert"
+                >
+                  {{ successMessageNewStatus }}
+                </div>
               </div>
             </div>
             <div class="col">
