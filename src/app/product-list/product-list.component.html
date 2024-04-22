@@ -80,9 +80,11 @@
               class="img-fluid rounded"
             />
           </div>
-          <p class="card-text">
-            Category: {{ selectedProduct?.category?.category_name }}
-          </p>
+          <div class="transparant">
+            <p class="card-text">
+              Category: {{ selectedProduct?.category?.category_name }}
+            </p>
+          </div>
 
           <app-popup-services
             [productId]="selectedProduct.id"

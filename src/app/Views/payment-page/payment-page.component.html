@@ -2,7 +2,15 @@
   <!-- <div class="row justify-content-center mt-5">
     <div class="col-md-6"> -->
   <form>
-    <!-- Deux petits champs au-dessus du champ de numéro de carte -->
+    <div class="form-group">
+      <label for="cardNumber">NUMERO DE CARTE</label>
+      <input
+        type="text"
+        class="form-control"
+        id="cardNumber"
+        placeholder="1234 5678 9012 3456"
+      />
+    </div>
     <div class="row">
       <div class="form-group col-md-6">
         <label for="expirationMonth">CRYPTOGRAMME</label>
@@ -22,17 +30,6 @@
           placeholder="MMAA"
         />
       </div>
-    </div>
-
-    <!-- Champ de numéro de carte -->
-    <div class="form-group">
-      <label for="cardNumber">NUMERO DE CARTE</label>
-      <input
-        type="text"
-        class="form-control"
-        id="cardNumber"
-        placeholder="1234 5678 9012 3456"
-      />
     </div>
 
     <!-- Bouton de soumission -->

@@ -53,10 +53,10 @@ export class CartComponent implements OnInit {
       dateOrder: ['', Validators.required],
       dateRender: ['', Validators.required],
       client: [
-        this.userId ? `/api/clients/${this.userId}` : '', // Utilisez l'ID de l'utilisateur pour pré-remplir le champ "Client" si disponible dans le stockage local
+        this.userId ? `/api/clients/${this.userId}` : '', // note: l'ID de l'utilisateur pour pré-remplir le champ "Client" si disponible dans le stockage local
         Validators.required,
       ],
-      statusOrder: ['/api/status_orders/1', Validators.required], // Mettre '/api/status_orders/1' par défaut
+      statusOrder: ['/api/status_orders/1', Validators.required], //note:  Mettre l '/api/status_orders/1' par défaut
     });
   }
 
@@ -181,10 +181,10 @@ export class CartComponent implements OnInit {
   }
 
   calculateTotalPrice(): void {
-    // Logique pour calculer le prix total à partir des éléments du panier
+    // note  calcul le prix total à partir des éléments du panier
     this.totalPrice = this.getTotalPrice();
 
-    // Sauvegarder le prix total dans le stockage local
+    // note: Sauvegarder le prix total dans le stockage local
     localStorage.setItem('totalPrice', this.totalPrice.toString());
   }
 
@@ -193,7 +193,7 @@ export class CartComponent implements OnInit {
   }
 
   redirectToAnotherPage(): void {
-    // Naviguer vers une autre page lorsqu'on clique sur le bouton
+    // note: Naviguer vers une autre page lorsqu'on clique sur le bouton
     this.router.navigate(['/client']);
     this.showAlert = true;
     this.isUserInformationClicked = true;

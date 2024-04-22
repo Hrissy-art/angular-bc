@@ -27,3 +27,8 @@
   max-width: 100%;
   height: auto;
 } */
+
+.transparant {
+  background-color: pink;
+  opacity: 50%;
+}

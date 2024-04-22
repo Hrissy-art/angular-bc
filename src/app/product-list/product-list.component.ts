@@ -55,13 +55,6 @@ export class ProductListComponent implements OnInit {
       //   quantity: 0,
       // },
     };
-
-    // this.productService
-    //   .addProduct(newProduct, this.app.createCorsToken())
-    //   .subscribe((product: Product) => {
-    //     console.log('New product added:', product);
-    //     this.loadProducts();
-    //   });
   }
 
   updateProduct(productId: number, updatedProduct: Product): void {
@@ -72,19 +65,6 @@ export class ProductListComponent implements OnInit {
         this.loadProducts();
       });
   }
-
-  // deleteProduct(productId: number): void {
-  //   this.productService
-  //     .deleteProduct(productId, this.app.createCorsToken())
-  //     .subscribe(() => {
-  //       console.log('Product deleted with ID:', productId);
-  //       // Recharger la liste des produits après la suppression
-  //       this.loadProducts();
-  //     });
-  // }
-  // checkAdminStatus(): void {
-  //   this.isAdmin = this.authService.isAdmin(); // Vérifiez si l'utilisateur est un administrateur
-  // }
 
   CloseDetails(): void {
     this.selectedItem = null;
@@ -97,9 +77,6 @@ export class ProductListComponent implements OnInit {
   }
 
   poursuivreCommande() {
-    // Logique pour envoyer un e-mail et obtenir le numéro de commande
-
-    // Afficher le message avec le numéro de commande
     alert(`Votre produit à été ajouté au panier `);
   }
 

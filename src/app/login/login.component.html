@@ -1,6 +1,3 @@
-
-
-
 <div class="container-fluid">
   <div class="row justify-content-center mt-5">
     <div class="col-md-6">
@@ -12,43 +9,134 @@
           <form (ngSubmit)="register(f)" #f="ngForm">
             <div class="form-group">
               <label for="email-address">Email address</label>
-              <input id="email-address" name="email" type="email" autocomplete="email" required class="form-control" placeholder="Email address" ngModel>
+              <input
+                id="email-address"
+                name="email"
+                type="email"
+                autocomplete="email"
+                required
+                class="form-control"
+                placeholder="Email address"
+                ngModel
+              />
             </div>
             <div class="form-group">
               <label for="password">Password</label>
-              <input id="password" name="password" type="password" autocomplete="current-password" required class="form-control" placeholder="Password" ngModel>
+              <input
+                id="password"
+                name="password"
+                type="password"
+                autocomplete="current-password"
+                required
+                class="form-control"
+                placeholder="Password"
+                ngModel
+              />
             </div>
             <div class="form-group">
               <label for="firstName">First Name</label>
-              <input id="firstName" name="firstName" type="text" autocomplete="firstName" required class="form-control" placeholder="First Name" ngModel>
+              <input
+                id="firstName"
+                name="firstName"
+                type="text"
+                autocomplete="firstName"
+                required
+                class="form-control"
+                placeholder="First Name"
+                ngModel
+              />
             </div>
             <div class="form-group">
               <label for="lastName">Last Name</label>
-              <input id="lastName" name="lastName" type="text" autocomplete="lastName" required class="form-control" placeholder="Last Name" ngModel>
-            </div>
-            <div class="form-group">
-              <label for="address">Street number</label>
-              <input id="address" name="adress" type="text" autocomplete="address" required class="form-control" placeholder="Street number" ngModel>
+              <input
+                id="lastName"
+                name="lastName"
+                type="text"
+                autocomplete="lastName"
+                required
+                class="form-control"
+                placeholder="Last Name"
+                ngModel
+              />
             </div>
             <div class="form-group">
               <label for="address">Street name</label>
-              <input id="street" name="street_number" type="text" autocomplete="street" required class="form-control" placeholder="Street name" ngModel>
+              <input
+                id="address"
+                name="adress"
+                type="text"
+                autocomplete="address"
+                required
+                class="form-control"
+                placeholder="Street name"
+                ngModel
+              />
+            </div>
+            <div class="form-group">
+              <label for="streetNumber">Street number</label>
+              <input
+                id="streetNumber"
+                name="streetNumber"
+                type="text"
+                autocomplete="streetNumber"
+                required
+                class="form-control"
+                placeholder="Street number"
+                ngModel
+              />
             </div>
             <div class="form-group">
               <label for="birthday">Birthday</label>
-              <input id="birthday" name="birthday" type="text" autocomplete="birthday" required class="form-control" placeholder="YYYY-MM-DD" ngModel (input)="formatDate($event)">
-          </div>          
+              <input
+                id="birthday"
+                name="birthday"
+                type="text"
+                autocomplete="birthday"
+                required
+                class="form-control"
+                placeholder="YYYY-MM-DD"
+                ngModel
+                (input)="formatDate($event)"
+              />
+            </div>
             <div class="form-group">
               <label for="town">Town</label>
-              <input id="town" name="town" type="text" autocomplete="town" required class="form-control" placeholder="Town" ngModel>
+              <input
+                id="town"
+                name="town"
+                type="text"
+                autocomplete="town"
+                required
+                class="form-control"
+                placeholder="Town"
+                ngModel
+              />
             </div>
             <div class="form-group">
               <label for="district">District</label>
-              <input id="district" name="district" type="text" autocomplete="district" required class="form-control" placeholder="District" ngModel>
+              <input
+                id="district"
+                name="district"
+                type="text"
+                autocomplete="district"
+                required
+                class="form-control"
+                placeholder="District"
+                ngModel
+              />
             </div>
             <div class="form-group">
               <label for="country">Country</label>
-              <input id="country" name="country" type="text" autocomplete="country" required class="form-control" placeholder="Country" ngModel>
+              <input
+                id="country"
+                name="country"
+                type="text"
+                autocomplete="country"
+                required
+                class="form-control"
+                placeholder="Country"
+                ngModel
+              />
             </div>
             <div class="text-center">
               <button type="submit" class="btn btn-primary">Register</button>
@@ -59,7 +147,3 @@
     </div>
   </div>
 </div>
-
-
-
-
