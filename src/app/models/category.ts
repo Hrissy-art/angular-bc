@@ -1,4 +1,4 @@
-import { Product } from '../models/products'; // Assurez-vous d'avoir l'interface Product définie
+import { Product } from '../models/products';
 
 export interface Category {
   '@id'?: string | null;

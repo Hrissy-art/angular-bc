@@ -17,7 +17,7 @@
   height: 0;
   border-left: 6px solid transparent;
   border-right: 6px solid transparent;
-  border-top: 6px solid #333; /* Couleur de la flèche */
+  border-top: 6px solid #333;
 }
 
 .select-box {

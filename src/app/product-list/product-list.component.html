@@ -1,67 +1,8 @@
-<!-- <p class="text-center mt-8 text-xl font-bold">product-list works!</p>
-
-<div class="container">
-  <div class="row">
-    <div *ngFor="let selectedProduct of products" class="col-md-4 mb-4">
-      <div class="max-w-sm rounded overflow-hidden shadow-lg">
-        <div class="px-6 py-4">
-          <div class="font-bold text-xl mb-2">
-            Product ID: {{ selectedProduct?.id }}
-          </div>
-          <p class="text-gray-700 text-base">
-            Description: {{ selectedProduct?.description }}
-          </p>
-
-          <span>{{ selectedProduct?.price | currency : "EUR" }} </span>
-          <p class="text-gray-700 text-base">
-            Product Name: {{ selectedProduct?.product_name }}
-          </p>
-
-          <div>
-            <img
-              [src]="selectedProduct?.product_img"
-              [alt]="selectedProduct?.product_name"
-              class="img-fluid"
-            />
-          </div>
-          <p class="text-gray-700 text-base">
-            Category: {{ selectedProduct?.category?.category_name }}
-          </p>
-
-          <app-popup-services
-            [productId]="selectedProduct.id"
-          ></app-popup-services>
-
-          <button class="btn-pink" (click)="addToCart(selectedProduct)">
-            Add to Cart
-          </button>
-
-          <button  class="btn-pink" (click)="deleteProduct(selectedProduct.id)">
-            Delete
-          </button>
-
-        </div>
-      </div>
-    </div>
-  </div>
-  <button (click)="addProduct()">Add New Product</button>
-</div> -->
-<!-- <button *ngIf="isAdmin()" (click)="editProduct(selectedProduct)">Edit</button>
-          <button *ngIf="isAdmin()" (click)="deleteProduct(selectedProduct)">Delete</button> -->
-<!-- <button (click)="updateProduct(selectedProduct.id)">Edit</button> -->
-
-<!-- <div class="container mt-4"
-  style=" background-image: url('../../assets/repassage-350-250.jpg');
-    background-size: contain;
-  "
-> -->
 <div class="container my-5">
   <div class="row">
     <div *ngFor="let selectedProduct of products" class="col-md-4 mb-4 cover">
       <div class="card rounded shadow">
         <div class="card-body">
-          <!-- <h5 class="card-title">Product ID: {{ selectedProduct?.id }}</h5>
-          <p class="card-text">{{ selectedProduct?.description }}</p> -->
           <button
             class="btn btn-success"
             (click)="onSelectProduct(selectedProduct)"
@@ -110,6 +51,3 @@
     </div>
   </div>
 </div>
-<!-- <button class="btn btn-pink mt-4" (click)="addProduct()">
-  Add New Product
-</button> -->

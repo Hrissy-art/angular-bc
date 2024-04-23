@@ -35,7 +35,6 @@ export class ServiceListComponent implements OnInit {
       .deleteService(serviceId, this.app.createCorsToken())
       .subscribe(() => {
         console.log('Product deleted with ID:', serviceId);
-        // Recharger la liste des produits après la suppression
         this.loadServices();
       });
   }

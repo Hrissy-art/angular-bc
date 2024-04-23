@@ -1,5 +1,4 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-danger-subtle color">
-  <!-- <a class="navbar-brand" href="#">Lotus</a> -->
   <a class="logo" href="#">
     <img src="../../assets/logo_lotus.png" alt="Logo" />
   </a>
@@ -39,11 +38,7 @@
           Log out
         </button>
       </li>
-      <!-- <li class="nav-item">
-        <a class="nav-link" routerLink="/orders" routerLinkActive="active"
-          >Orders</a
-        >
-      </li> -->
+
       <li class="nav-item">
         <a class="nav-link" routerLink="/categories" routerLinkActive="active"
           >Categories</a
@@ -54,62 +49,8 @@
           >Produits</a
         >
       </li>
-      <li class="nav-item">
-        <!-- <a
-          class="btn btn-link nav-link"
-          routerLink="/form"
-          routerLinkActive="active"
-          >Form</a
-        > -->
-      </li>
-      <!-- <li class="nav-item">
-        <a
-          class="btn btn-link nav-link"
-          routerLink="/form-order"
-          routerLinkActive="active"
-          >Form Order</a
-        >
-      </li> -->
-      <!-- <li class="nav-item">
-        <a
-          class="btn btn-link nav-link"
-          routerLink="/test"
-          routerLinkActive="active"
-          >test</a
-        >
-      </li> -->
-      <!-- <li class="nav-item">
-        <a
-          class="btn btn-link nav-link"
-          routerLink="/menage"
-          routerLinkActive="active"
-          >admin</a
-        >
-      </li> -->
-      <!-- <li class="nav-item">
-        <a
-          class="btn btn-link nav-link"
-          routerLink="/search"
-          routerLinkActive="active"
-          >Search Orders</a
-        >
-      </li> -->
-      <!-- <li class="nav-item">
-        <a
-          class="btn btn-link nav-link"
-          routerLink="/assign"
-          routerLinkActive="active"
-          >assign</a
-        >
-      </li> -->
-      <!-- <li class="nav-item">
-        <a
-          class="btn btn-link nav-link"
-          routerLink="/client"
-          routerLinkActive="active"
-          >clientForm</a
-        >
-      </li> -->
+      <li class="nav-item"></li>
+
       <li class="nav-item" *ngIf="authService.isLoggedIn()">
         <a
           class="btn btn-link nav-link"
@@ -118,14 +59,6 @@
           >Commandes</a
         >
       </li>
-      <!-- <li class="nav-item">
-        <a
-          class="btn btn-link nav-link"
-          routerLink="/users"
-          routerLinkActive="active"
-          >Utilisateurs</a
-        >
-      </li> -->
 
       <li class="nav-item">
         <a class="nav-link" routerLink="/cart" routerLinkActive="active">
@@ -139,12 +72,10 @@
             [class.hidden]="panierPlein"
             viewBox="0 0 16 16"
           >
-            <!-- Contenu de l'icône de panier par défaut (bi-cart) -->
             <path
               *ngIf="panierPlein"
               d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m-1.646-7.646-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L8 8.293l2.646-2.647a.5.5 0 0 1 .708.708"
             />
-            <!-- Contenu de l'icône de panier plein (bi-cart-check-fill) -->
             <path
               *ngIf="!panierPlein"
               d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2m-1.646-7.646-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L8 8.293l2.646-2.647a.5.5 0 0 1 .708.708"
@@ -152,26 +83,9 @@
           </svg>
         </a>
       </li>
-
-      <!-- <li class="nav-item">
-        <a class="nav-link" routerLink="/cart" routerLinkActive="active"
-          ><svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            fill="currentColor"
-            class="bi bi-cart"
-            viewBox="0 0 16 16"
-          >
-            <path
-              d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"
-            /></svg
-        ></a>
-      </li> -->
     </ul>
   </div>
   <div class="d-flex justify-content-center bg-secondary-subtle">
-    <!-- <li class="nav-item"> -->
     <a
       class="btn btn-link nav-link"
       *ngIf="authService.isLoggedIn()"
@@ -179,25 +93,5 @@
       routerLinkActive="active"
       >Admin</a
     >
-    <!-- </li> -->
   </div>
 </nav>
-<!-- <nav class="bg-white shadow-lg">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between h-16">
-        <div class="flex">
-          <a href="#" class="flex-shrink-0 flex items-center">
-            <img class="block lg:hidden h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg" alt="Workflow">
-            <img class="hidden lg:block h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-logo-indigo-600-mark-gray-800-text.svg" alt="Workflow">
-          </a>
-          <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
-            <a href="#" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-900 focus:outline-none focus:text-gray-700 focus:border-gray-700 transition duration-150 ease-in-out" routerLink="/product-list" routerLinkActive="active">Products</a>
-            <a href="#" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-900 focus:outline-none focus:text-gray-700 focus:border-gray-700 transition duration-150 ease-in-out" routerLink="/auth" routerLinkActive="active">Authenticate</a>
-            <a href="#" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-900 focus:outline-none focus:text-gray-700 focus:border-gray-700 transition duration-150 ease-in-out" routerLink="/orders" routerLinkActive="active">Orders</a>
-            <a href="#" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-900 focus:outline-none focus:text-gray-700 focus:border-gray-700 transition duration-150 ease-in-out" routerLink="/adresses" routerLinkActive="active">Addresses</a>
-            <a href="#" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-900 focus:outline-none focus:text-gray-700 focus:border-gray-700 transition duration-150 ease-in-out" routerLink="/sign up" routerLinkActive="active">Sign up</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </nav> -->

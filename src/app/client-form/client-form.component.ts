@@ -30,11 +30,11 @@ export class ClientFormComponent implements OnInit {
         next: (response: any) => {
           console.log("You've registered", response);
 
-          // Récupérer l'ID de l'utilisateur depuis la réponse
-          this.userId = response.id; // Assurez-vous d'adapter cette partie selon la structure de votre réponse
+          // Note : Récupérer l'ID de l'utilisateur depuis la réponse
+          this.userId = response.id;
 
           if (this.userId) {
-            // Stocker l'ID de l'utilisateur dans le stockage local
+            // Note: Stocker l'ID de l'utilisateur dans le stockage local
             localStorage.setItem('userId', this.userId);
             const storedUserId = localStorage.getItem('userId');
             console.log(
@@ -50,7 +50,6 @@ export class ClientFormComponent implements OnInit {
         },
         error: (error) => {
           console.error(error);
-          // Gestion des erreurs d'inscription
         },
       });
     }

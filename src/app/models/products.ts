@@ -13,7 +13,4 @@ export interface Product {
   product_img: string;
 
   services?: Service[];
-  // order_product: {
-  //   quantity: number;
-  // };
 }

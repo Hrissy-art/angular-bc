@@ -16,30 +16,23 @@
   background-size: auto;
   background-position: center;
   background-repeat: no-repeat;
-  /* height: 100vh; */
   display: flex;
   justify-content: center;
   align-items: center;
   color: black;
   font: bold;
 }
-/* img {
-  max-width: 100%;
-  height: auto;
-} */
 
-/* Style pour les liens */
 a {
-  text-decoration: none; /* Supprimer le soulignement par défaut */
-  color: #333; /* Couleur du texte */
-  transition: color 0.3s ease; /* Transition douce pour le changement de couleur */
+  text-decoration: none;
+  color: #333;
+  transition: color 0.3s ease;
 }
 
 a:hover {
-  color: #007bff; /* Couleur du texte au survol */
+  color: #007bff;
 }
 
-/* Style pour les conteneurs div */
 div {
-  margin-bottom: 10px; /* Marge en bas pour séparer les éléments */
+  margin-bottom: 10px;
 }

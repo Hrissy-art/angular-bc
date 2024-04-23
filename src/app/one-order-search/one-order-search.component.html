@@ -20,14 +20,7 @@
 
     <p class="card-text">Manager en charge: {{ order.employee?.firstName }}</p>
   </ul>
-  <!-- <li class="list-group-item">
-    Changer le statut de la commande:
-    <select [(ngModel)]="selectedStatus">
-      <option *ngFor="let status of statusOptions" [value]="status.value">
-        {{ status.label }}
-      </option>
-    </select>
-  </li> -->
+
   <li class="list-group-item">
     <label for="statusSelect">Changer le statut de la commande:</label>
     <select class="form-control" id="statusSelect" [(ngModel)]="selectedStatus">

@@ -42,7 +42,7 @@ export class OrderComponent implements OnInit {
           console.log('Commande envoyée avec succès !', response);
           if (response.id !== null && response.id !== undefined) {
             this.orderId = response.id;
-            // Utilisez this.orderId comme nécessaire ici, par exemple, stockez-le dans le stockage local
+
             localStorage.setItem('orderId', this.orderId);
             const storedOrderId = localStorage.getItem('orderId');
             console.log(
@@ -57,7 +57,6 @@ export class OrderComponent implements OnInit {
         }
       );
     } else {
-      // Manipulation des erreurs de formulaire
     }
   }
 

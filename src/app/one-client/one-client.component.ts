@@ -34,14 +34,12 @@ export class OneClientComponent {
     private clientService: ClientsService,
     private app: AppComponent,
     private route: ActivatedRoute
-  ) {
-    // this.getProduct(<number>this.selectedProductId);
-  }
+  ) {}
 
   ngOnInit(): void {
     const selectedClientId = localStorage.getItem('selectedClientId');
     if (selectedClientId) {
-      this.getClient(+selectedClientId); // Convertir en nombre si nécessaire
+      this.getClient(+selectedClientId);
     } else {
       console.error('ID de commande invalide:', selectedClientId);
     }
@@ -62,15 +60,13 @@ export class OneClientComponent {
 
   updateClient(): void {
     if (this.selectedClient) {
-      const headers = new HttpHeaders(); // Créez un objet HttpHeaders vide
+      const headers = new HttpHeaders();
       this.clientService
         .updateClient(this.selectedClient.id, this.selectedClient, {
           headers,
         })
         .subscribe(
-          (updatedClient) => {
-            // Traitement après la mise à jour de l'employé
-          },
+          (updatedClient) => {},
           (error) => {
             console.error("Erreur lors de la mise à jour de l'employé:", error);
           }
@@ -83,7 +79,6 @@ export class OneClientComponent {
     this.clientService.addClient(this.newClient, { headers }).subscribe(
       (response) => {
         console.log('Nouvel employé ajouté avec succès:', response);
-        // Réinitialiser les champs du formulaire après l'ajout du matériau
 
         this.newClient.email = '';
         this.newClient.password = '';

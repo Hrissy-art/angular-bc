@@ -30,7 +30,7 @@ export const employeeGuard: CanActivateFn = (
     switchMap((roles) => {
       console.log('Rôles récupérés du store:', roles);
 
-      // Vérifiez si les rôles du token incluent 'ROLE_ADMIN'
+      //Note Vérifiez si les rôles du token incluent 'ROLE_ADMIN'
       if (
         rolesFromToken.includes('ROLE_EMPLOYEE') ||
         rolesFromToken.includes('ROLE_ADMIN')

@@ -20,7 +20,6 @@ export class CategoryComponent implements OnInit {
   }
 
   showProducts(category: Category): void {
-    // Mettez à jour les produits sélectionnés en fonction de la catégorie cliquée
     this.selectedCategoryProducts = category.products ? category.products : [];
   }
 }

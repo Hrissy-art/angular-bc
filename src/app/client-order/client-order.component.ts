@@ -17,8 +17,6 @@ export class ClientOrderComponent implements OnInit {
   numberOrder?: number;
   allOrders: Order[] = []; // Liste de toutes les commandes
 
-  // @Output() orderSelected = new EventEmitter<number>();
-
   statusOptions = [
     { label: 'En attente', value: '/api/status_orders/1' },
     { label: 'En cours', value: '/api/status_orders/2' },
@@ -49,10 +47,6 @@ export class ClientOrderComponent implements OnInit {
     console.log('Bouton cliqué');
   }
 
-  // onSelectOrder(order: Order): void {
-  //   this.selectedOrder = order;
-  //   console.log('Order selected:', this.selectedOrder);
-  // }
   onSelectOrder(order: Order): void {
     this.selectedOrder = order;
     localStorage.setItem('selectedOrderId', order.id.toString());

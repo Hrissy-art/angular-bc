@@ -20,10 +20,6 @@ export const adminGuard: CanActivateFn = (
   const router = inject(Router);
   const userStoreService = inject(UserStoreService);
 
-  // const userId = authService.getUserIdFromToken();
-  // console.log("ID de l'utilisateur connecté:", userId);
-
-  // Récupérez les rôles du token
   const rolesFromToken = authService.getRoleFromToken();
 
   return userStoreService.getRolesFromStore().pipe(

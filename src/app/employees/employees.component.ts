@@ -52,7 +52,6 @@ export class EmployeesComponent {
       .deleteEmployee(employeeId, this.app.createCorsToken())
       .subscribe(() => {
         console.log('Product deleted with ID:', employeeId);
-        // Recharger la liste des produits après la suppression
         this.loadEmployees();
       });
   }

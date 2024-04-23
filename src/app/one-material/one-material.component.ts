@@ -24,14 +24,12 @@ export class OneMaterialComponent {
   constructor(
     private materialService: MaterialService,
     private route: ActivatedRoute
-  ) {
-    // this.getProduct(<number>this.selectedProductId);
-  }
+  ) {}
 
   ngOnInit(): void {
     const selectedMaterialId = localStorage.getItem('selectedMaterialId');
     if (selectedMaterialId) {
-      this.getMaterial(+selectedMaterialId); // Convertir en nombre si nécessaire
+      this.getMaterial(+selectedMaterialId);
     } else {
       console.error('ID de commande invalide:', selectedMaterialId);
     }
@@ -93,7 +91,6 @@ export class OneMaterialComponent {
     this.materialService.addMaterial(this.newMaterial).subscribe(
       (response) => {
         console.log('Nouveau matériau ajouté avec succès:', response);
-        // Réinitialiser les champs du formulaire après l'ajout du matériau
         this.newMaterial.name = '';
         this.newMaterial.coeff = 0;
       },

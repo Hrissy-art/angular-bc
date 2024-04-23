@@ -56,27 +56,26 @@ export class ClientListComponent {
       .deleteClient(clientId, this.app.createCorsToken())
       .subscribe(() => {
         console.log('Product deleted with ID:', clientId);
-        // Recharger la liste des produits après la suppression
         this.loadClients();
       });
   }
 
   applyFilter(): void {
     if (!this.searchTerm) {
-      this.filteredClients = []; // Réinitialiser les clients filtrés si la boîte de recherche est vide
-      this.showFilteredClients = false; // Masquer la liste des clients filtrés
+      this.filteredClients = [];
+      this.showFilteredClients = false;
       return;
     }
 
     const searchTermLower = this.searchTerm.toLowerCase();
     this.filteredClients = this.clients.filter((client) => {
-      // Filtrer les clients dont le prénom ou le nom de famille contient le terme de recherche
+      // Note Filtrer les clients dont le prénom ou le nom de famille contient le terme de recherche
       return (
         client.firstName.toLowerCase().includes(searchTermLower) ||
         client.lastName.toLowerCase().includes(searchTermLower)
       );
     });
 
-    this.showFilteredClients = true; // Afficher la liste des clients filtrés
+    this.showFilteredClients = true; //Note Afficher la liste des clients filtrés
   }
 }

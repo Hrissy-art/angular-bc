@@ -170,50 +170,9 @@
   </div>
 </div>
 
-<!-- liste employees, clients, matériaux, services  -->
-
-<!-- <h2>Liste des produits</h2>
-<div *ngIf="products && products.length > 0" class="container">
-  <div class="row">
-    <ng-container *ngFor="let product of products">
-      <div class="col-md-4 mb-4">
-        <div class="max-w-sm rounded overflow-hidden shadow-lg">
-          <div class="px-6 py-4">
-            <div class="font-bold text-xl mb-2">
-              Product ID: {{ product.id }}
-            </div>
-            <p class="text-gray-700 text-base">
-              Description: {{ product.description }}
-            </p>
-            <p class="text-gray-700 text-base">
-              Price: {{ product.price | currency : "EUR" }}
-            </p>
-            <p class="text-gray-700 text-base">
-              Product Name: {{ product.product_name }}
-            </p>
-            <div>
-              <img
-                [src]="product.product_img"
-                [alt]="product.product_name"
-                class="img-fluid"
-              />
-            </div>
-            <button
-              class="btn btn-pink mt-2"
-              (click)="deleteProduct(product.id)"
-            >
-              Delete
-            </button>
-            <button class="btn btn-primary" (click)="onSelectProduct(product)">
-              Voir les détails
-            </button>
-          </div>
-        </div>
-      </div>
-    </ng-container>
-  </div>
-</div> -->
-<h2>Liste des produits</h2>
+<div class="container text-center">
+  <h2>Liste des produits</h2>
+</div>
 <div *ngIf="products && products.length > 0" class="container">
   <div class="row">
     <ng-container *ngFor="let product of products">
@@ -261,17 +220,3 @@
   [product]="selectedProduct"
   (closeDetails)="CloseDetails()"
 ></app-one-product-admin>
-<!--
-          <button class="btn-pink" (click)="addToCart(selectedProduct)">
-            Add to Cart
-          </button>
-
-          <button class="btn-pink" (click)="deleteProduct(selectedProduct.id)">
-            Delete
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <button (click)="addProduct()">Add New Product</button>
-</div> -->

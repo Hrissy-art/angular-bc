@@ -44,54 +44,8 @@ export class OrderSearchComponent implements OnInit {
     console.log('Bouton cliqué');
   }
 
-  // onSelectOrder(order: Order): void {
-  //   this.selectedOrder = order;
-  //   console.log('Order selected:', this.selectedOrder);
-  // }
   onSelectOrder(order: Order): void {
     this.selectedOrder = order;
     localStorage.setItem('selectedOrderId', order.id.toString());
   }
 }
-
-// import { Component, OnInit } from '@angular/core';
-// import { Order } from '../models/order';
-// import { OrderService } from '../services/order.service';
-
-// @Component({
-//   selector: 'app-order-search',
-//   templateUrl: './order-search.component.html',
-//   styleUrls: ['./order-search.component.css'],
-// })
-// export class OrderSearchComponent implements OnInit {
-//   orders: Order[] = [];
-//   filteredOrders: Order[] = [];
-//   searchNumber: number | undefined;
-
-//   constructor(private orderService: OrderService) {}
-
-//   ngOnInit(): void {
-//     this.loadOrders();
-//   }
-
-//   loadOrders(): void {
-//     this.orderService.getAllOrders().subscribe((data: Order[]) => {
-//       this.orders = data;
-//     });
-//   }
-
-//   searchOrdersByNumber(): void {
-//     if (this.searchNumber !== undefined) {
-//       if (Array.isArray(this.orders)) {
-//         this.filteredOrders = this.orders.filter(
-//           (order) => order.numberOrder === this.searchNumber
-//         );
-//       } else {
-//         console.error('Orders is not an array.');
-//         this.filteredOrders = [];
-//       }
-//     } else {
-//       this.filteredOrders = [];
-//     }
-//   }
-// }

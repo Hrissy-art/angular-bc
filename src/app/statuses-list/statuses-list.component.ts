@@ -39,7 +39,6 @@ export class StatusesListComponent implements OnInit {
       .deleteStatus(statusId, this.app.createCorsToken())
       .subscribe(() => {
         console.log('Status deleted with ID:', statusId);
-        // Recharger la liste des produits après la suppression
         this.loadStatuses();
       });
   }

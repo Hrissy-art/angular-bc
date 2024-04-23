@@ -1,27 +1,3 @@
-<!-- <div *ngIf="orderProduct">
-  <h2>Informations sur la commande</h2>
-  <ul>
-    <li *ngIf="orderProduct.products">
-      <strong>Product:</strong> {{ orderProduct.products.product_name }}
-    </li>
-    <li *ngIf="orderProduct.materials && orderProduct.materials.length > 0">
-      <strong>Matériau:</strong>
-      <ul>
-        <li *ngFor="let material of orderProduct.materials">
-          {{ material.name }}
-        </li>
-      </ul>
-    </li>
-    <li *ngIf="orderProduct.services && orderProduct.services.length > 0">
-      <strong>Services:</strong>
-      <ul>
-        <li *ngFor="let service of orderProduct.services">
-          {{ service.name }}
-        </li>
-      </ul>
-    </li>
-  </ul>
-</div> -->
 <div
   *ngIf="orderProducts && orderProducts.length > 0"
   class="border rounded-md shadow-md p-4 bg-white"

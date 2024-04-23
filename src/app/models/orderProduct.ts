@@ -1,7 +1,6 @@
 import { Material } from './material';
 import { Order } from './order';
 import { Product } from './products';
-// import { QualityProduct } from './qualityProduct';
 import { Service } from './service';
 
 export interface OrderProduct {

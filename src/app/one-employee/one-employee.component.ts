@@ -35,14 +35,12 @@ export class OneEmployeeComponent {
     private employeeService: EmployeeService,
     private app: AppComponent,
     private route: ActivatedRoute
-  ) {
-    // this.getProduct(<number>this.selectedProductId);
-  }
+  ) {}
 
   ngOnInit(): void {
     const selectedEmployeeId = localStorage.getItem('selectedEmployeeId');
     if (selectedEmployeeId) {
-      this.getEmployee(+selectedEmployeeId); // Convertir en nombre si nécessaire
+      this.getEmployee(+selectedEmployeeId);
     } else {
       console.error('ID de commande invalide:', selectedEmployeeId);
     }
@@ -63,15 +61,13 @@ export class OneEmployeeComponent {
 
   updateEmployee(): void {
     if (this.selectedEmployee) {
-      const headers = new HttpHeaders(); // Créez un objet HttpHeaders vide
+      const headers = new HttpHeaders();
       this.employeeService
         .updateEmployee(this.selectedEmployee.id, this.selectedEmployee, {
           headers,
         })
         .subscribe(
-          (updatedEmployee) => {
-            // Traitement après la mise à jour de l'employé
-          },
+          (updatedEmployee) => {},
           (error) => {
             console.error("Erreur lors de la mise à jour de l'employé:", error);
           }
@@ -84,7 +80,6 @@ export class OneEmployeeComponent {
     this.employeeService.addEmployee(this.newEmployee, { headers }).subscribe(
       (response) => {
         console.log('Nouvel employé ajouté avec succès:', response);
-        // Réinitialiser les champs du formulaire après l'ajout du matériau
 
         (this.newEmployee.empNumber = 0), (this.newEmployee.email = '');
         this.newEmployee.password = '';

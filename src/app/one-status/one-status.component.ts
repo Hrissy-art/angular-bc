@@ -23,14 +23,12 @@ export class OneStatusComponent {
   constructor(
     private statusService: StatusService,
     private route: ActivatedRoute
-  ) {
-    // this.getProduct(<number>this.selectedProductId);
-  }
+  ) {}
 
   ngOnInit(): void {
     const selectedStatusId = localStorage.getItem('selectedStatusId');
     if (selectedStatusId) {
-      this.getStatus(+selectedStatusId); // Convertir en nombre si nécessaire
+      this.getStatus(+selectedStatusId);
     } else {
       console.error('ID de commande invalide:', selectedStatusId);
     }
@@ -90,7 +88,6 @@ export class OneStatusComponent {
     this.statusService.addStatus(this.newStatus).subscribe(
       (response) => {
         console.log('Nouveau statut ajouté avec succès:', response);
-        // Réinitialiser les champs du formulaire après l'ajout du matériau
         this.newStatus.status = '';
         this.successMessageNewStatus =
           'Le statut de la commande a été mise à jour avec succès';

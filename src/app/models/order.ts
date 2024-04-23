@@ -1,4 +1,3 @@
-// import { OrderProduct } from './orderProduct';
 import { OrderProduct } from './orderProduct';
 import { StatusOrder } from './statusOrder';
 import { User } from './user';

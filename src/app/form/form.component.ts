@@ -46,7 +46,7 @@ export class FormComponent implements OnInit {
       }
     });
 
-    // Récupérer l'ID de la commande depuis le stockage local
+    //Note Récupérer l'ID de la commande depuis le stockage local
     const orderId = localStorage.getItem('orderId');
     this.orderIdUrl = orderId ? `/api/orders/${orderId}` : '';
 
@@ -59,24 +59,23 @@ export class FormComponent implements OnInit {
   initFormData() {
     const navigationState = history.state;
 
-    // Vérifier si les données de navigation sont présentes
+    // Note Vérifier si les données de navigation sont présentes
     if (navigationState) {
-      // Récupérer les tableaux d'URL depuis les données de navigation
+      // Note Récupérer les tableaux d'URL depuis les données de navigation
       const productUrls: string[] = navigationState.productUrls;
       const serviceUrls: string[] = navigationState.serviceUrls;
       const materialUrls: string[] = navigationState.materialUrls;
 
       this.formGroup.patchValue({
-        products: productUrls.join(', '), // Convertir le tableau en chaîne de caractères séparée par des virgules
+        products: productUrls.join(', '),
         services: serviceUrls.map((url) =>
           parseInt(url.split('/').pop() || '')
-        ), // Extrait les IDs des services
+        ),
         materials: materialUrls.map((url) =>
           parseInt(url.split('/').pop() || '')
-        ), // Extrait les IDs des matériaux
+        ),
       });
     } else {
-      // Initialiser les valeurs par défaut dans le formulaire si aucune donnée de navigation n'est présente
       this.formGroup.patchValue({
         products: '',
         services: [],
@@ -88,7 +87,7 @@ export class FormComponent implements OnInit {
   onSubmit() {
     const formValue = this.formGroup.value;
 
-    /// Convertir les chaînes de caractères en URL sous forme d'IRIs pour les matériaux et services
+    /// Note!! Convertir les chaînes de caractères en URL sous forme d'IRIs pour les matériaux et services
     const productIRI = formValue.products.includes('/api/products/')
       ? formValue.products
       : `/api/products/${formValue.products}`;
@@ -99,37 +98,33 @@ export class FormComponent implements OnInit {
         )
       : [];
 
-    // Convertir les chaînes de caractères en URL sous forme d'IRIs pour les services
     const servicesIRIs = Array.isArray(formValue.services)
       ? formValue.services.map(
           (serviceId: string) => `/api/services/${serviceId}`
         )
       : [];
 
-    // Créer l'objet OrderProduct à envoyer
     const orderProduct = {
-      orders: this.orderIdUrl, // Utiliser le format requis pour l'ID de la commande
+      orders: this.orderIdUrl,
       products: productIRI,
       materials: materialsIRIs,
       services: servicesIRIs,
     };
-    // Envoyer l'objet OrderProduct à l'API
     this.orderProductService.sendOrderProduct(orderProduct).subscribe(
       (response) => {
         console.log('OrderProduct sent successfully!', response);
-        // Réinitialiser le formulaire ou effectuer toute autre action nécessaire après l'envoi réussi
+
         this.router.navigate(['/payment']);
       },
       (error) => {
         console.error('Error sending OrderProduct:', error);
-        // Gérer les erreurs ici, par exemple, afficher un message d'erreur à l'utilisateur
       }
     );
     this.showPaymentButton = true;
     this.showConfirmation = true;
   }
   poursuivreCommande() {
-    // Logique pour envoyer un e-mail et obtenir le numéro de commande
+    // Note à faire: Logique pour envoyer un e-mail et obtenir le numéro de commande
 
     // alert(
     //   `Merci pour votre confirmation. Vous venez de recevoir un email avec le numéro de votre commande`

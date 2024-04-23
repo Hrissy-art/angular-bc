@@ -1,4 +1,3 @@
-/* Styles for buttons */
 button {
   margin-bottom: 10px;
   background-color: #4caf50;
@@ -17,7 +16,6 @@ button[disabled] {
   cursor: not-allowed;
 }
 
-/* Styles for checkboxes */
 label {
   display: block;
   margin-bottom: 5px;

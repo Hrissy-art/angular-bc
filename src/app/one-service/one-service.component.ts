@@ -26,14 +26,12 @@ export class OneServiceComponent {
   constructor(
     private serviceService: ServiceService,
     private route: ActivatedRoute
-  ) {
-    // this.getProduct(<number>this.selectedProductId);
-  }
+  ) {}
 
   ngOnInit(): void {
     const selectedServiceId = localStorage.getItem('selectedServiceId');
     if (selectedServiceId) {
-      this.getService(+selectedServiceId); // Convertir en nombre si nécessaire
+      this.getService(+selectedServiceId);
     } else {
       console.error('ID de commande invalide:', selectedServiceId);
     }

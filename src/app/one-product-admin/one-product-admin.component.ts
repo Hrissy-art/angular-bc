@@ -35,9 +35,7 @@ export class OneProductAdminComponent {
     private route: ActivatedRoute,
     private categorieService: CategoryService,
     private app: AppComponent
-  ) {
-    // this.getProduct(<number>this.selectedProductId);
-  }
+  ) {}
   ngOnInit(): void {
     this.loadECategorieOptions();
   }
@@ -45,34 +43,10 @@ export class OneProductAdminComponent {
     this.closeDetails.emit();
   }
 
-  // updateProductDetails(): void {
-  //   if (this.product) {
-  //     console.log('Données du produit avant la mise à jour :', this.product);
-  //     const options = { headers: new HttpHeaders() }; // Ajoutez vos en-têtes personnalisés ici si nécessaire
-  //     this.productService
-  //       .updateProduct(this.product.id, this.product, options)
-  //       .subscribe(
-  //         (updatedProduct: Product) => {
-  //           console.log(
-  //             'Détails du produit mis à jour avec succès :',
-  //             updatedProduct
-  //           );
-  //           // Vous pouvez ajouter ici une logique pour traiter la réponse mise à jour si nécessaire
-  //         },
-  //         (error) => {
-  //           console.error(
-  //             'Échec de la mise à jour des détails du produit :',
-  //             error
-  //           );
-  //           // Gestion des erreurs de mise à jour du produit
-  //         }
-  //       );
-  //   }
-  // }
   loadECategorieOptions(): void {
     this.categorieService.getCategories().subscribe(
       (data: any[]) => {
-        // Vérifiez si les données renvoyées sont un tableau
+        //Note  Vérifiez si les données renvoyées sont un tableau
         if (Array.isArray(data)) {
           this.categoriesOptions = data;
           console.log('Categories récupérés:', this.categoriesOptions);
@@ -102,13 +76,6 @@ export class OneProductAdminComponent {
         category: this.selectedCategorie,
       };
 
-      // Vérification de l'existence de la catégorie et de son @id
-      // const categoryId = this.product.category?.['@id'];
-
-      // if (categoryId) {
-      //   updatedProduct.category = categoryId;
-      // }
-
       this.productService
         .updateProduct(this.product.id, updatedProduct, options)
         .subscribe(
@@ -125,14 +92,13 @@ export class OneProductAdminComponent {
               'Échec de la mise à jour des détails du produit :',
               error
             );
-            // Gestion des erreurs de mise à jour du produit
           }
         );
     }
   }
 
   createProduct(): void {
-    const options = { headers: new HttpHeaders() }; // Vous pouvez ajouter des en-têtes personnalisés ici si nécessaire
+    const options = { headers: new HttpHeaders() };
 
     console.log(
       'Données du nouveau produit avant la création :',
@@ -142,12 +108,10 @@ export class OneProductAdminComponent {
     this.productService.addProduct(this.newProduct, options).subscribe(
       (createdProduct: Prod) => {
         console.log('Nouveau produit créé avec succès :', createdProduct);
-        // Mettre à jour l'ID du nouveau produit avec celui renvoyé par le backend
         this.newProduct.id = createdProduct.id;
       },
       (error) => {
         console.error('Erreur lors de la création du produit :', error);
-        // Gérer les erreurs de création de produit
       }
     );
   }

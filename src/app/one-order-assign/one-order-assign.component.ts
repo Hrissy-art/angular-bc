@@ -92,8 +92,8 @@ export class OneOrderAssignComponent {
     const clientId = this.selectedOrder.client['@id'];
     const statusOrderId = this.selectedOrder.statusOrder['@id'];
     const orderData = {
-      dateOrder: this.selectedOrder.dateOrder, // Utilisez les données actuelles
-      dateRender: this.selectedOrder.dateRender, // Utilisez les données actuelles
+      dateOrder: this.selectedOrder.dateOrder,
+      dateRender: this.selectedOrder.dateRender,
       client: clientId,
       statusOrder: statusOrderId,
       employee: this.selectedEmployee,

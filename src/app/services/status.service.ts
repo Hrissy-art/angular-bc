@@ -10,20 +10,6 @@ export class StatusService {
   constructor(private http: HttpClient) {}
   private apiUrl = 'http://localhost:8000/api/status_orders';
 
-  // getCategories(): Observable<Category[]> {
-  //   return this.http.get<any>(this.apiUrl).pipe(
-  //     map((response: any) => {
-  //       // Vérifier si la réponse est un tableau
-  //       if (Array.isArray(response)) {
-  //         // Si la réponse est un tableau, renvoyer directement la réponse
-  //         return response;
-  //       } else {
-  //         // Si la réponse est un objet, extraire les catégories du champ 'hydra:member'
-  //         return response['hydra:member'];
-  //       }
-  //     })
-  //   );
-
   getStatus(options: { headers: HttpHeaders }): Observable<StatusOrder[]> {
     return this.http
       .get<StatusOrder[]>(`http://localhost:8000/api/status_orders`)

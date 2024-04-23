@@ -97,7 +97,7 @@ export class OneOrderSearchComponent {
       dateRender: this.selectedOrder.dateRender,
       numberOrder: this.selectedOrder.numberOrder,
       client: clientId,
-      statusOrder: this.selectedStatus, // Utilisez le statut sélectionné
+      statusOrder: this.selectedStatus,
       employee: employeeId,
     };
     console.log('Données de commande à envoyer :', orderData);
@@ -105,27 +105,3 @@ export class OneOrderSearchComponent {
     this.updateOrderStatus(orderId, orderData);
   }
 }
-
-// updateOrderManager(managerId: string): void {
-//   if (!this.selectedOrder) return; // Vérifier si la commande est définie
-
-//   const updatedOrderData = {
-//     employee: managerId, // Utilisez la propriété correcte pour spécifier l'employé
-//     // Autres données à mettre à jour si nécessaire...
-//   };
-
-//   const orderId = this.selectedOrder.id;
-//   console.log('Updating order with ID:', orderId);
-//   console.log('Updated order data:', updatedOrderData);
-//   this.orderService.updateEmployee(orderId, updatedOrderData).subscribe(
-//     () => {
-//       console.log('Le manager de la commande a été mis à jour avec succès');
-//     },
-//     (error) => {
-//       console.error(
-//         'Échec de la mise à jour du manager de la commande :',
-//         error
-//       );
-//     }
-//   );
-// }
