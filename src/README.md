@@ -1,7 +1,7 @@
-##Résumé du cahier des charges## :
+## Résumé du cahier des charges :
 L'objectif de ce projet est de créer une plateforme fonctionnelle pour le pressing. Cela permettra aux clients de naviguer sur le site du pressing du couple pour choisir des articles et commander des services. De plus, une interface d'administration sera mise en place pour permettre l'assignation des tâches aux employés et la modification des prestations proposées. 
 Pour mener à bien ce projet, j'utilise Angular et Bootstrap pour la partie Front-end. Écrit en Typescript, ce langage permet une meilleure productivité et une amélioration de la qualité du code tout en offrant une structure modulaire. 
-Pour la partie Back-end, j'ai créé une API (Interface de Programmation Applicative) RESTful avec Symfony pour gérer les données de la plateforme de pressing. Ce résumé nous conduit à la prochaine étape du dossier, où nous étudierons en détail le cahier des charges associé à ce projet, la présentation des technologies déployées, et la réalisation concrète de ce travail.
+Pour la partie Back-end : "API_pressing_data" dans github, j'ai créé une API (Interface de Programmation Applicative) RESTful avec Symfony pour gérer les données de la plateforme de pressing. Ce résumé nous conduit à la prochaine étape du dossier, où nous étudierons en détail le cahier des charges associé à ce projet, la présentation des technologies déployées, et la réalisation concrète de ce travail.
 
  Au sein de cette plateforme, du côté des clients deux rôles principaux sont distingués : l'utilisateur authentifié et le visiteur anonyme. 
 Du côté de l’administration de la plateforme deux rôles sont identifiés également : les employés et les administrateurs.  
